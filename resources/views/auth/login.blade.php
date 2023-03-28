@@ -42,6 +42,7 @@
                 <h1>EPIS</h1>
                 <img src={{ asset('assets/img/halim.png') }} width="150px">
                 <p>Elektronic Personal Information System</p>
+                <span>v.2.0.0
             </div>
         </div>
     </div>
