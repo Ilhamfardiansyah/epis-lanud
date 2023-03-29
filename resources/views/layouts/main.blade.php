@@ -16,12 +16,14 @@
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
-    <link rel="manifest" href="assets/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="/assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <script src="assets/js/config.js"></script>
+    <script src={{ asset('assets/js/config.js') }}></script>
     <script src="vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
 
 
@@ -32,11 +34,11 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap"
         rel="stylesheet">
-    <link href="vendors/overlayscrollbars/OverlayScrollbars.min.css" rel="stylesheet">
-    <link href="assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl">
-    <link href="assets/css/theme.min.css" rel="stylesheet" id="style-default">
-    <link href="assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
-    <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+    <link href={{ asset('vendors/overlayscrollbars/OverlayScrollbars.min.css') }} rel="stylesheet">
+    <link href={{ asset('assets/css/theme-rtl.min.css') }} rel="stylesheet" id="style-rtl">
+    <link href={{ asset('assets/css/theme.min.css') }} rel="stylesheet" id="style-default">
+    <link href={{ asset('assets/css/user-rtl.min.css') }} rel="stylesheet" id="user-style-rtl">
+    <link href={{ asset('assets/css/user.min.css') }} rel="stylesheet" id="user-style-default">
     <script>
         var isRTL = JSON.parse(localStorage.getItem('isRTL'));
         if (isRTL) {
@@ -73,10 +75,18 @@
             @role('super admin')
                 @include('partials.navbar_superadmin')
             @endrole
+            @role('admin')
+                @include('partials.navbar_admin')
+            @endrole
+            @role('user')
+                @include('partials.navbar_user')
+            @endrole
             <div class="content">
 
                 @include('partials.header')
-
+                <div class="py-4">
+                    @yield('content')
+                </div>
                 <footer class="footer">
                     <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
                         <div class="col-12 col-sm-auto text-center">
@@ -86,7 +96,7 @@
                             </p>
                         </div>
                         <div class="col-12 col-sm-auto text-center">
-                            <p class="mb-0 text-600">v2.0.0</p>
+                            <p class="mb-0 text-600">v.2.0.0</p>
                         </div>
                     </div>
                 </footer>
@@ -95,63 +105,7 @@
                 aria-labelledby="authentication-modal-label" aria-hidden="true">
                 <div class="modal-dialog mt-6" role="document">
                     <div class="modal-content border-0">
-                        <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
-                            <div class="position-relative z-index-1 light">
-                                <h4 class="mb-0 text-white" id="authentication-modal-label">Register</h4>
-                                <p class="fs--1 mb-0 text-white">Please create your free Falcon account</p>
-                            </div>
-                            <button class="btn-close btn-close-white position-absolute top-0 end-0 mt-2 me-2"
-                                data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body py-4 px-5">
-                            <form>
-                                <div class="mb-3">
-                                    <label class="form-label" for="modal-auth-name">Name</label>
-                                    <input class="form-control" type="text" autocomplete="on" id="modal-auth-name" />
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="modal-auth-email">Email address</label>
-                                    <input class="form-control" type="email" autocomplete="on"
-                                        id="modal-auth-email" />
-                                </div>
-                                <div class="row gx-2">
-                                    <div class="mb-3 col-sm-6">
-                                        <label class="form-label" for="modal-auth-password">Password</label>
-                                        <input class="form-control" type="password" autocomplete="on"
-                                            id="modal-auth-password" />
-                                    </div>
-                                    <div class="mb-3 col-sm-6">
-                                        <label class="form-label" for="modal-auth-confirm-password">Confirm
-                                            Password</label>
-                                        <input class="form-control" type="password" autocomplete="on"
-                                            id="modal-auth-confirm-password" />
-                                    </div>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox"
-                                        id="modal-auth-register-checkbox" />
-                                    <label class="form-label" for="modal-auth-register-checkbox">I accept the <a
-                                            href="#!">terms </a>and <a href="#!">privacy
-                                            policy</a></label>
-                                </div>
-                                <div class="mb-3">
-                                    <button class="btn btn-primary d-block w-100 mt-3" type="submit"
-                                        name="submit">Register</button>
-                                </div>
-                            </form>
-                            <div class="position-relative mt-5">
-                                <hr class="bg-300" />
-                                <div class="divider-content-center">or register with</div>
-                            </div>
-                            <div class="row g-2 mt-2">
-                                <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100"
-                                        href="#"><span class="fab fa-google-plus-g me-2"
-                                            data-fa-transform="grow-8"></span> google</a></div>
-                                <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100"
-                                        href="#"><span class="fab fa-facebook-square me-2"
-                                            data-fa-transform="grow-8"></span> facebook</a></div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -165,16 +119,16 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <script src="vendors/popper/popper.min.js"></script>
-    <script src="vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="vendors/anchorjs/anchor.min.js"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/echarts/echarts.min.js"></script>
-    <script src="vendors/fontawesome/all.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src={{ asset('vendors/popper/popper.min.js') }}></script>
+    <script src={{ asset('vendors/bootstrap/bootstrap.min.js') }}></script>
+    <script src={{ asset('vendors/anchorjs/anchor.min.js') }}></script>
+    <script src={{ asset('vendors/is/is.min.js') }}></script>
+    <script src={{ asset('vendors/echarts/echarts.min.js') }}></script>
+    <script src={{ asset('vendors/fontawesome/all.min.js') }}></script>
+    <script src={{ asset('vendors/lodash/lodash.min.js') }}></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="vendors/list.js/list.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src={{ asset('vendors/list.js/list.min.js') }}></script>
+    <script src={{ asset('assets/js/theme.js') }}></script>
 
 </body>
 

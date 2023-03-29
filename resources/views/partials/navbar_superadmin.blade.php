@@ -13,8 +13,9 @@
                         class="toggle-line"></span></span></button>
 
         </div><a class="navbar-brand" href="index.html">
-            <div class="d-flex align-items-center py-3"><img class="me-2" src="{{ asset('assets/img/halim.png') }}"
-                    alt="" width="40" /><span class="font-sans-serif">EPIS</span>
+            <div class="d-flex align-items-center py-3"><img class="me-2"
+                    src="{{ asset('assets/img/logo_warna.png') }}" alt="" width="45" /><span
+                    class="font-sans-serif">EPIS</span>
             </div>
         </a>
     </div>
@@ -44,7 +45,8 @@
                             <hr class="mb-0 navbar-vertical-divider" />
                         </div>
                     </div>
-                    <a class="nav-link" href="app/calendar.html" role="button" aria-expanded="false">
+                    <a class="nav-link {{ Request::is('dashboard.input') ? 'active' : '' }}"
+                        href="{{ url('dashboard/input') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-user"></span></span><span class="nav-link-text ps-1">Input
                                 Anggota</span>
