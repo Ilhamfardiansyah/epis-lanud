@@ -30,4 +30,6 @@ Route::prefix('/dashboard')->group(function() {
     Route::get('/input', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create'])->name('input');
 
     Route::post('/create', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store'])->name('create');
+
+    Route::post('/create_syalemen', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_sylm'])->name('create.syalemen');
 });

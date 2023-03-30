@@ -29,18 +29,20 @@
                                 aria-labelledby="tab-dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324"
                                 id="dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324">
                                 @include('sweetalert::alert')
-                                <form action={{ url('/dashboard/create') }} method="post">
+                                <form action={{ url('/dashboard/create_syalemen') }} method="post">
                                     @csrf
+
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Lembaga (Adegan)</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
+                                        <select class="form-select @error('lembaga') is-invalid @enderror"
+                                            id="basic-form-gender" name="lembaga" aria-label="Default select example">
                                             <option selected disabled>-- Lembaga --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                            <option value="Kuat">Kuat</option>
+                                            <option value="Tegak">Tegak</option>
+                                            <option value="Lempai">Lempai</option>
+                                            <option value="Lemah">Lemah</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('lembaga')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -49,14 +51,32 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Sikap</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Sikap --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('sikap') is-invalid @enderror"
+                                            id="basic-form-gender" name="sikap" aria-label="Default select example">
+                                            <option selected disabled>-- Sikap --</option>
+                                            <option value="Tegak">Tegak</option>
+                                            <option value="Gagah">Gagah</option>
+                                            <option value="Bungkok">Bungkok</option>
+                                            <option value="Kepal Tunduk Kaku">Kepal Tunduk Kaku</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('sikap')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="basic-form-gender">langkah</label>
+                                        <select class="form-select @error('langkah') is-invalid @enderror"
+                                            id="basic-form-gender" name="langkah" aria-label="Default select example">
+                                            <option selected disabled>-- Langkah --</option>
+                                            <option value="Lenting">Lenting</option>
+                                            <option value="Tenang">Tenang</option>
+                                            <option value="Langkah Panjang">Langkah Panjang</option>
+                                            <option value="Langkah Pendek">Langkah Pendek</option>
+                                        </select>
+                                        @error('langkah')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -65,14 +85,17 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Bangun Kepala</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Bangun Kepala --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('bangun kepala') is-invalid @enderror"
+                                            id="basic-form-gender" name="bangun kepala" aria-label="Default select example">
+                                            <option selected disabled>-- Bangun Kepala --</option>
+                                            <option value="Sebagai Pangkal">Sebagai Pangkal</option>
+                                            <option value="Belah Ketupat">Belah Ketupat</option>
+                                            <option value="Bulat">Bulat</option>
+                                            <option value="Lonjong">Lonjong</option>
+                                            <option value="Jorong">Jorong</option>
+                                            <option value="Panjang">Panjang</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('bangun kepala')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -81,14 +104,15 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Rambut</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Rambut --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('rambut') is-invalid @enderror"
+                                            id="basic-form-gender" name="rambut" aria-label="Default select example">
+                                            <option selected disabled>-- Rambut --</option>
+                                            <option value="Lebat/Jarang">Lebat/Jarang</option>
+                                            <option value="Berombak/Kejur">Berombak/Kejur</option>
+                                            <option value="Kejur/Keriting">Kejur/Keriting</option>
+                                            <option value="Tegak">Tegak</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('rambut')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -97,14 +121,14 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Kening</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Kening --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('kening') is-invalid @enderror"
+                                            id="basic-form-gender" name="kening" aria-label="Default select example">
+                                            <option selected disabled>-- Kening --</option>
+                                            <option value="Rata">Rata</option>
+                                            <option value="Miring">Miring</option>
+                                            <option value="Ke Atas/Ke Bawah">Ke Atas/Ke Bawah</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('kening')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -113,14 +137,14 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Dahi</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Dahi --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('dahi') is-invalid @enderror"
+                                            id="basic-form-gender" name="dahi" aria-label="Default select example">
+                                            <option selected disabled>-- Dahi --</option>
+                                            <option value="Loncos Ke Belakang/Lurus Kebawah">Loncos Ke Belakang/Lurus
+                                                Kebawah</option>
+                                            <option value="Cenderung ke belakang">Cenderung ke belakang</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('dahi')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -129,14 +153,15 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Hidung</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Hidung --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('hidung') is-invalid @enderror"
+                                            id="basic-form-gender" name="hidung" aria-label="Default select example">
+                                            <option selected disabled>-- Hidung --</option>
+                                            <option value="Pangkalnya Rata">Pangkalnya Rata</option>
+                                            <option
+                                                value="Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas">
+                                                Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('hidung')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -145,14 +170,14 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Bibir</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Bibir --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('bibir') is-invalid @enderror"
+                                            id="basic-form-gender" name="bibir" aria-label="Default select example">
+                                            <option selected disabled>-- Bibir --</option>
+                                            <option value="Tebal">Tebal</option>
+                                            <option value="Tipis">Tipis</option>
+                                            <option value="Sumbing">Sumbing</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('bibir')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -161,14 +186,17 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Telinga</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Telinga --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('telinga') is-invalid @enderror"
+                                            id="basic-form-gender" name="telinga" aria-label="Default select example">
+                                            <option selected disabled>-- Telinga --</option>
+                                            <option value="Bulat bujur tiga penjuru dari belakang">Bulat bujur tiga penjuru
+                                                dari belakang</option>
+                                            <option
+                                                value="Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala belakang">
+                                                Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala belakang
+                                            </option>
                                         </select>
-                                        @error('jenis')
+                                        @error('telinga')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -177,14 +205,14 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Urusan Polisi Militer</label>
-                                        <select class="form-select @error('jenis') is-invalid @enderror"
-                                            id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">-- Urusan Polisi Militer --</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select @error('urusan polisi militer') is-invalid @enderror"
+                                            id="basic-form-gender" name="urusan polisi militer"
+                                            aria-label="Default select example">
+                                            <option selected disabled>-- Urusan Polisi Militer --</option>
+                                            <option value="Pernah">Pernah</option>
+                                            <option value="Tidak Pernah">Tidak Pernah</option>
                                         </select>
-                                        @error('jenis')
+                                        @error('urusan polisi militer')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

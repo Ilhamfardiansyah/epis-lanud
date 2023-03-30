@@ -13,13 +13,13 @@ class Siyalem extends Model
         'lembaga',
         'sikap',
         'langkah',
-        'bangun kepala',
+        'bangun_kepala',
         'rambut',
         'kening',
         'dahi',
         'hidung',
         'bibir',
         'telinga',
-        'urusan polisi militer',
+        'urusan_polisi_militer',
     ];
 }

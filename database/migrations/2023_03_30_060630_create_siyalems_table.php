@@ -15,17 +15,17 @@ class CreateSiyalemsTable extends Migration
     {
         Schema::create('siyalems', function (Blueprint $table) {
             $table->id();
-            $table->enum('lembaga',array('Kuat','Tegak','Lampai','Lemah'));
-            $table->enum('sikap',array('Tegak','Gagah','Bungkok','Kepal Tunduk Kaku'));
-            $table->enum('langkah',array('Lenting','Tenang','Langkah Panjang','Langkah Pendek'));
-            $table->enum('bangun kepala',array('Sebagai Pangkal','Belah Ketupat','Bulat','Jorong','Lonjong','Panjang'));
-            $table->enum('rambut',array('Lebat/Jarang','Berombak/Kejur','Kejur/keriting','Tegak'));
-            $table->enum('kening',array('Rata','Miring','KeAtas/KeBawah'));
-            $table->enum('dahi',array('Loncos Ke Belakang/Lurus Kebawah','Cenderung ke belakang'));
-            $table->enum('hidung',array('Pangkalnya Rata','Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas'));
-            $table->enum('bibir',array('Tebal','Tipis','Sumbing'));
-            $table->enum('telinga',array('Bulat bujur tiga penjuru dari belakang','Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala belakang'));
-            $table->enum('urusan polisi militer',array('Pernah','Tidak Pernah'));
+            $table->string('lembaga');
+            $table->string('sikap');
+            $table->string('langkah');
+            $table->string('bangun_kepala');
+            $table->string('rambut');
+            $table->string('kening');
+            $table->string('dahi');
+            $table->string('hidung');
+            $table->string('bibir');
+            $table->string('telinga');
+            $table->string('urusan_polisi_militer');
             $table->timestamps();
         });
     }
