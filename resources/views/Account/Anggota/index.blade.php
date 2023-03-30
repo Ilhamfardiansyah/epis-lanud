@@ -28,7 +28,9 @@
                             <div class="tab-pane preview-tab-pane active" role="tabpanel"
                                 aria-labelledby="tab-dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324"
                                 id="dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324">
-                                <form>
+                                @include('sweetalert::alert')
+                                <form action={{ url('/dashboard/create') }} method="post">
+                                    @csrf
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-nopassring">No. Pass Ring</label>
                                         <input class="form-control @error('nopassring') is-invalid @enderror"
@@ -110,9 +112,9 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label" for="basic-form-dob">Tanggal Lahir</label>
+                                        <label class="form-label" for="basic-form-dob">Tempat, Tanggal Lahir</label>
                                         <input class="form-control @error('tgl') is-invalid @enderror" name="tgl"
-                                            id="basic-form-dob" type="date" />
+                                            id="basic-form-dob" type="text" placeholder="Contoh: Jakarta, 01-01-1990" />
                                         @error('tgl')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -184,7 +186,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-alamat">Alamat</label>
                                         <textarea class="form-control @error('alamatsekarang') is-invalid @enderror" id="basic-form-alamat"
-                                            name="alamatsekarang" rows="3" placeholder="Alamat"></textarea>
+                                            name="alamatsekarang" rows="3" placeholder="Contoh: Jakarta Pusat, Jl.Tanah Abang no 01"></textarea>
                                         @error('alamatsekarang')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -215,23 +217,17 @@
                                         @enderror
                                     </div>
 
-                                    <div class="mb-3">
-                                        <span class="input-group-text" id="basic-addon1">@</span>
-                                        <input class="form-control @error('tinggi') is-invalid @enderror"
-                                            id="basic-form-tinggi" type="text" name="tinggi"
-                                            placeholder="Gol. Darah" aria-describedby="basic-addon1" />
+                                    <label class="form-label" for="basic-form-tinggi">Tinggi & Berat</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control @error('tinggi') is-invalid @enderror"
+                                            placeholder="Tinggi dan Berat" aria-label="Tinggi dan Berat"
+                                            aria-describedby="basic-addon1" name="tinggi">
+                                        <span class="input-group-text" id="basic-addon1">cm & kg</span>
                                         @error('tinggi')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                    </div>
-
-                                    <label class="form-label" for="basic-form-tinggi">Tinggi & Berat</label>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">@</span>
-                                        <input type="text" class="form-control" placeholder="Username"
-                                            aria-label="Username" aria-describedby="basic-addon1">
                                     </div>
                             </div>
 
@@ -245,18 +241,24 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="basic-form-namaayah">Nama Ayah</label>
-                                <input class="form-control" id="basic-form-namaayah" type="text"
-                                    placeholder="Nama Ayah" />
+                                <label class="form-label" for="basic-form-namaayah">Nama Ayah & Alamat</label>
+                                <textarea class="form-control @error('ayahalamat') is-invalid @enderror" id="basic-form-namaayah" name="ayahalamat"
+                                    rows="3" type="text" placeholder="Contoh: Nama Ayah, Jakarta Pusat, Jl.Tanah Abang no 01"></textarea>
+                                @error('ayahalamat')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-form-namaibu">Nama Ibu</label>
-                                <input class="form-control" id="basic-form-namaibu" type="text"
-                                    placeholder="Nama Ibu" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-form-textarea">Alamat</label>
-                                <textarea class="form-control" id="basic-form-textarea" rows="3" placeholder="Alamat"></textarea>
+                                <label class="form-label" for="basic-form-namaibu">Nama Ibu & Alamat</label>
+                                <textarea class="form-control @error('ibualamat') is-invalid @enderror" id="basic-form-namaibu" name="ibualamat"
+                                    rows="3" type="text" placeholder="Contoh: Nama Ibu, Jakarta Pusat, Jl.Tanah Abang no 01"></textarea>
+                                @error('ibualamat')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="card-header">
@@ -268,45 +270,61 @@
                                 <div class="dropdown-divider"></div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-form-namapasangan">Nama Istri/Suami</label>
-                                <input class="form-control" id="basic-form-namapasangan" type="text"
-                                    placeholder="Nama Istri/Suami" />
+                                <label class="form-label" for="basic-form-namapasangan">Nama Istri/Suami dan
+                                    Alamat</label>
+                                <textarea class="form-control @error('istrialamat') is-invalid @enderror" id="basic-form-namapasangan"
+                                    rows="3" name="istrialamat" placeholder="Contoh: Nama istri/suami, Jakarta Pusat, Jl.Tanah Abang no 01 "></textarea>
+                                @error('istrialamat')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-form-textarea">Alamat</label>
-                                <textarea class="form-control" id="basic-form-textarea" rows="3" placeholder="Alamat"></textarea>
-                            </div>
+
                             <div class="mb-3">
                                 <label class="form-label" for="basic-form-aktenikah">Tempat/No Akte Nikah</label>
-                                <input class="form-control" id="basic-form-aktenikah" type="text"
-                                    placeholder="Tempat/No Akte Nikah" />
+                                <textarea class="form-control @error('tempatnikah') is-invalid @enderror" id="basic-form-aktenikah" rows="3"
+                                    name="tempatnikah" type="text" placeholder="Tempat/No Akte Nikah"></textarea>
+                                @error('tempatnikah')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
+
                             <div class="row mb-3">
                                 <label class="form-label" for="basic-form-anak">Nama Anak Kandung</label>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Anak Ke 1"
+                                    <input type="text" class="form-control" name="namaanak" placeholder="Anak Ke 1"
                                         aria-label="Anak Ke 1">
                                 </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Anak ke 2"
+                                {{-- <div class="col">
+                                    <input type="text" class="form-control" name="namaanak2" placeholder="Anak ke 2"
                                         aria-label="Anak ke 2">
-                                </div>
+                                </div> --}}
                             </div>
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Anak ke 3"
+                                    <input type="text" class="form-control" name="namaanak3" placeholder="Anak ke 3"
                                         aria-label="Anak ke 3">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Anak ke 4"
+                                    <input type="text" class="form-control" name="namaanak4" placeholder="Anak ke 4"
                                         aria-label="Anak ke 4">
                                 </div>
-                            </div>
+                            </div> --}}
+
                             <div class="mb-3">
                                 <label class="form-label" for="basic-form-password">Nama Orang Tua Dari
                                     Suami/Istri</label>
-                                <input class="form-control" id="basic-form-password" type="text"
-                                    placeholder="Nama Orang Tua Dari Suami/Istri" />
+                                <textarea class="form-control @error('ortuistrialamat') is-invalid @enderror" id="basic-form-password"
+                                    name="ortuistrialamat" rows="3" type="text"
+                                    placeholder="Contoh: Nama Orang Tua Dari Suami/Istri, Jakarta Pusat, Jl.Tanah Abang no 01"></textarea>
+                                @error('ortuistrialamat')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <button class="btn btn-primary" type="submit">Submit</button>
@@ -315,7 +333,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     </div>

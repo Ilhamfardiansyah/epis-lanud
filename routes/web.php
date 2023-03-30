@@ -25,5 +25,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('/dashboard')->group(function() {
-    Route::get('/input', [App\Http\Controllers\Account\PegawaiContrroller::class, 'index'])->name('input');
+    Route::get('/test', [App\Http\Controllers\Account\PegawaiContrroller::class, 'index'])->name('input');
+
+    Route::get('/input', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create'])->name('input');
+
+    Route::post('/create', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store'])->name('create');
 });
