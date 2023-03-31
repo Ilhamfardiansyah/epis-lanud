@@ -22,14 +22,25 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('/dashboard')->group(function() {
-    Route::get('/test', [App\Http\Controllers\Account\PegawaiContrroller::class, 'index'])->name('input');
+Route::prefix('/dashboard')->group(static function () {
+    // create data pegawai
+    Route::get('pegawai', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create'])
+        ->name('pegawai.create');
 
-    Route::get('/input', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create'])->name('input');
+    // store data pegawai
+    Route::post('pegawai', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store'])
+        ->name('pegawai.store');
 
-    Route::post('/create', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store'])->name('create');
+    // create siyalemen
+    Route::get('pegawai/siyalemen/{id}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create_sylm'])
+        ->name('siyalemen.create');
 
-    Route::post('/create_syalemen', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_sylm'])->name('create.syalemen');
+    // store siyalemen
+    Route::post('pegawai/siyalemen/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_sylm'])
+        ->name('siyalemen.store');
 });
+
+

@@ -13,7 +13,7 @@ class CreateSiyalemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('siyalems', function (Blueprint $table) {
+        Schema::create('siyalems', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('datapegawai_id')->references('id')->on('data_pegawais');
             $table->string('lembaga');

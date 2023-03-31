@@ -31,7 +31,7 @@
                             <hr class="mb-0 navbar-vertical-divider" />
                         </div>
                     </div>
-                    <a class="nav-link" href="/dashboard/test" role="button" aria-expanded="false">
+                    <a class="nav-link" href="{{ route('home') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-calendar-alt"></span></span><span
                                 class="nav-link-text ps-1">Beranda</span>
@@ -39,17 +39,19 @@
                     </a>
                     {{-- Input anggota --}}
                     <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-                        <div class="col-auto navbar-vertical-label">Input
+                        <div class="col-auto navbar-vertical-label">
+                            Input
                         </div>
                         <div class="col ps-0">
                             <hr class="mb-0 navbar-vertical-divider" />
                         </div>
                     </div>
-                    <a class="nav-link {{ Request::is('dashboard.input') ? 'active' : '' }}"
-                        href="{{ url('dashboard/input') }}" role="button" aria-expanded="false">
+                    <a class="nav-link {{ Request::is('dashboard/pegawai') ? 'active' : '' }}"
+                        href="{{ route('pegawai.create') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                    class="fas fa-user"></span></span><span class="nav-link-text ps-1">Input
-                                Anggota</span>
+                                    class="fas fa-user"></span></span><span class="nav-link-text ps-1">
+                                Input Anggota
+                            </span>
                         </div>
                     </a>
                     {{-- Laporan --}}

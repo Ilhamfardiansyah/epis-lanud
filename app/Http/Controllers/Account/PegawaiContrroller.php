@@ -2,80 +2,81 @@
 
 namespace App\Http\Controllers\Account;
 
-use Alert;
 use App\Models\Siyalem;
 use App\Models\DataPegawai;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PegawaiContrroller extends Controller
 {
+    public function index()
+    {
+        return view('Account.Anggota.Create');
+    }
 
     public function create()
     {
-        $pegawai = DataPegawai::all();
-        return view('Account/Anggota/index', compact('pegawai'));
+        return view('Account.Anggota.Create.Index');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        $data_pegawai   => DataPegawai::all();
         $validateData = $request->validate([
-            'nopassring'        => 'required',
-            'nama'              => 'required',
-            'pangkat'           => 'required',
-            'NRP'               => 'required',
-            'jabatan'           => 'required',
-            'kesatuan'          => 'required',
-            'tandajasa'         => 'required',
-            'tgl'               => 'required',
-            'warnakulit'        => 'required',
-            'mata'              => 'required',
-            'rambut'            => 'required',
-            'goldarah'          => 'required',
-            'jenis'             => 'required',
-            'alamatsekarang'    => 'required',
-            'suku'              => 'required',
-            'agama'             => 'required',
-            'tinggi'            => 'required',
-            'ayahalamat'        => 'required',
-            'ibualamat'         => 'required',
-            'istrialamat'       => 'required',
-            'tempatnikah'       => 'required',
-            'namaanak'          => 'required',
-            'ortuistrialamat'   => 'required'
+            'nopassring' => 'required',
+            'nama' => 'required',
+            'pangkat' => 'required',
+            'NRP' => 'required',
+            'jabatan' => 'required',
+            'kesatuan' => 'required',
+            'tandajasa' => 'required',
+            'tgl' => 'required',
+            'warnakulit' => 'required',
+            'mata' => 'required',
+            'rambut' => 'required',
+            'goldarah' => 'required',
+            'jenis' => 'required',
+            'alamatsekarang' => 'required',
+            'suku' => 'required',
+            'agama' => 'required',
+            'tinggi' => 'required',
+            'ayahalamat' => 'required',
+            'ibualamat' => 'required',
+            'istrialamat' => 'required',
+            'tempatnikah' => 'required',
+            'namaanak' => 'required',
+            'ortuistrialamat' => 'required'
         ]);
-        // dd($validateData);
-        DataPegawai::create($validateData);
-        return view('Account.Anggota.Create', compact('pegawai'));
+
+        $pegawai = DataPegawai::create($validateData);
+
+        return redirect()->route('siyalemen.create', $pegawai->id);
     }
 
-// Create Data Syalemen
-
-    public function index()
+    // Create Data Siyalemen
+    public function create_sylm(DataPegawai $dataPegawai)
     {
-        $data = Siyalem::all();
-        return view('Account.Anggota.Create', compact('data'));
+        return view('Account.Anggota.Create.Siyalemen', compact('dataPegawai'));
     }
 
-    public function store_sylm(Request $request)
+    public function store_sylm(Request $request, DataPegawai $dataPegawai)
     {
         $validateData = $request->validate([
-            'lembaga'       => 'required',
-            'sikap'         => 'required',
-            'langkah'       => 'required',
+            'datapegawai_id' => 'required',
+            'lembaga' => 'required',
+            'sikap' => 'required',
+            'langkah' => 'required',
             'bangun_kepala' => 'required',
-            'rambut'        => 'required',
-            'kening'        => 'required',
-            'dahi'          => 'required',
-            'hidung'        => 'required',
-            'bibir'         => 'required',
-            'telinga'       => 'required',
+            'rambut' => 'required',
+            'kening' => 'required',
+            'dahi' => 'required',
+            'hidung' => 'required',
+            'bibir' => 'required',
+            'telinga' => 'required',
             'urusan_polisi_militer' => 'required',
         ]);
 
         Siyalem::create($validateData);
-        toast('Your Post as been submited!','success');
         return back();
     }
 }

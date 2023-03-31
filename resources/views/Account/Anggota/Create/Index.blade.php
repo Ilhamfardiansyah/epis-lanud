@@ -29,7 +29,7 @@
                                 aria-labelledby="tab-dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324"
                                 id="dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324">
                                 @include('sweetalert::alert')
-                                <form action={{ url('/dashboard/create') }} method="post">
+                                <form action="{{ route('pegawai.store') }}" method="post">
                                     @csrf
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-nopassring">No. Pass Ring</label>
