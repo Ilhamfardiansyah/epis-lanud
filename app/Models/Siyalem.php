@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\DataPegawai;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Siyalem extends Model
 {
     use HasFactory;
 
     protected $fillable=[
+        'datapegawai_id',
         'lembaga',
         'sikap',
         'langkah',
@@ -22,4 +24,8 @@ class Siyalem extends Model
         'telinga',
         'urusan_polisi_militer',
     ];
+    public function data_pegawais()
+    {
+        return $this->hasOne(DataPegawai::class);
+    }
 }

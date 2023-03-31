@@ -19,6 +19,7 @@ class PegawaiContrroller extends Controller
 
     public function store(Request $request)
     {
+        $data_pegawai   => DataPegawai::all();
         $validateData = $request->validate([
             'nopassring'        => 'required',
             'nama'              => 'required',
@@ -46,7 +47,7 @@ class PegawaiContrroller extends Controller
         ]);
         // dd($validateData);
         DataPegawai::create($validateData);
-        return view('Account.Anggota.Create');
+        return view('Account.Anggota.Create', compact('pegawai'));
     }
 
 // Create Data Syalemen

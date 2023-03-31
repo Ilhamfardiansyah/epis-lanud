@@ -15,6 +15,7 @@ class CreateSiyalemsTable extends Migration
     {
         Schema::create('siyalems', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('datapegawai_id')->references('id')->on('data_pegawais');
             $table->string('lembaga');
             $table->string('sikap');
             $table->string('langkah');

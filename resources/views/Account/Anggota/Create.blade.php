@@ -31,7 +31,7 @@
                                 @include('sweetalert::alert')
                                 <form action={{ url('/dashboard/create_syalemen') }} method="post">
                                     @csrf
-
+                                    <input value="{{ $datapegawai_id->data_pegawai->id }}">
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Lembaga (Adegan)</label>
                                         <select class="form-select @error('lembaga') is-invalid @enderror"
