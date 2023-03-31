@@ -35,12 +35,16 @@ Route::prefix('/dashboard')->group(static function () {
         ->name('pegawai.store');
 
     // create siyalemen
-    Route::get('pegawai/siyalemen/{id}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create_sylm'])
+    Route::get('pegawai/siyalemen/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create_sylm'])
         ->name('siyalemen.create');
 
     // store siyalemen
     Route::post('pegawai/siyalemen/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_sylm'])
         ->name('siyalemen.store');
+
+    // create foto
+    Route::get('pegawai/foto/', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create_foto'])
+        ->name('foto.create');
 });
 
 

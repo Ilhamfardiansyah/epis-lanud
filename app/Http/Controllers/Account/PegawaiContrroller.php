@@ -49,7 +49,7 @@ class PegawaiContrroller extends Controller
         ]);
 
         $pegawai = DataPegawai::create($validateData);
-
+        toast('Data berhasil tersimpan','success');
         return redirect()->route('siyalemen.create', $pegawai->id);
     }
 
@@ -59,6 +59,7 @@ class PegawaiContrroller extends Controller
         return view('Account.Anggota.Create.Siyalemen', compact('dataPegawai'));
     }
 
+    // Store Data Siyalem
     public function store_sylm(Request $request, DataPegawai $dataPegawai)
     {
         $validateData = $request->validate([
@@ -77,6 +78,12 @@ class PegawaiContrroller extends Controller
         ]);
 
         Siyalem::create($validateData);
+        toast('Data berhasil tersimpan','success');
         return back();
+    }
+
+    public function create_foto()
+    {
+        return view('Account.Anggota.Create.Foto');
     }
 }

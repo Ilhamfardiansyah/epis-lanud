@@ -34,7 +34,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-nopassring">No. Pass Ring</label>
                                         <input class="form-control @error('nopassring') is-invalid @enderror"
-                                            id="basic-form-nopassring" name="nopassring" type="text"
+                                            id="basic-form-nopassring" name="nopassring" type="number"
                                             placeholder="No. Pass Ring" autofocus />
                                         @error('nopassring')
                                             <div class="invalid-feedback">
@@ -46,7 +46,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-nama">Nama Lengkap</label>
                                         <input class="form-control @error('nama') is-invalid @enderror" id="basic-form-nama"
-                                            name="nama" type="email" placeholder="Nama Lengkap" />
+                                            name="nama" type="text" placeholder="Nama Lengkap" />
                                         @error('nama')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -295,8 +295,8 @@
                             <div class="row mb-3">
                                 <label class="form-label" for="basic-form-anak">Nama Anak Kandung</label>
                                 <div class="col">
-                                    <input type="text" class="form-control" name="namaanak" placeholder="Anak Ke 1"
-                                        aria-label="Anak Ke 1">
+                                    <textarea type="text" class="form-control" name="namaanak" placeholder="Anak Ke 1" rows="3"
+                                        aria-label="Nama Anak Kandung"></textarea>
                                 </div>
                                 {{-- <div class="col">
                                     <input type="text" class="form-control" name="namaanak2" placeholder="Anak ke 2"
@@ -334,7 +334,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection
