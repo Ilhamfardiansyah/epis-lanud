@@ -16,7 +16,7 @@ class PegawaiContrroller extends Controller
     }
 
 
-// Input Anggota
+    // Input Anggota
     public function create()
     {
         return view('Account.Anggota.Create.Index');
@@ -51,7 +51,7 @@ class PegawaiContrroller extends Controller
         ]);
 
         $pegawai = DataPegawai::create($validateData);
-        toast('Data berhasil tersimpan','success');
+        toast('Data berhasil tersimpan', 'success');
         return redirect()->route('siyalemen.create', $pegawai->id);
     }
 
@@ -81,7 +81,7 @@ class PegawaiContrroller extends Controller
         ]);
 
         $siyalem = Siyalem::create($validateData);
-        toast('Data berhasil tersimpan','success');
+        toast('Data berhasil tersimpan', 'success');
         return redirect()->route('photo.create', $siyalem->id);
     }
 
