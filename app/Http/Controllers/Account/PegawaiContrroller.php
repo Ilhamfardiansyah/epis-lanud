@@ -15,6 +15,8 @@ class PegawaiContrroller extends Controller
         return view('Account.Anggota.Create');
     }
 
+
+// Input Anggota
     public function create()
     {
         return view('Account.Anggota.Create.Index');
@@ -53,6 +55,7 @@ class PegawaiContrroller extends Controller
         return redirect()->route('siyalemen.create', $pegawai->id);
     }
 
+
     // Create Data Siyalemen
     public function create_sylm(DataPegawai $dataPegawai)
     {
@@ -77,13 +80,18 @@ class PegawaiContrroller extends Controller
             'urusan_polisi_militer' => 'required',
         ]);
 
-        Siyalem::create($validateData);
+        $siyalem = Siyalem::create($validateData);
         toast('Data berhasil tersimpan','success');
-        return back();
+        return redirect()->route('photo.create', $siyalem->id);
     }
 
-    public function create_foto()
+    public function create_foto(Siyalem $siyalem)
     {
-        return view('Account.Anggota.Create.Foto');
+        return view('Account.Anggota.Create.Foto', compact('siyalem'));
+    }
+
+    public function store_photo(Request $request)
+    {
+        dd($request);
     }
 }

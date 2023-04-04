@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -29,9 +28,10 @@
                                 aria-labelledby="tab-dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324"
                                 id="dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324">
                                 @include('sweetalert::alert')
-                                <form action="{{ route('pegawai.store') }}" method="post">
+                                <form action="{{ route('foto.store') }}" method="post">
                                     @csrf
 
+                                    <input class="text" value="{{ (int) $siyalem->id }}">
                                     <div class="card-header">
                                         <div class="row flex-between-end">
                                             <div class="col-auto align-self-center">
@@ -41,10 +41,21 @@
                                         <div class="dropdown-divider"></div>
                                     </div>
                                     <div class="mb-3">
-                                        <input class="form-control @error('nopassring') is-invalid @enderror"
-                                            id="basic-form-nopassring" name="nopassring" type="file"
-                                            placeholder="No. Pass Ring" autofocus />
-                                        @error('nopassring')
+                                        <img class="col-md-6 offset-md-3 mb-3" id="uploadPreview"
+                                            style="width: 150px; height: 150px" /><br />
+                                        <input class="form-control @error('depan_pic') is-invalid @enderror"
+                                            id="uploadImage" type="file" name="depan_pic" onchange="PreviewImage();"
+                                            autofocus />
+                                        <script type="text/javascript">
+                                            function PreviewImage() {
+                                                var oFReader = new FileReader();
+                                                oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+                                                oFReader.onload = function(oFREvent) {
+                                                    document.getElementById("uploadPreview").src = oFREvent.target.result;
+                                                };
+                                            }
+                                        </script>
+                                        @error('depan_pic')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -60,10 +71,20 @@
                                         <div class="dropdown-divider"></div>
                                     </div>
                                     <div class="mb-3">
-                                        <input class="form-control @error('nopassring') is-invalid @enderror"
-                                            id="basic-form-nopassring" name="nopassring" type="file"
-                                            placeholder="No. Pass Ring" autofocus />
-                                        @error('nopassring')
+                                        <img class="col-md-6 offset-md-3 mb-3" id="uploadPreview2"
+                                            style="width: 150px; height: 150px" /><br />
+                                        <input class="form-control @error('depan_pic') is-invalid @enderror"
+                                            id="uploadImage2" type="file" name="depan_pic" onchange="Preview2Image();" />
+                                        <script type="text/javascript">
+                                            function Preview2Image() {
+                                                var oFReader = new FileReader();
+                                                oFReader.readAsDataURL(document.getElementById("uploadImage2").files[0]);
+                                                oFReader.onload = function(oFREvent) {
+                                                    document.getElementById("uploadPreview2").src = oFREvent.target.result;
+                                                };
+                                            }
+                                        </script>
+                                        @error('depan_pic')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -79,10 +100,20 @@
                                         <div class="dropdown-divider"></div>
                                     </div>
                                     <div class="mb-3">
-                                        <input class="form-control @error('nopassring') is-invalid @enderror"
-                                            id="basic-form-nopassring" name="nopassring" type="file"
-                                            placeholder="No. Pass Ring" autofocus />
-                                        @error('nopassring')
+                                        <img class="col-md-6 offset-md-3 mb-3" id="uploadPreview3"
+                                            style="width: 150px; height: 150px" /><br />
+                                        <input class="form-control @error('depan_pic') is-invalid @enderror"
+                                            id="uploadImage3" type="file" name="depan_pic" onchange="Preview3Image();" />
+                                        <script type="text/javascript">
+                                            function Preview3Image() {
+                                                var oFReader = new FileReader();
+                                                oFReader.readAsDataURL(document.getElementById("uploadImage3").files[0]);
+                                                oFReader.onload = function(oFREvent) {
+                                                    document.getElementById("uploadPreview3").src = oFREvent.target.result;
+                                                };
+                                            }
+                                        </script>
+                                        @error('depan_pic')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -98,10 +129,31 @@
                                         <div class="dropdown-divider"></div>
                                     </div>
                                     <div class="mb-3">
-                                        <input class="form-control @error('nopassring') is-invalid @enderror"
-                                            id="basic-form-nopassring" name="nopassring" type="file"
-                                            placeholder="No. Pass Ring" autofocus />
-                                        @error('nopassring')
+                                        <img class="col-md-6 offset-md-3 mb-3" id="uploadPreview4"
+                                            style="width: 150px; height: 150px" /><br />
+                                        <input class="form-control @error('depan_pic') is-invalid @enderror"
+                                            id="uploadImage4" type="file" name="depan_pic" onchange="Preview4Image();" />
+                                        <script type="text/javascript">
+                                            function Preview4Image() {
+                                                var oFReader = new FileReader();
+                                                oFReader.readAsDataURL(document.getElementById("uploadImage4").files[0]);
+                                                oFReader.onload = function(oFREvent) {
+                                                    document.getElementById("uploadPreview4").src = oFREvent.target.result;
+                                                };
+                                            }
+                                        </script>
+                                        @error('depan_pic')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="basic-form-namaayah">Keterangan Anggota</label>
+                                        <textarea class="form-control @error('ket_pic') is-invalid @enderror" id="basic-form-namaayah" name="ket_pic"
+                                            rows="3" type="text" placeholder="Masukan Keterangan"></textarea>
+                                        @error('ket_pic')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
