@@ -9,11 +9,12 @@ class DataFoto extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'siyalem_id',
         'ket_pic',
         'depan_pic',
         'kanan_pic',
         'kiri_pic',
-        'sidil_pic',
+        'sidik_pic',
     ];
 
     public function siyalems()

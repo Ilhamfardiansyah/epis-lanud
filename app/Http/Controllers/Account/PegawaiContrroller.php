@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Account;
 
 use App\Models\Siyalem;
+use App\Models\DataFoto;
 use App\Models\DataPegawai;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\RedirectResponse;
 
 class PegawaiContrroller extends Controller
 {
@@ -87,11 +89,27 @@ class PegawaiContrroller extends Controller
 
     public function create_foto(Siyalem $siyalem)
     {
-        return view('Account.Anggota.Create.Foto', compact('siyalem'));
+        $data = DataPegawai::all();
+        return view('Account.Anggota.Create.Foto', compact('siyalem', 'data'));
     }
 
-    public function store_photo(Request $request)
+    public function store_photo(Request $request, Siyalem $siyalem)
     {
-        dd($request);
+        // dd($siyalem->all());
+        $validateData = $request->validate([
+            'siyalem_id'    => 'required',
+            'ket_pic'       => 'required',
+            'depan_pic'     => 'required|image|mimes:png,jpg,jpeg',
+            'kanan_pic'     => 'required|image|mimes:png,jpg,jpeg',
+            'kiri_pic'      => 'required|image|mimes:png,jpg,jpeg',
+            'sidik_pic'     => 'required|image|mimes:png,jpg,jpeg',
+        ]);
+
+        //  upload image
+        $image = $request->file('image');
+        $image->storeAs('public/img', $image->hashName());
+
+        toast('Data berhasil tersimpan', 'success');
+        return back();
     }
 }

@@ -47,8 +47,8 @@ Route::prefix('/dashboard')->group(static function () {
         ->name('photo.create');
 
     // store foto
-    Route::post('pegawai/foto', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_foto'])
-        ->name('foto.store');
+    Route::post('pegawai/foto', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_photo'])
+        ->name('photo.store');
 
 });
 
