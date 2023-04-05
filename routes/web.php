@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Account\PegawaiContrroller;
+use App\Http\Controllers\Account\DataPegawaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::prefix('/dashboard')->group(static function () {
     Route::post('pegawai/foto', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_photo'])
         ->name('photo.store');
 
+    Route::get('data/pegawai', [App\Http\Controllers\Account\DataPegawaiController::class, 'index'])
+        ->name('index.pegawai');
 });
 
 

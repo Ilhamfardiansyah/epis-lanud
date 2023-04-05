@@ -124,7 +124,7 @@ class PegawaiContrroller extends Controller
         // create
         DataFoto::create($validateData);
         toast('Data berhasil tersimpan', 'success');
-        return back();
+        return redirect('dashboard/data/pegawai');
     }
 
     private function storeImage($request, $route)

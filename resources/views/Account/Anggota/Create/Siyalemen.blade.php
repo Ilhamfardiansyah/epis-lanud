@@ -44,7 +44,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Lembaga (Adegan)</label>
                                         <select class="form-select @error('lembaga') is-invalid @enderror"
-                                            id="basic-form-gender" name="lembaga" aria-label="Default select example">
+                                            id="basic-form-gender" name="lembaga" aria-label="Default select example"
+                                            required>
                                             <option selected disabled>-- Lembaga --</option>
                                             <option value="Kuat">Kuat</option>
                                             <option value="Tegak">Tegak</option>

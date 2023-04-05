@@ -62,8 +62,7 @@
                             <hr class="mb-0 navbar-vertical-divider" />
                         </div>
                     </div>
-                    <a class="nav-link" href="{{ url('dashboard/pegawai/foto/') }}" role="button"
-                        aria-expanded="false">
+                    <a class="nav-link" href="{{ route('index.pegawai') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-users"></span></span><span class="nav-link-text ps-1">
                                 Anggota</span>
