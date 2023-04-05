@@ -127,11 +127,6 @@ class PegawaiContrroller extends Controller
         return back();
     }
 
-    /**
-     * @param $request
-     * @param $route
-     * @return mixed
-     */
     private function storeImage($request, $route)
     {
         // dapatkan extensi file

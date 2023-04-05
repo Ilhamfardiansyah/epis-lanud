@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <img class="col-md-6 offset-md-3 mb-3" id="uploadPreview"
-                                            style="width: 150px; height: 150px"
+                                            style="width: 150px; height: 180px"
                                             src="{{ asset('assets/img/img_212915.png') }}" /><br />
                                         <input class="form-control @error('depan_pic') is-invalid @enderror"
                                             id="uploadImage" type="file" name="depan_pic" onchange="PreviewImage();"
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <img class="col-md-6 offset-md-3 mb-3" id="uploadPreview2"
-                                            style="width: 150px; height: 150px"
+                                            style="width: 150px; height: 180px"
                                             src="{{ asset('assets/img/img_212915.png') }}" /><br />
                                         <input class="form-control @error('kanan_pic') is-invalid @enderror"
                                             id="uploadImage2" type="file" name="kanan_pic" onchange="Preview2Image();" />
@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <img class="col-md-6 offset-md-3 mb-3" id="uploadPreview3"
-                                            style="width: 150px; height: 150px"
+                                            style="width: 150px; height: 180px"
                                             src="{{ asset('assets/img/img_212915.png') }}" /><br />
                                         <input class="form-control @error('kiri_pic') is-invalid @enderror"
                                             id="uploadImage3" type="file" name="kiri_pic" onchange="Preview3Image();" />
@@ -135,7 +135,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <img class="col-md-6 offset-md-3 mb-3" id="uploadPreview4"
-                                            style="width: 150px; height: 150px"
+                                            style="width: 150px; height: 180px"
                                             src="{{ asset('assets/img/img_212915.png') }}" /><br />
                                         <input class="form-control @error('sidik_pic') is-invalid @enderror"
                                             id="uploadImage4" type="file" name="sidik_pic" onchange="Preview4Image();" />
