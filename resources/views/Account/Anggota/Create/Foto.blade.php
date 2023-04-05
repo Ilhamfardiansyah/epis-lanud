@@ -28,7 +28,7 @@
                                 aria-labelledby="tab-dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324"
                                 id="dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324">
                                 @include('sweetalert::alert')
-                                <form action="{{ route('photo.store') }}" method="post">
+                                <form action="{{ route('photo.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     {{-- Dapatkan id --}}
                                     <input style="display: none" name="siyalem_id" class="form-control" type="text"

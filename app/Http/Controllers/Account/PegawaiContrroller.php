@@ -106,9 +106,11 @@ class PegawaiContrroller extends Controller
         ]);
 
         //  upload image
-        $image = $request->file('image');
-        $image->storeAs('public/img', $image->hashName());
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->storeAs('images');
+        }
 
+        DataFoto::create($validateData);
         toast('Data berhasil tersimpan', 'success');
         return back();
     }
