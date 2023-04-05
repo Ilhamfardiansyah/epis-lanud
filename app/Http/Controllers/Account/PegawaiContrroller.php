@@ -97,21 +97,57 @@ class PegawaiContrroller extends Controller
     {
         // dd($siyalem->all());
         $validateData = $request->validate([
-            'siyalem_id'    => 'required',
-            'ket_pic'       => 'required',
-            'depan_pic'     => 'required|image|mimes:png,jpg,jpeg',
-            'kanan_pic'     => 'required|image|mimes:png,jpg,jpeg',
-            'kiri_pic'      => 'required|image|mimes:png,jpg,jpeg',
-            'sidik_pic'     => 'required|image|mimes:png,jpg,jpeg',
+            'siyalem_id' => 'required',
+            'ket_pic' => 'required',
+            'depan_pic' => 'required|image|mimes:png,jpg,jpeg',
+            'kanan_pic' => 'required|image|mimes:png,jpg,jpeg',
+            'kiri_pic' => 'required|image|mimes:png,jpg,jpeg',
+            'sidik_pic' => 'required|image|mimes:png,jpg,jpeg',
         ]);
 
-        //  upload image
-        if ($request->file('image')) {
-            $validateData['image'] = $request->file('image')->storeAs('images');
-        }
+        // upload foto depan
+        $fotoDepan = $this->storeImage($request->file('depan_pic'), 'foto_depan');
+        $validateData['depan_pic'] = $fotoDepan;
 
+        // upload foto kanan
+        $fotoKanan = $this->storeImage($request->file('kanan_pic'), 'foto_kanan');
+        $validateData['kanan_pic'] = $fotoKanan;
+
+        // upload foto kiri
+        $fotoKiri = $this->storeImage($request->file('kiri_pic'), 'foto_kiri');
+        $validateData['kiri_pic'] = $fotoKiri;
+
+        // upload sidik jari
+        $fotoSidik = $this->storeImage($request->file('sidik_pic'), 'sidik_kiri');
+        $validateData['sidik_pic'] = $fotoSidik;
+
+        // create
         DataFoto::create($validateData);
         toast('Data berhasil tersimpan', 'success');
         return back();
+    }
+
+    /**
+     * @param $request
+     * @param $route
+     * @return mixed
+     */
+    private function storeImage($request, $route)
+    {
+        // dapatkan extensi file
+        $filenameExt = $request->getClientOriginalExtension();
+        // dapatkan nama asli file
+        $filenameWithExt = $request->getClientOriginalName();
+        // nama tanpa ext
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        // gabungkan nama yg telah di encode + waktu saat ini + ext file
+        $filenameToStore = $filename . '_' . time() . '.' . $filenameExt;
+        // path
+        $path = 'public/' . $route;
+        // upload image
+        $request->storeAs($path, $filenameToStore);
+        // return
+        return 'storage/' . $route . '/' . $filenameToStore;
+        // nb2: cara input ke db adalah, $nama->cover_image = $filenameToStore;
     }
 }
