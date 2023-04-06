@@ -71,6 +71,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <button onclick="window.print()">Cetak</button>
                                 </div>
                             </div>
                         </div>

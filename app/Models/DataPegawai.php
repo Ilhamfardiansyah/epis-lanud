@@ -34,4 +34,9 @@ class DataPegawai extends Model
         'ortuistrialamat',
         'jenis',
     ];
+
+    public function siyalem()
+    {
+        return $this->hasOne(Siyalem::class, 'datapegawai_id');
+    }
 }

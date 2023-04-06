@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Siyalem;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DataFoto extends Model
 {
@@ -19,6 +20,7 @@ class DataFoto extends Model
 
     public function siyalems()
     {
-        return $this->hasOne(Siyalem::class);
+        return $this->hasOne(Siyalem::class, 'datafoto_id');
     }
+
 }

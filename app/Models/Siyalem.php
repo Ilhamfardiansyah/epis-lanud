@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\DataFoto;
 use App\Models\DataPegawai;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -28,4 +29,11 @@ class Siyalem extends Model
     {
         return $this->hasOne(DataPegawai::class);
     }
+
+    public function data_fotos()
+    {
+        return $this->hasOne(DataFoto::class);
+    }
+
+
 }

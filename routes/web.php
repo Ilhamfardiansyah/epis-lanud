@@ -54,7 +54,7 @@ Route::prefix('/dashboard')->group(static function () {
     Route::get('data/pegawai', [App\Http\Controllers\Account\DataPegawaiController::class, 'index'])
         ->name('index.pegawai');
 
-        Route::get('cetak/data/{siyalem}', [App\Http\Controllers\Account\DataPegawaiController::class, 'cetakan'])
+    Route::get('cetak/data/{dataPegawai}', [App\Http\Controllers\Account\DataPegawaiController::class, 'cetakan'])
         ->name('cetak.pegawai');
 });
 
