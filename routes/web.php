@@ -50,9 +50,12 @@ Route::prefix('/dashboard')->group(static function () {
     // store foto
     Route::post('pegawai/foto', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_photo'])
         ->name('photo.store');
-
+    // table data pegawai
     Route::get('data/pegawai', [App\Http\Controllers\Account\DataPegawaiController::class, 'index'])
         ->name('index.pegawai');
+
+        Route::get('cetak/data/{siyalem}', [App\Http\Controllers\Account\DataPegawaiController::class, 'cetakan'])
+        ->name('cetak.pegawai');
 });
 
 

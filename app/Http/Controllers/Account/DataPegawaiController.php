@@ -16,4 +16,9 @@ class DataPegawaiController extends Controller
 
         return view('Account/Cetak Biodata/Index', compact('data'));
     }
+
+    public function cetakan($id)
+    {
+        dd($id);
+    }
 }

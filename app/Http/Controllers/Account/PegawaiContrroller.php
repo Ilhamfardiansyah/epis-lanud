@@ -122,9 +122,9 @@ class PegawaiContrroller extends Controller
         $validateData['sidik_pic'] = $fotoSidik;
 
         // create
-        DataFoto::create($validateData);
+        $datafoto = DataFoto::create($validateData);
         toast('Data berhasil tersimpan', 'success');
-        return redirect('dashboard/data/pegawai');
+        return redirect()->route('cetak.pegawai', $datafoto->id);
     }
 
     private function storeImage($request, $route)
@@ -145,4 +145,5 @@ class PegawaiContrroller extends Controller
         return 'storage/' . $route . '/' . $filenameToStore;
         // nb2: cara input ke db adalah, $nama->cover_image = $filenameToStore;
     }
+
 }
