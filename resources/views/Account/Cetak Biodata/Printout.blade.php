@@ -1,77 +1,234 @@
 <!DOCTYPE html>
-<!-- Created by pdf2htmlEX (https://github.com/coolwanglu/pdf2htmlex) -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <link rel="stylesheet" href="{{ asset('assets/css/base.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/fancy.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
-    <script src={{ asset('assets/js/compatibility.min.js') }}></script>
-    <script src={{ asset('assets/js/theViewer.min.js') }}></script>
-    <script>
-        try {
-            theViewer.defaultViewer = new theViewer.Viewer({});
-        } catch (e) {}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous">
     </script>
-    <title>Cetak</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('paper.css') }}">
+
+    <style>
+        @page {
+            size: A4
+        }
+
+        @media print {
+
+            .no-print,
+            .no-print * {
+                display: none !important;
+            }
+        }
+    </style>
+    <title>Print Data Pegawai</title>
 </head>
 
-<body>
-    <div id="sidebar">
-        <div id="outline">
-        </div>
-    </div>
-    <div id="page-container">
-        <div id="pf1" class="pf w0 h0" data-page-no="1">
-            <div class="pc pc1 w0 h0">
-                <div class="c x1 y1 w2 h2">
-                    <div style="margin:0 1rem; display: flex; justify-content: end; align-items:center">
-                        <span style="padding: 0.5rem 1rem; border:1px solid #000000">No Pass :
-                            {{ $dataPegawai->nopassring ?? '' }}</span>
-                    </div>
-                </div>
 
+<body class="A4"
+    style="font-family: Arial, sans-serif;
+font-size: 12pt;
+line-height: 1.5;
+margin: 0;
+padding: 0;
+position:relative;">
 
-                <div class="t m0 x3 h4 y4 ff2 fs1 fc0 sc0 ls0 ws0">BIODATA PERSONEL </div>
+    <section class="sheet padding-10mm">
 
-                <table>
-                    <tr>
-                        <td width="1%">Digital Marketing</td>
-                        <td width="10%">: SEO, SEO, Content Writer, Copywriting</td>
-                    </tr>
-                </table>
-
-                <div class="t m0 x6 h3 y1d ff1 fs0 fc0 sc0 ls0 ws0"></div>
-            </div>
-
-            <div class="pi" data-data='{"ctm":[1.000000,0.000000,0.000000,1.000000,0.000000,0.000000]}'></div>
+        <div style="margin:0 1rem; display: flex; justify-content: end; align-items:center">
+            <span style="padding: 0.5rem 1rem; border:1px solid #000000">No Pass :
+                {{ $dataPegawai->nopassring ?? '' }}</span>
         </div>
 
+        <h3 style="text-align: center">BIODATA PERSONEL</h3>
+        <br>
+        <table style="margin: 25px">
+            <tr>
+                <td style="width: 1em">1.</td>
+                <td style="width: 15em">Nama</td>
+                <td>: {{ $dataPegawai->nama }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">2.</td>
+                <td>Pangkat</td>
+                <td>: {{ $dataPegawai->pangkat }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">3.</td>
+                <td>NRP</td>
+                <td>: {{ $dataPegawai->NRP }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">4.</td>
+                <td>Jabatan</td>
+                <td>: {{ $dataPegawai->jabatan }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">5.</td>
+                <td>Kesatuan</td>
+                <td>: {{ $dataPegawai->kesatuan }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">6.</td>
+                <td>No Passring</td>
+                <td>: {{ $dataPegawai->nopassring }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">7.</td>
+                <td>Tanda Jasa</td>
+                <td>: {{ $dataPegawai->tandajasa }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">8.</td>
+                <td>TGL / Umur</td>
+                <td>: {{ $dataPegawai->tgl }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">9.</td>
+                <td>Suku Bangsa</td>
+                <td>: {{ $dataPegawai->suku }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">10.</td>
+                <td>Agama</td>
+                <td>: {{ $dataPegawai->agama }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">11.</td>
+                <td>Tinggi / Berat</td>
+                <td>: {{ $dataPegawai->tinggi }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">12.</td>
+                <td>Warna Kulit</td>
+                <td>: {{ $dataPegawai->warnakulit }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">13.</td>
+                <td>Mata</td>
+                <td>: {{ $dataPegawai->mata }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">14.</td>
+                <td>Rambut</td>
+                <td>: {{ $dataPegawai->rambut }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">15.</td>
+                <td>Gol Darah</td>
+                <td>: {{ $dataPegawai->goldarah }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">16.</td>
+                <td>Alamat Sekarang</td>
+                <td>: {{ $dataPegawai->alamatsekarang }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">17.</td>
+                <td>Nama Ayah/Alamat</td>
+                <td>: {{ $dataPegawai->ayahalamat }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">18.</td>
+                <td>Nama Ibu/Alamat</td>
+                <td>: {{ $dataPegawai->ibualamat }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">19.</td>
+                <td>Nama Istri/Alamat</td>
+                <td>: {{ $dataPegawai->istrialamat }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">20.</td>
+                <td>Tempat/No Akte Nikah</td>
+                <td>: {{ $dataPegawai->tempatnikah }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">21.</td>
+                <td>Nama Anak Kandung</td>
+                <td>: {{ $dataPegawai->namaanak }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">22.</td>
+                <td>Nama Ortu Istri/Suami</td>
+                <td>: {{ $dataPegawai->ortuistrialamat }}</td>
+            </tr>
 
-        <div id="pf2" class="pf w0 h0" data-page-no="2">
-            <div class="pc pc2 w0 h0">
 
-                <div class="t m0 x3 h4 y4 ff2 fs1 fc0 sc0 ls0 ws0">SIYALEMENS </div>
+        </table>
 
-            </div>
+    </section>
 
-            <div class="pi" data-data='{"ctm":[1.000000,0.000000,0.000000,1.000000,0.000000,0.000000]}'></div>
-        </div>
-
-
-
-
-        <div class="c x1 y1 w2 h2">
-            <p>&nbsp;</p>
-            <p>Sudah Pernah Tersanasdasdasditer :
-        </div>
-    </div>
-    </div>
+    <section class="sheet padding-10mm">
+        <br>
+        <h3 style="text-align: center">SIYALEMENS</h3>
+        <br>
+        <table style="margin: 25px">
+            <tr>
+                <td style="width: 1em">1.</td>
+                <td style="width: 15em">Lembaga</td>
+                <td>: {{ $dataPegawai->siyalem->lembaga }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">2.</td>
+                <td style="width: 10em">Sikap</td>
+                <td>: {{ $dataPegawai->siyalem->sikap }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">3.</td>
+                <td style="width: 10em">Langkah</td>
+                <td>: {{ $dataPegawai->siyalem->langkah }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">4.</td>
+                <td style="width: 10em">Bangun Kepala</td>
+                <td>: {{ $dataPegawai->siyalem->bangun_kepala }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">5.</td>
+                <td style="width: 10em">Rambut</td>
+                <td>: {{ $dataPegawai->siyalem->rambut }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">6.</td>
+                <td style="width: 10em">Kening</td>
+                <td>: {{ $dataPegawai->siyalem->kening }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">7.</td>
+                <td style="width: 10em">Dahi</td>
+                <td>: {{ $dataPegawai->siyalem->dahi }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">8.</td>
+                <td style="width: 10em">Hidung</td>
+                <td>: {{ $dataPegawai->siyalem->hidung }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">10.</td>
+                <td style="width: 10em">Telinga</td>
+                <td>: {{ $dataPegawai->siyalem->telinga }}</td>
+            </tr>
+            <tr>
+                <td style="width: 1em">11.</td>
+                <td style="width: 10em">Sudah Pernah Tersangkut Urusan Polisi Militer</td>
+                <td>: {{ $dataPegawai->siyalem->urusan_polisi_militer }}</td>
+            </tr>
+        </table>
+        <button onclick="window.print();" class="btn btn-success no-print"
+            style="position: fixed; bottom:35px; right:10em;">Print</button>
+        <form action="/dashboard/data/pegawai" method="get">
+            <button class="btn btn-primary no-print" style="position: fixed; bottom:35px; right:5em;">Back</button>
+        </form>
+    </section>
 </body>
 
 </html>

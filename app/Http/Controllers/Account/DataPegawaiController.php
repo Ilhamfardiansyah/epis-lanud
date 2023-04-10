@@ -7,6 +7,7 @@ use App\Models\DataFoto;
 use App\Models\DataPegawai;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PDF;
 
 class DataPegawaiController extends Controller
 {
@@ -20,5 +21,6 @@ class DataPegawaiController extends Controller
     public function cetakan(DataPegawai $dataPegawai)
     {
         return view('Account/Cetak Biodata/Printout', compact('dataPegawai'));
+
     }
 }

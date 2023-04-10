@@ -56,6 +56,9 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::get('cetak/data/{dataPegawai}', [App\Http\Controllers\Account\DataPegawaiController::class, 'cetakan'])
         ->name('cetak.pegawai');
+
+    Route::get('delete/{id}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'destroy'])
+        ->name('destroy');
 });
 
 

@@ -63,7 +63,8 @@
                                                             <i class='fa fa-pencil-alt'
                                                                 style='color: rgba(255, 255, 255, 0.397)'></i></a>
 
-                                                        <a class="btn btn-danger btn-sm me-2" href="">
+                                                        <a class="btn btn-danger btn-sm me-2"
+                                                            href="/dashboard/delete/{{ $datas->id }}">
                                                             <i class='fa fa-trash-alt'
                                                                 style='color: rgba(255, 255, 255, 0.397)'></i></a>
                                                     </td>
@@ -71,7 +72,6 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <button onclick="window.print()">Cetak</button>
                                 </div>
                             </div>
                         </div>

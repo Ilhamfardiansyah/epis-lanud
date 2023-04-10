@@ -6,9 +6,10 @@ use App\Models\Siyalem;
 use App\Models\DataFoto;
 use App\Models\DataPegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class PegawaiContrroller extends Controller
 {
@@ -144,6 +145,13 @@ class PegawaiContrroller extends Controller
         // return
         return 'storage/' . $route . '/' . $filenameToStore;
         // nb2: cara input ke db adalah, $nama->cover_image = $filenameToStore;
+    }
+
+    public function destroy($id)
+    {
+        DB::table('data_pegawais')->where('id', $id)->delete();
+        toast('Data Pegawai Berhasil Dihapus','error');
+        return back();
     }
 
 }
