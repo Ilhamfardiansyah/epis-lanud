@@ -154,4 +154,14 @@ class PegawaiContrroller extends Controller
         return back();
     }
 
+    public function edit(DataPegawai $dataPegawai)
+    {
+        return view('Account/Anggota/Create/Edit', compact('dataPegawai'));
+    }
+
+    public function update(Request $request, DataPegawai $dataPegawai)
+    {
+        dd($dataPegawai->all());
+    }
+
 }

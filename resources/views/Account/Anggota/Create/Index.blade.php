@@ -4,7 +4,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-
                 <div class="card mb-3">
                     <div class="bg-holder d-none d-lg-block bg-card"
                         style="background-image:url(../../../assets/img/corner-4.png);">

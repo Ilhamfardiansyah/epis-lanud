@@ -59,14 +59,15 @@
                                                     <td>{{ $datas->jabatan }}</td>
                                                     <td>{{ $datas->kesatuan }}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-primary btn-sm me-2 mb-1" href="">
+                                                        <a class="btn btn-primary btn-sm me-2 mb-1"
+                                                            href="/dashboard/update/{{ $datas->id }}">
                                                             <i class='fa fa-pencil-alt'
-                                                                style='color: rgba(255, 255, 255, 0.397)'></i></a>
+                                                                style='color: rgb(255, 255, 255)'></i></a>
 
                                                         <a class="btn btn-danger btn-sm me-2"
                                                             href="/dashboard/delete/{{ $datas->id }}">
                                                             <i class='fa fa-trash-alt'
-                                                                style='color: rgba(255, 255, 255, 0.397)'></i></a>
+                                                                style='color: rgb(255, 255, 255)'></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

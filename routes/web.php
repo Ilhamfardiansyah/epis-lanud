@@ -59,6 +59,12 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::get('delete/{id}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'destroy'])
         ->name('destroy');
+
+    Route::get('update/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'edit'])
+        ->name('edit.data');
+
+    Route::post('update/data/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update'])
+        ->name('update.data');
 });
 
 
