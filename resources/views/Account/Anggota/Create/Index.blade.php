@@ -34,7 +34,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-nopassring">No. Pass Ring</label>
                                         <input class="form-control @error('nopassring') is-invalid @enderror"
-                                            id="basic-form-nopassring" name="nopassring" type="number"
+                                            id="basic-form-nopassring" name="nopassring" type="text"
                                             placeholder="No. Pass Ring" autofocus />
                                         @error('nopassring')
                                             <div class="invalid-feedback">
@@ -172,10 +172,10 @@
                                         <label class="form-label" for="basic-form-gender">Jenis Kelamin</label>
                                         <select class="form-select @error('jenis') is-invalid @enderror"
                                             id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected="selected">Select your gender</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                            <option selected disabled>--Jenis Kelamin--</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('jenis')
                                             <div class="invalid-feedback">
@@ -183,6 +183,7 @@
                                             </div>
                                         @enderror
                                     </div>
+
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-alamat">Alamat</label>
                                         <textarea class="form-control @error('alamatsekarang') is-invalid @enderror" id="basic-form-alamat"
@@ -207,9 +208,18 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label" for="basic-form-agama">Agama</label>
-                                        <input class="form-control @error('agama') is-invalid @enderror"
-                                            id="basic-form-agama" type="text" name="agama" placeholder="Agama" />
+                                        <label class="form-label" for="basic-form-gender">Agama</label>
+                                        <select class="form-select @error('agama') is-invalid @enderror"
+                                            id="basic-form-gender" name="agama" aria-label="Default select example">
+                                            <option selected disabled>--Pilih Agama--</option>
+                                            <option value="Islam">Islam</option>
+                                            <option value="Kristen Protestan">Kristen Protestan</option>
+                                            <option value="Katolik">Katolik</option>
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Budha">Budha</option>
+                                            <option value="Konghucu">Konghucu</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
+                                        </select>
                                         @error('agama')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

@@ -47,7 +47,7 @@ position:relative;">
             <span style="padding: 0.5rem 1rem; border:1px solid #000000">No Pass :
                 {{ $dataPegawai->nopassring ?? '' }}</span>
         </div>
-
+        <br>
         <h3 style="text-align: center">BIODATA PERSONEL</h3>
         <br>
         <table style="margin: 25px">
