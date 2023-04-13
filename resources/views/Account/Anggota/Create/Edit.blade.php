@@ -497,6 +497,10 @@
                                                             {{ $dataPegawai->siyalem->bangun_kepala === 'Lonjong' ? 'selected' : '' }}>
                                                             Lonjong
                                                         </option>
+                                                        <option value="Jorong"
+                                                            {{ $dataPegawai->siyalem->bangun_kepala === 'Jorong' ? 'selected' : '' }}>
+                                                            Jorong
+                                                        </option>
                                                         <option value="Panjang"
                                                             {{ $dataPegawai->siyalem->bangun_kepala === 'Panjang' ? 'selected' : '' }}>
                                                             Panjang
