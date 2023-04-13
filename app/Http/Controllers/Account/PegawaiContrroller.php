@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Account;
 
+use Alert;
 use App\Models\Siyalem;
 use App\Models\DataFoto;
 use App\Models\DataPegawai;
@@ -159,54 +160,23 @@ class PegawaiContrroller extends Controller
         return view('Account/Anggota/Create/Edit', compact('dataPegawai'));
     }
 
-    public function update(Request $request, DataPegawai $dataPegawai)
+    public function update_foto(Request $request, DataPegawai $dataPegawai)
     {
-        // ddd($dataPegawai->all());
-        $siyalem = Siyalem::where('datapegawai_id', $dataPegawai->id)->first();
+        // dd($dataPegawai);
+        $siyalem = $dataPegawai->siyalem->data_fotos;
         // dd($siyalem);
         $validateData = $request->validate([
             'depan_pic' => 'required|image|mimes:png,jpg,jpeg',
             'kanan_pic' => 'required|image|mimes:png,jpg,jpeg',
-            'kiri_pic' => 'required|image|mimes:png,jpg,jpeg',
+            'kiri_pic'  => 'required|image|mimes:png,jpg,jpeg',
             'sidik_pic' => 'required|image|mimes:png,jpg,jpeg',
-            'lembaga' => 'required',
-            'sikap' => 'required',
-            'langkah' => 'required',
-            'bangun_kepala' => 'required',
-            'rambut' => 'required',
-            'kening' => 'required',
-            'dahi' => 'required',
-            'hidung' => 'required',
-            'bibir' => 'required',
-            'telinga' => 'required',
-            'urusan_polisi_militer' => 'required',
-            'nopassring' => 'required',
-            'nama' => 'required',
-            'pangkat' => 'required',
-            'NRP' => 'required',
-            'jabatan' => 'required',
-            'kesatuan' => 'required',
-            'tandajasa' => 'required',
-            'tgl' => 'required',
-            'warnakulit' => 'required',
-            'mata' => 'required',
-            'rambut' => 'required',
-            'goldarah' => 'required',
-            'jenis' => 'required',
-            'alamatsekarang' => 'required',
-            'suku' => 'required',
-            'agama' => 'required',
-            'tinggi' => 'required',
-            'ayahalamat' => 'required',
-            'ibualamat' => 'required',
-            'istrialamat' => 'required',
-            'tempatnikah' => 'required',
-            'namaanak' => 'required',
-            'ortuistrialamat' => 'required'
+            'ket_pic'   =>  'required'
         ]);
 
-        $siyalem->lembaga = 'test';
-        $siyalem->save();
+        $siyalem_new = $siyalem->update([
+            'depan_pic' => 'Test']);
+        // dd($siyalem_new);
+        alert()->success('Data','Berhasil Di Edit');
         return back();
     }
 

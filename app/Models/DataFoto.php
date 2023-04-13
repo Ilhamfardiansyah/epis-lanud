@@ -18,7 +18,7 @@ class DataFoto extends Model
         'sidik_pic',
     ];
 
-    public function siyalems()
+    public function siyalem()
     {
         return $this->hasOne(Siyalem::class, 'datafoto_id');
     }

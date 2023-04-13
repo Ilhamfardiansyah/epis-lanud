@@ -63,8 +63,8 @@ Route::prefix('/dashboard')->group(static function () {
     Route::get('edit/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'edit'])
         ->name('edit.data');
 
-    Route::post('update/data/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update'])
-        ->name('update.data');
+    Route::post('update/foto/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_foto'])
+        ->name('update.foto');
 });
 
 
