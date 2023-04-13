@@ -22,8 +22,7 @@
                     </div>
                 </div>
 
-                <form action="{{ url('/dashboard/update/data/') . $dataPegawai->id }}" method="POST"
-                    enctype="multipart/form-data">
+                <form action="/dashboard/update/data/{{ $dataPegawai->id }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
 
@@ -36,9 +35,8 @@
                                 <div class="card-header d-flex flex-between-center pb-0">
                                     <div class="dropdown font-sans-serif btn-reveal-trigger">
                                         <img src="{{ asset($dataPegawai->siyalem->data_fotos->depan_pic) }}"
-                                            class="form-control"
-                                            style="display: inline; float: left; margin-right: 50px; width: 350px; height: 350px"
-                                            alt="{{ asset('assets/img/user.png') }}">
+                                            class="form-control" alt="{{ asset('assets/img/user.png') }}"
+                                            style="display: inline; float: left; margin-right: 50px; width: 350px; height: 350px">
                                         <input type="file" name="depan_pic" id="depan_pic" class="form-control"
                                             style="width: 350px" value="{{ $dataPegawai->siyalem->data_fotos->depan_pic }}">
                                     </div>

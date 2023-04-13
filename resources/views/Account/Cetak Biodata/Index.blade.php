@@ -60,7 +60,7 @@
                                                     <td>{{ $datas->kesatuan }}</td>
                                                     <td class="text-center">
                                                         <a class="btn btn-primary btn-sm me-2 mb-1"
-                                                            href="/dashboard/update/{{ $datas->id }}">
+                                                            href="/dashboard/edit/{{ $datas->id }}">
                                                             <i class='fa fa-pencil-alt'
                                                                 style='color: rgb(255, 255, 255)'></i></a>
 

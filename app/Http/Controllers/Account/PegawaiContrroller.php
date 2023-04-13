@@ -161,7 +161,53 @@ class PegawaiContrroller extends Controller
 
     public function update(Request $request, DataPegawai $dataPegawai)
     {
-        dd($dataPegawai->all());
+        // ddd($dataPegawai->all());
+        $siyalem = Siyalem::where('datapegawai_id', $dataPegawai->id)->first();
+        // dd($siyalem);
+        $validateData = $request->validate([
+            'depan_pic' => 'required|image|mimes:png,jpg,jpeg',
+            'kanan_pic' => 'required|image|mimes:png,jpg,jpeg',
+            'kiri_pic' => 'required|image|mimes:png,jpg,jpeg',
+            'sidik_pic' => 'required|image|mimes:png,jpg,jpeg',
+            'lembaga' => 'required',
+            'sikap' => 'required',
+            'langkah' => 'required',
+            'bangun_kepala' => 'required',
+            'rambut' => 'required',
+            'kening' => 'required',
+            'dahi' => 'required',
+            'hidung' => 'required',
+            'bibir' => 'required',
+            'telinga' => 'required',
+            'urusan_polisi_militer' => 'required',
+            'nopassring' => 'required',
+            'nama' => 'required',
+            'pangkat' => 'required',
+            'NRP' => 'required',
+            'jabatan' => 'required',
+            'kesatuan' => 'required',
+            'tandajasa' => 'required',
+            'tgl' => 'required',
+            'warnakulit' => 'required',
+            'mata' => 'required',
+            'rambut' => 'required',
+            'goldarah' => 'required',
+            'jenis' => 'required',
+            'alamatsekarang' => 'required',
+            'suku' => 'required',
+            'agama' => 'required',
+            'tinggi' => 'required',
+            'ayahalamat' => 'required',
+            'ibualamat' => 'required',
+            'istrialamat' => 'required',
+            'tempatnikah' => 'required',
+            'namaanak' => 'required',
+            'ortuistrialamat' => 'required'
+        ]);
+
+        $siyalem->lembaga = 'test';
+        $siyalem->save();
+        return back();
     }
 
 }
