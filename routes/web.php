@@ -54,17 +54,23 @@ Route::prefix('/dashboard')->group(static function () {
     Route::get('data/pegawai', [App\Http\Controllers\Account\DataPegawaiController::class, 'index'])
         ->name('index.pegawai');
 
+    // cetak data pegawai
     Route::get('cetak/data/{dataPegawai}', [App\Http\Controllers\Account\DataPegawaiController::class, 'cetakan'])
         ->name('cetak.pegawai');
 
+    // hapus data
     Route::get('delete/{id}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'destroy'])
         ->name('destroy');
 
+    // view edit data pegawai
     Route::get('edit/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'edit'])
         ->name('edit.data');
 
     Route::post('update/foto/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_foto'])
         ->name('update.foto');
+
+    Route::post('update/data/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_data'])
+        ->name('update.data');
 });
 
 

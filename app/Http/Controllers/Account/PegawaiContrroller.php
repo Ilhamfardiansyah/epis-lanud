@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Account;
 
 use Alert;
+use Dotenv\Validator;
 use App\Models\Siyalem;
 use App\Models\DataFoto;
 use App\Models\DataPegawai;
@@ -148,6 +149,7 @@ class PegawaiContrroller extends Controller
         // nb2: cara input ke db adalah, $nama->cover_image = $filenameToStore;
     }
 
+    // Hapus Data Pegawai
     public function destroy($id)
     {
         DB::table('data_pegawais')->where('id', $id)->delete();
@@ -155,29 +157,94 @@ class PegawaiContrroller extends Controller
         return back();
     }
 
+    // View Data Pegawai
     public function edit(DataPegawai $dataPegawai)
     {
         return view('Account/Anggota/Create/Edit', compact('dataPegawai'));
     }
 
+    // Update Foto Data Pegawai
     public function update_foto(Request $request, DataPegawai $dataPegawai)
     {
-        // dd($dataPegawai);
-        $siyalem = $dataPegawai->siyalem->data_fotos;
-        // dd($siyalem);
-        $validateData = $request->validate([
+
+        $this->validate($request, [
             'depan_pic' => 'required|image|mimes:png,jpg,jpeg',
             'kanan_pic' => 'required|image|mimes:png,jpg,jpeg',
             'kiri_pic'  => 'required|image|mimes:png,jpg,jpeg',
             'sidik_pic' => 'required|image|mimes:png,jpg,jpeg',
-            'ket_pic'   =>  'required'
+            'ket_pic'   => 'required'
         ]);
 
-        $siyalem_new = $siyalem->update([
-            'depan_pic' => 'Test']);
-        // dd($siyalem_new);
+        $dataPegawai = Siyalem::findOrFail($dataPegawai->id);
+
+        dd($dataPegawai);
+
+        // $dataPegawai = $request->file('image')
+
+            $dataPegawai->update([
+            'depan_pic' => $request->depan_pic,
+            'kanan_pic' => $request->kanan_pic,
+            'kiri_pic'  => $request->kiri_pic,
+            'sidik_pic' => $request->sidik_pic,
+            'ket_pic'   => $request->ket_pic
+            ]);
+
+        // // dd($dataPegawai);
+        // $siyalem = $dataPegawai->siyalem->data_fotos;
+        // // dd($siyalem);
+        // $validateData = $request->validate([
+        //     'depan_pic' => 'required|image|mimes:png,jpg,jpeg',
+        //     'kanan_pic' => 'required|image|mimes:png,jpg,jpeg',
+        //     'kiri_pic'  => 'required|image|mimes:png,jpg,jpeg',
+        //     'sidik_pic' => 'required|image|mimes:png,jpg,jpeg',
+        //     'ket_pic'   =>  'required'
+        // ]);
+
+        // $siyalem_new = $siyalem->update([
+        //     'depan_pic' => 'Test']);
+        // // dd($siyalem_new);
         alert()->success('Data','Berhasil Di Edit');
         return back();
     }
+
+    public function update_data(Request $request, $id)
+{
+    // Validasi data yang dikirim dari form
+    $validatedData = $request->validate([
+        'nopassring' => 'required',
+        'nama' => 'required',
+        'pangkat' => 'required',
+        'NRP' => 'required',
+        'jabatan' => 'required',
+        'kesatuan' => 'required',
+        'tandajasa' => 'required',
+        'tgl' => 'required',
+        'warnakulit' => 'required',
+        'mata' => 'required',
+        'rambut' => 'required',
+        'goldarah' => 'required',
+        'jenis' => 'required',
+        'alamatsekarang' => 'required',
+        'suku' => 'required',
+        'agama' => 'required',
+        'tinggi' => 'required',
+        'ayahalamat' => 'required',
+        'ibualamat' => 'required',
+        'istrialamat' => 'required',
+        'tempatnikah' => 'required',
+        'namaanak' => 'required',
+        'ortuistrialamat' => 'required'
+    ]);
+dd($validateData);
+
+    // Cari data dengan id tertentu yang akan diupdate
+    $dataPegawai = DataPegawai::findOrFail($id);
+    // Update data dengan data yang diterima dari form
+    $dataPegawai->update($validatedData);
+
+    // Redirect ke halaman sebelumnya dengan pesan sukses
+    return redirect()->back()->with('success', 'Data berhasil diupdate.');
+}
+
 
 }
