@@ -23,4 +23,15 @@ class DataPegawaiController extends Controller
         return view('Account/Cetak Biodata/Printout', compact('dataPegawai'));
 
     }
+
+    public function search()
+    {
+        $data = DataPegawai::all();
+        return view('Account/Search/Index', compact('data'));
+    }
+
+    public function print(DataPegawai $dataPegawai)
+    {
+        return redirect()->route('cetak.pegawai', $dataPegawai->id);
+    }
 }

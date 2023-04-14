@@ -68,7 +68,7 @@
                                 Anggota</span>
                         </div>
                     </a>
-                    <a class="nav-link" href="app/calendar.html" role="button" aria-expanded="false">
+                    <a class="nav-link" href="{{ route('search') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-print"></span></span><span class="nav-link-text ps-1">
                                 Cetak</span>

@@ -225,7 +225,7 @@ position:relative;">
         </table>
         <button onclick="window.print();" class="btn btn-success no-print"
             style="position: fixed; bottom:35px; right:10em;">Print</button>
-        <form action="/dashboard/data/pegawai" method="get">
+        <form action="/home" method="get">
             <button class="btn btn-primary no-print" style="position: fixed; bottom:35px; right:5em;">Back</button>
         </form>
     </section>

@@ -42,10 +42,6 @@
                                             <tr>
                                                 <th>Nama Anggota</th>
                                                 <th>No Passring</th>
-                                                <th>Pangkat</th>
-                                                <th>NRP</th>
-                                                <th>Jabatan</th>
-                                                <th>Kesatuan</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -54,20 +50,12 @@
                                                 <tr>
                                                     <td>{{ $datas->nama }}</td>
                                                     <td>{{ $datas->nopassring }}</td>
-                                                    <td>{{ $datas->pangkat }}</td>
-                                                    <td>{{ $datas->NRP }}</td>
-                                                    <td>{{ $datas->jabatan }}</td>
-                                                    <td>{{ $datas->kesatuan }}</td>
                                                     <td class="text-center">
                                                         <a class="btn btn-primary btn-sm me-2 mb-1"
-                                                            href="/dashboard/edit/{{ $datas->id }}">
-                                                            <i class='fa fa-pencil-alt'
+                                                            href="{{ $datas->id }}">
+                                                            <i class='fa fa-print'
                                                                 style='color: rgb(255, 255, 255)'></i></a>
 
-                                                        <a class="btn btn-danger btn-sm me-2"
-                                                            href="/dashboard/delete/{{ $datas->id }}">
-                                                            <i class='fa fa-trash-alt'
-                                                                style='color: rgb(255, 255, 255)'></i></a>
 
                                                     </td>
                                                 </tr>

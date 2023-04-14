@@ -74,6 +74,13 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::post('update/siyalems/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_siyalem'])
         ->name('update.siyalem');
+
+    Route::get('cetak/data/', [App\Http\Controllers\Account\DataPegawaiController::class, 'search'])
+        ->name('search');
+
+    Route::get('cetak/{dataPegawai}', [App\Http\Controllers\Account\DataPegawaiController::class, 'print'])
+        ->name('print');
+
 });
 
 
