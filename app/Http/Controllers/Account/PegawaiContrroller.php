@@ -130,7 +130,110 @@ class PegawaiContrroller extends Controller
         return redirect()->route('cetak.pegawai', $datafoto->id);
     }
 
-    private function storeImage($request, $route)
+    // Hapus Data Pegawai
+    public function destroy($id)
+    {
+        DB::table('data_pegawais')->where('id', $id)->delete();
+        toast('Data Pegawai Berhasil Dihapus', 'error');
+        return back();
+    }
+
+
+    // View Data Pegawai
+    public function edit(DataPegawai $dataPegawai)
+    {
+        return view('Account/Anggota/Create/Edit', compact('dataPegawai'));
+    }
+
+
+    // Update Foto Data Pegawai
+    public function update_foto(Request $request, DataPegawai $dataPegawai): RedirectResponse
+    {
+        // siyalem data
+        $siyalem = Siyalem::findOrFail($dataPegawai->id);
+
+        // validasi data
+        $validated = $this->validate($request, [
+            'kanan_pic' => 'sometimes|image|mimes:png,jpg,jpeg',
+            'kiri_pic' => 'sometimes|image|mimes:png,jpg,jpeg',
+            'sidik_pic' => 'sometimes|image|mimes:png,jpg,jpeg',
+            'depan_pic' => 'sometimes|image|mimes:png,jpg,jpeg',
+            'ket_pic' => 'sometimes'
+        ]);
+
+        // upload foto depan
+        if ($request->file('depan_pic')) {
+            $fotoDepanUpdate = $this->storeImage($request->file('depan_pic'), 'foto_depan');
+            $validated['depan_pic'] = $fotoDepanUpdate;
+        }
+
+        // upload foto kanan
+        if ($request->file('kanan_pic')) {
+            $fotoKananUpdate = $this->storeImage($request->file('kanan_pic'), 'foto_kanan');
+            $validated['kanan_pic'] = $fotoKananUpdate;
+        }
+
+        // upload foto kiri
+        if ($request->file('kiri_pic')) {
+            $fotoKiriUpdate = $this->storeImage($request->file('kiri_pic'), 'foto_kiri');
+            $validated['kiri_pic'] = $fotoKiriUpdate;
+        }
+
+        // upload sidik jari
+        if ($request->file('sidik_pic')) {
+            $fotoSidikUpdate = $this->storeImage($request->file('sidik_pic'), 'sidik_pic');
+            $validated['sidik_pic'] = $fotoSidikUpdate;
+        }
+
+        // update data_fotos
+        $siyalem->data_fotos()->update($validated);
+
+        // return
+        alert()->success('Data', 'Berhasil Di Edit');
+        return back();
+    }
+
+
+    public function update_data(Request $request, $id)
+    {
+        // Validasi data yang dikirim dari form
+        $validatedData = $request->validate([
+            'nopassring' => 'required',
+            'nama' => 'required',
+            'pangkat' => 'required',
+            'NRP' => 'required',
+            'jabatan' => 'required',
+            'kesatuan' => 'required',
+            'tandajasa' => 'required',
+            'tgl' => 'required',
+            'warnakulit' => 'required',
+            'mata' => 'required',
+            'rambut' => 'required',
+            'goldarah' => 'required',
+            'jenis' => 'required',
+            'alamatsekarang' => 'required',
+            'suku' => 'required',
+            'agama' => 'required',
+            'tinggi' => 'required',
+            'ayahalamat' => 'required',
+            'ibualamat' => 'required',
+            'istrialamat' => 'required',
+            'tempatnikah' => 'required',
+            'namaanak' => 'required',
+            'ortuistrialamat' => 'required'
+        ]);
+
+        // Cari data dengan id tertentu yang akan diupdate
+        $dataPegawai = DataPegawai::findOrFail($id);
+        // Update data dengan data yang diterima dari form
+        $dataPegawai->update($validatedData);
+
+        // Redirect ke halaman sebelumnya dengan pesan sukses
+        return redirect()->back()->with('success', 'Data berhasil diupdate.');
+    }
+
+
+    private function storeImage($request, $route): string
     {
         // dapatkan extensi file
         $filenameExt = $request->getClientOriginalExtension();
@@ -148,103 +251,5 @@ class PegawaiContrroller extends Controller
         return 'storage/' . $route . '/' . $filenameToStore;
         // nb2: cara input ke db adalah, $nama->cover_image = $filenameToStore;
     }
-
-    // Hapus Data Pegawai
-    public function destroy($id)
-    {
-        DB::table('data_pegawais')->where('id', $id)->delete();
-        toast('Data Pegawai Berhasil Dihapus','error');
-        return back();
-    }
-
-    // View Data Pegawai
-    public function edit(DataPegawai $dataPegawai)
-    {
-        return view('Account/Anggota/Create/Edit', compact('dataPegawai'));
-    }
-
-    // Update Foto Data Pegawai
-    public function update_foto(Request $request, DataPegawai $dataPegawai)
-    {
-
-        $this->validate($request, [
-            'depan_pic' => 'required|image|mimes:png,jpg,jpeg',
-            'kanan_pic' => 'required|image|mimes:png,jpg,jpeg',
-            'kiri_pic'  => 'required|image|mimes:png,jpg,jpeg',
-            'sidik_pic' => 'required|image|mimes:png,jpg,jpeg',
-            'ket_pic'   => 'required'
-        ]);
-
-        $dataPegawai = Siyalem::findOrFail($dataPegawai->id);
-
-        dd($dataPegawai);
-
-        // $dataPegawai = $request->file('image')
-
-            $dataPegawai->update([
-            'depan_pic' => $request->depan_pic,
-            'kanan_pic' => $request->kanan_pic,
-            'kiri_pic'  => $request->kiri_pic,
-            'sidik_pic' => $request->sidik_pic,
-            'ket_pic'   => $request->ket_pic
-            ]);
-
-        // // dd($dataPegawai);
-        // $siyalem = $dataPegawai->siyalem->data_fotos;
-        // // dd($siyalem);
-        // $validateData = $request->validate([
-        //     'depan_pic' => 'required|image|mimes:png,jpg,jpeg',
-        //     'kanan_pic' => 'required|image|mimes:png,jpg,jpeg',
-        //     'kiri_pic'  => 'required|image|mimes:png,jpg,jpeg',
-        //     'sidik_pic' => 'required|image|mimes:png,jpg,jpeg',
-        //     'ket_pic'   =>  'required'
-        // ]);
-
-        // $siyalem_new = $siyalem->update([
-        //     'depan_pic' => 'Test']);
-        // // dd($siyalem_new);
-        alert()->success('Data','Berhasil Di Edit');
-        return back();
-    }
-
-    public function update_data(Request $request, $id)
-{
-    // Validasi data yang dikirim dari form
-    $validatedData = $request->validate([
-        'nopassring' => 'required',
-        'nama' => 'required',
-        'pangkat' => 'required',
-        'NRP' => 'required',
-        'jabatan' => 'required',
-        'kesatuan' => 'required',
-        'tandajasa' => 'required',
-        'tgl' => 'required',
-        'warnakulit' => 'required',
-        'mata' => 'required',
-        'rambut' => 'required',
-        'goldarah' => 'required',
-        'jenis' => 'required',
-        'alamatsekarang' => 'required',
-        'suku' => 'required',
-        'agama' => 'required',
-        'tinggi' => 'required',
-        'ayahalamat' => 'required',
-        'ibualamat' => 'required',
-        'istrialamat' => 'required',
-        'tempatnikah' => 'required',
-        'namaanak' => 'required',
-        'ortuistrialamat' => 'required'
-    ]);
-dd($validateData);
-
-    // Cari data dengan id tertentu yang akan diupdate
-    $dataPegawai = DataPegawai::findOrFail($id);
-    // Update data dengan data yang diterima dari form
-    $dataPegawai->update($validatedData);
-
-    // Redirect ke halaman sebelumnya dengan pesan sukses
-    return redirect()->back()->with('success', 'Data berhasil diupdate.');
-}
-
 
 }
