@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Account\UserController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Account\PegawaiContrroller;
 use App\Http\Controllers\Account\DataPegawaiController;
 
@@ -81,6 +83,11 @@ Route::prefix('/dashboard')->group(static function () {
     Route::get('cetak/{dataPegawai}', [App\Http\Controllers\Account\DataPegawaiController::class, 'print'])
         ->name('print');
 
+    Route::get('tambah/user', [App\Http\Controllers\Account\UserController::class, 'index'])
+        ->name('ada');
+
+    Route::post('/create', [App\Http\Controllers\Account\UserController::class, 'store'])
+        ->name('create');
 });
 
 
