@@ -71,6 +71,9 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::post('update/data/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_data'])
         ->name('update.data');
+
+    Route::post('update/siyalems/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_siyalem'])
+        ->name('update.siyalem');
 });
 
 

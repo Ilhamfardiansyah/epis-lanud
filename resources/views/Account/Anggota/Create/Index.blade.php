@@ -34,7 +34,7 @@
                                         <label class="form-label" for="basic-form-nopassring">No. Pass Ring</label>
                                         <input class="form-control @error('nopassring') is-invalid @enderror"
                                             id="basic-form-nopassring" name="nopassring" type="text"
-                                            placeholder="No. Pass Ring" autofocus />
+                                            placeholder="No. Pass Ring" autofocus value="{{ old('nopassring') }}" />
                                         @error('nopassring')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -45,7 +45,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-nama">Nama Lengkap</label>
                                         <input class="form-control @error('nama') is-invalid @enderror" id="basic-form-nama"
-                                            name="nama" type="text" placeholder="Nama Lengkap" />
+                                            name="nama" type="text" placeholder="Nama Lengkap"
+                                            value="{{ old('nama') }}" />
                                         @error('nama')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -56,7 +57,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-pangkat">Pangkat</label>
                                         <input class="form-control @error('pangkat') is-invalid @enderror"
-                                            id="basic-form-pangkat" name="pangkat" type="text" placeholder="Pangkat" />
+                                            id="basic-form-pangkat" name="pangkat" type="text" placeholder="Pangkat"
+                                            value="{{ old('pangkat') }}" />
                                         @error('pangkat')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -67,7 +69,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-nrp">No NRP</label>
                                         <input class="form-control @error('NRP') is-invalid @enderror" id="basic-form-nrp"
-                                            name="NRP" type="text" placeholder="No NRP" />
+                                            name="NRP" type="text" placeholder="No NRP"
+                                            value="{{ old('NRP') }}" />
                                         @error('NRP')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -78,7 +81,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-jabatan">Jabatan</label>
                                         <input class="form-control @error('jabatan') is-invalid @enderror"
-                                            id="basic-form-jabatan" name="jabatan" type="text" placeholder="Jabatan" />
+                                            id="basic-form-jabatan" name="jabatan" type="text" placeholder="Jabatan"
+                                            value="{{ old('jabatan') }}" />
                                         @error('jabatan')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -89,8 +93,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-kesatuan">Kesatuan</label>
                                         <input class="form-control @error('kesatuan') is-invalid @enderror"
-                                            id="basic-form-kesatuan" name="kesatuan" type="text"
-                                            placeholder="Kesatuan" />
+                                            id="basic-form-kesatuan" name="kesatuan" type="text" placeholder="Kesatuan"
+                                            value="{{ old('kesatuan') }}" />
                                         @error('kesatuan')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -102,7 +106,7 @@
                                         <label class="form-label" for="basic-form-tandajasa">Tanda Jasa</label>
                                         <input class="form-control @error('tandajasa') is-invalid @enderror"
                                             id="basic-form-tandajasa" name="tandajasa" type="text"
-                                            placeholder="Tanda Jasa" />
+                                            placeholder="Tanda Jasa" value="{{ old('tandajasa') }}" />
                                         @error('tandajasa')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -111,9 +115,12 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label" for="basic-form-dob">Tempat, Tanggal Lahir</label>
+                                        <label class="form-label" for="basic-form-dob">Tempat, Tanggal Lahir dan
+                                            Umur</label>
                                         <input class="form-control @error('tgl') is-invalid @enderror" name="tgl"
-                                            id="basic-form-dob" type="text" placeholder="Contoh: Jakarta, 01-01-1990" />
+                                            id="basic-form-dob" type="text"
+                                            placeholder="Contoh: Jakarta, 01-01-1990 , (30)"
+                                            value="{{ old('tgl') }}" />
                                         @error('tgl')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -125,7 +132,7 @@
                                         <label class="form-label" for="basic-form-kulit">Warna Kulit</label>
                                         <input class="form-control @error('warnakulit') is-invalid @enderror"
                                             name="warnakulit" id="basic-form-kulit" type="text"
-                                            placeholder="Warna Kulit" />
+                                            placeholder="Warna Kulit" value="{{ old('warnakulit') }}" />
                                         @error('warnakulit')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -136,7 +143,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-mata">Mata</label>
                                         <input class="form-control @error('mata') is-invalid @enderror"
-                                            id="basic-form-mata" type="text" name="mata" placeholder="Mata" />
+                                            id="basic-form-mata" type="text" name="mata" placeholder="Mata"
+                                            value="{{ old('mata') }}" />
                                         @error('mata')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -147,7 +155,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-rambut">Rambut</label>
                                         <input class="form-control @error('rambut') is-invalid @enderror"
-                                            id="basic-form-rambut" type="text" name="rambut" placeholder="Rambut" />
+                                            id="basic-form-rambut" type="text" name="rambut" placeholder="Rambut"
+                                            value="{{ old('rambut') }}" />
                                         @error('rambut')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -159,7 +168,7 @@
                                         <label class="form-label" for="basic-form-goldarah">Gol. Darah</label>
                                         <input class="form-control @error('goldarah') is-invalid @enderror"
                                             id="basic-form-goldarah" type="text" name="goldarah"
-                                            placeholder="Gol. Darah" />
+                                            placeholder="Gol. Darah" value="{{ old('goldarah') }}" />
                                         @error('goldarah')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -186,7 +195,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-alamat">Alamat</label>
                                         <textarea class="form-control @error('alamatsekarang') is-invalid @enderror" id="basic-form-alamat"
-                                            name="alamatsekarang" rows="3" placeholder="Contoh: Jakarta Pusat, Jl.Tanah Abang no 01"></textarea>
+                                            name="alamatsekarang" rows="3" placeholder="Contoh: Jakarta Pusat, Jl.Tanah Abang no 01"
+                                            aria-valuemax="{{ old('alamatsekarang') }}"></textarea>
                                         @error('alamatsekarang')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -197,8 +207,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-suku">Suku Bangsa</label>
                                         <input class="form-control @error('suku') is-invalid @enderror"
-                                            id="basic-form-suku" type="text" name="suku"
-                                            placeholder="Suku Bangsa" />
+                                            id="basic-form-suku" type="text" name="suku" placeholder="Suku Bangsa"
+                                            value="{{ old('suku') }}" />
                                         @error('suku')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -209,7 +219,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Agama</label>
                                         <select class="form-select @error('agama') is-invalid @enderror"
-                                            id="basic-form-gender" name="agama" aria-label="Default select example">
+                                            aria-valuetext="{{ old('agama') }}" id="basic-form-gender" name="agama"
+                                            aria-label="Default select example">
                                             <option selected disabled>--Pilih Agama--</option>
                                             <option value="Islam">Islam</option>
                                             <option value="Kristen Protestan">Kristen Protestan</option>
@@ -230,7 +241,7 @@
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control @error('tinggi') is-invalid @enderror"
                                             placeholder="Tinggi dan Berat" aria-label="Tinggi dan Berat"
-                                            aria-describedby="basic-addon1" name="tinggi">
+                                            aria-describedby="basic-addon1" name="tinggi" value="{{ old('tinggi') }}">
                                         <span class="input-group-text" id="basic-addon1">cm & kg</span>
                                         @error('tinggi')
                                             <div class="invalid-feedback">
@@ -252,7 +263,8 @@
                             <div class="mb-3">
                                 <label class="form-label" for="basic-form-namaayah">Nama Ayah & Alamat</label>
                                 <textarea class="form-control @error('ayahalamat') is-invalid @enderror" id="basic-form-namaayah" name="ayahalamat"
-                                    rows="3" type="text" placeholder="Contoh: Nama Ayah, Jakarta Pusat, Jl.Tanah Abang no 01"></textarea>
+                                    rows="3" type="text" placeholder="Contoh: Nama Ayah, Jakarta Pusat, Jl.Tanah Abang no 01"
+                                    aria-valuetext="{{ old('ayahalamat') }}"></textarea>
                                 @error('ayahalamat')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -262,7 +274,8 @@
                             <div class="mb-3">
                                 <label class="form-label" for="basic-form-namaibu">Nama Ibu & Alamat</label>
                                 <textarea class="form-control @error('ibualamat') is-invalid @enderror" id="basic-form-namaibu" name="ibualamat"
-                                    rows="3" type="text" placeholder="Contoh: Nama Ibu, Jakarta Pusat, Jl.Tanah Abang no 01"></textarea>
+                                    rows="3" type="text" placeholder="Contoh: Nama Ibu, Jakarta Pusat, Jl.Tanah Abang no 01"
+                                    aria-valuetext="{{ old('ibualamat') }}"></textarea>
                                 @error('ibualamat')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -282,7 +295,8 @@
                                 <label class="form-label" for="basic-form-namapasangan">Nama Istri/Suami dan
                                     Alamat</label>
                                 <textarea class="form-control @error('istrialamat') is-invalid @enderror" id="basic-form-namapasangan"
-                                    rows="3" name="istrialamat" placeholder="Contoh: Nama istri/suami, Jakarta Pusat, Jl.Tanah Abang no 01 "></textarea>
+                                    rows="3" name="istrialamat" placeholder="Contoh: Nama istri/suami, Jakarta Pusat, Jl.Tanah Abang no 01 "
+                                    aria-valuetext="{{ old('istrialamat') }}"></textarea>
                                 @error('istrialamat')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -293,7 +307,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="basic-form-aktenikah">Tempat/No Akte Nikah</label>
                                 <textarea class="form-control @error('tempatnikah') is-invalid @enderror" id="basic-form-aktenikah" rows="3"
-                                    name="tempatnikah" type="text" placeholder="Tempat/No Akte Nikah"></textarea>
+                                    name="tempatnikah" type="text" placeholder="Tempat/No Akte Nikah" aria-valuetext="{{ old('tempatnikah') }}"></textarea>
                                 @error('tempatnikah')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -304,24 +318,10 @@
                             <div class="row mb-3">
                                 <label class="form-label" for="basic-form-anak">Nama Anak Kandung</label>
                                 <div class="col">
-                                    <textarea type="text" class="form-control" name="namaanak" placeholder="Anak Ke 1" rows="3"
-                                        aria-label="Nama Anak Kandung"></textarea>
+                                    <textarea type="text" class="form-control" name="namaanak" placeholder="Contoh: Budi, Wahyu, Intan"
+                                        rows="3" aria-label="Nama Anak Kandung"></textarea>
                                 </div>
-                                {{-- <div class="col">
-                                    <input type="text" class="form-control" name="namaanak2" placeholder="Anak ke 2"
-                                        aria-label="Anak ke 2">
-                                </div> --}}
                             </div>
-                            {{-- <div class="row mb-3">
-                                <div class="col">
-                                    <input type="text" class="form-control" name="namaanak3" placeholder="Anak ke 3"
-                                        aria-label="Anak ke 3">
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" name="namaanak4" placeholder="Anak ke 4"
-                                        aria-label="Anak ke 4">
-                                </div>
-                            </div> --}}
 
                             <div class="mb-3">
                                 <label class="form-label" for="basic-form-password">Nama Orang Tua Dari

@@ -189,7 +189,7 @@ class PegawaiContrroller extends Controller
         $siyalem->data_fotos()->update($validated);
 
         // return
-        alert()->success('Data', 'Berhasil Di Edit');
+        alert()->success('Data Foto', 'Berhasil Di Edit');
         return back();
     }
 
@@ -228,10 +228,38 @@ class PegawaiContrroller extends Controller
         // Update data dengan data yang diterima dari form
         $dataPegawai->update($validatedData);
 
+        alert()->success('Data Pegawai', 'Berhasil Di Edit');
+
         // Redirect ke halaman sebelumnya dengan pesan sukses
-        return redirect()->back()->with('success', 'Data berhasil diupdate.');
+        return redirect()->back();
     }
 
+    public function update_siyalem(Request $request, $id)
+    {
+        // dd($request->all());
+        $validateData = $request->validate([
+            'lembaga' => 'required',
+            'sikap' => 'required',
+            'langkah' => 'required',
+            'bangun_kepala' => 'required',
+            'rambut' => 'required',
+            'kening' => 'required',
+            'dahi' => 'required',
+            'hidung' => 'required',
+            'bibir' => 'required',
+            'telinga' => 'required',
+            'urusan_polisi_militer' => 'required',
+        ]);
+        // dd($validateData);
+
+        $siyalem = Siyalem::findOrFail($id);
+
+        $siyalem->update($validateData);
+
+        alert()->success('Data Siyalems', 'Berhasil Di Edit');
+
+        return back();
+    }
 
     private function storeImage($request, $route): string
     {
