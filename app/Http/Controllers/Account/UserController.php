@@ -8,11 +8,11 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        $role = Role::all();
-        return view('auth/register', compact('role'));
-    }
+    // public function index()
+    // {
+    //     $role = Role::all();
+    //     return view('auth/register', compact('role'));
+    // }
 
     public function store(Request $request)
     {

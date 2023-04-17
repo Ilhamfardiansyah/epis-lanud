@@ -55,8 +55,6 @@
                                                             href="{{ $datas->id }}">
                                                             <i class='fa fa-print'
                                                                 style='color: rgb(255, 255, 255)'></i></a>
-
-
                                                     </td>
                                                 </tr>
                                             @endforeach

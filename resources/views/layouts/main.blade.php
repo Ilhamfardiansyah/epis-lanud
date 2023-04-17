@@ -129,7 +129,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src={{ asset('vendors/list.js/list.min.js') }}></script>
     <script src={{ asset('assets/js/theme.js') }}></script>
-
+    @stack('js')
 </body>
 
 </html>

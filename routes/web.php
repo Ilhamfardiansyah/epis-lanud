@@ -88,6 +88,12 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::post('/create', [App\Http\Controllers\Account\UserController::class, 'store'])
         ->name('create');
+
+    Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'index'])
+        ->name('buat_akun');
+
+    Route::get('print_data/', [App\Http\Controllers\Auth\DataPegawaiController::class, 'cetak'])
+        ->name('print_data');
 });
 
 

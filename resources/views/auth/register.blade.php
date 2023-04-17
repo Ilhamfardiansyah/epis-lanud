@@ -63,13 +63,18 @@
                             </div>
 
                             <div class="row mb-3">
-                                <select class="form-select" aria-label="Default select example" id="role_id"
-                                    name="role">
-                                    <option selected disabled>-- Pilih Role --</option>
-                                    @foreach ($role as $roles)
-                                        <option value="{{ $roles->id }}">{{ $roles->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="role"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
+
+                                <div class="col-md-6">
+                                    <select class="form-select" aria-label="Default select example" id="role_id"
+                                        name="role_id">
+                                        <option selected disabled>-- Pilih Role --</option>
+                                        @foreach ($role as $roles)
+                                            <option value="{{ $roles->name }}">{{ $roles->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="row mb-3">

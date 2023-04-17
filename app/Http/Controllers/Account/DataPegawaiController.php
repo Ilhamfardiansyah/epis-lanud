@@ -34,4 +34,9 @@ class DataPegawaiController extends Controller
     {
         return redirect()->route('cetak.pegawai', $dataPegawai->id);
     }
+
+    public function cetak(DataPegawai $dataPegawai)
+    {
+        return redirect()->route('cetak.pegawai', $dataPegawai->nopassring);
+    }
 }

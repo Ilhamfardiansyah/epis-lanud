@@ -222,6 +222,11 @@ position:relative;">
                 <td style="width: 10em">Sudah Pernah Tersangkut Urusan Polisi Militer</td>
                 <td>: {{ $dataPegawai->siyalem->urusan_polisi_militer }}</td>
             </tr>
+            <tr>
+                <td style="width: 1em">12.</td>
+                <td style="width: 10em">Keterangan Foto</td>
+                <td>: {{ $dataPegawai->siyalem->data_fotos->ket_pic }}</td>
+            </tr>
         </table>
         <button onclick="window.print();" class="btn btn-success no-print"
             style="position: fixed; bottom:35px; right:10em;">Print</button>

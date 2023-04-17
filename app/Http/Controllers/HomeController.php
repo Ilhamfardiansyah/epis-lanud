@@ -24,10 +24,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(DataPegawai $dataPegawai)
     {
-        $user = User::count();
-        $data = DataPegawai::count();
-        return view('home' , compact('user', 'data'));
+        $user   = User::count();
+        $data   = DataPegawai::count();
+        return view('home' , compact('user', 'data', 'dataPegawai'));
     }
 }

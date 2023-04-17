@@ -12,7 +12,7 @@
                 data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span
                         class="toggle-line"></span></span></button>
 
-        </div><a class="navbar-brand" href="index.html">
+        </div><a class="navbar-brand" href="/">
             <div class="d-flex align-items-center py-3"><img class="me-2"
                     src="{{ asset('assets/img/logo_warna.png') }}" alt="" width="45" /><span
                     class="font-sans-serif">EPIS</span>
@@ -54,7 +54,7 @@
                             </span>
                         </div>
                     </a>
-                    <a class="nav-link" href="{{ route('register') }}" role="button" aria-expanded="false">
+                    <a class="nav-link" href="{{ url('dashboard/register') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-user-plus"></span></span><span class="nav-link-text ps-1">
                                 Add User</span>

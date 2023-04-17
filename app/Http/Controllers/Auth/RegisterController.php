@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -52,9 +53,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'username' => ['required', 'string', 'max:255'],
             'nama' => ['required', 'string', 'max:255'],
-            'nip'   => ['required', 'string', 'max:255'],
+            'nip'   => ['required', 'string', 'max:255', 'unique:users'],
+            'role_id'   => ['required', 'string'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:5', 'confirmed'],
         ]);
     }
 
@@ -67,20 +69,23 @@ class RegisterController extends Controller
 
     public function index()
     {
-        return view('auth/register');
+        $role = Role::all();
+        return view('auth/register', compact('role'));
     }
 
     protected function create(array $data)
     {
-        return User::create([
+        // dd($data);
+            $user = User::create([
             'username' => $data['username'],
             'nama' => $data['nama'],
             'nip' => $data['nip'],
             'email' => $data['email'],
+            'role_id' => $data['role_id'],
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->assignRole($request->roles);
+        $user = assignRole($data->roles);
 
         alert()->success('User', 'Berhasil Di Tambahkan');
 

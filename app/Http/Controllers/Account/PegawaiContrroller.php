@@ -33,7 +33,7 @@ class PegawaiContrroller extends Controller
             'nopassring' => 'required',
             'nama' => 'required',
             'pangkat' => 'required',
-            'NRP' => 'required',
+            'NRP' => 'required|unique:data_pegawais',
             'jabatan' => 'required',
             'kesatuan' => 'required',
             'tandajasa' => 'required',
@@ -154,11 +154,11 @@ class PegawaiContrroller extends Controller
 
         // validasi data
         $validated = $this->validate($request, [
-            'kanan_pic' => 'sometimes|image|mimes:png,jpg,jpeg',
-            'kiri_pic' => 'sometimes|image|mimes:png,jpg,jpeg',
-            'sidik_pic' => 'sometimes|image|mimes:png,jpg,jpeg',
-            'depan_pic' => 'sometimes|image|mimes:png,jpg,jpeg',
-            'ket_pic' => 'sometimes'
+            'kanan_pic' => 'require|image|mimes:png,jpg,jpeg',
+            'kiri_pic' => 'require|image|mimes:png,jpg,jpeg',
+            'sidik_pic' => 'require|image|mimes:png,jpg,jpeg',
+            'depan_pic' => 'require|image|mimes:png,jpg,jpeg',
+            'ket_pic' => 'require'
         ]);
 
         // upload foto depan
@@ -279,5 +279,4 @@ class PegawaiContrroller extends Controller
         return 'storage/' . $route . '/' . $filenameToStore;
         // nb2: cara input ke db adalah, $nama->cover_image = $filenameToStore;
     }
-
 }

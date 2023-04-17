@@ -62,7 +62,28 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-body bg-light">
+            <div class="tab-content">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">
+                        <h3>Scann Barcode</h3>
+                    </label>
+                    <input type="text" class="form-control mb-3" id="input1" placeholder="Scan">
+                </div>
             </div>
         </div>
     </div>
 @endsection
+
+<script>
+    var input = document.querySelector('#input1');
+    input.addEventListener('keyup', function() {
+        alert('test')
+    })
+</script>
