@@ -61,10 +61,9 @@
                                                                 style='color: rgb(255, 255, 255)'></i></a>
 
                                                         <a class="btn btn-danger btn-sm me-2"
-                                                            href="/dashboard/delete/{{ $datas->id }}">
+                                                            href="/dashboard/delete/user/{{ $datas->id }}">
                                                             <i class='fa fa-trash-alt'
                                                                 style='color: rgb(255, 255, 255)'></i></a>
-
                                                     </td>
                                                 </tr>
                                             @endforeach

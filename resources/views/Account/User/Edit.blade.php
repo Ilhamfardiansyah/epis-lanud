@@ -70,16 +70,18 @@
                                 <div class="col-md-6">
                                     <select class="form-select" aria-label="Default select example" id="role"
                                         name="role">
-                                        <option selected disabled>-- Pilih Role --</option>
-                                        <option value="super admin" {{ $user === 'super admin' ? 'selected' : '' }}>
-                                            super admin
-                                        </option>
-                                        <option value="admin" {{ $user === 'admin' ? 'selected' : '' }}>
-                                            admin
-                                        </option>
-                                        <option value="user" {{ $user === 'user' ? 'selected' : '' }}>
-                                            user
-                                        </option>
+                                        @foreach ($user->roles as $users)
+                                            <option selected disabled>-- Pilih Role --</option>
+                                            <option value="super admin" {{ $users === 'super admin' ? 'selected' : '' }}>
+                                                super admin
+                                            </option>
+                                            <option value="admin" {{ $users === 'admin' ? 'selected' : '' }}>
+                                                admin
+                                            </option>
+                                            <option value="user" {{ $users === 'user' ? 'selected' : '' }}>
+                                                user
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

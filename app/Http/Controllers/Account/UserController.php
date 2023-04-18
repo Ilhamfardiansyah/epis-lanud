@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Account;
 use App\Models\User;
 use App\Models\DataPegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -43,7 +44,7 @@ class UserController extends Controller
 
         $user->assignRole($request->roles);
 
-        alert()->success('User', 'Berhasil Di Tambahkan');
+        alert()->success('User Baru', 'Berhasil Di Tambahkan');
 
         return back();
     }
@@ -89,5 +90,12 @@ class UserController extends Controller
         alert()->success('Data', 'Berhasil Diupdate');
 
         return redirect('dashboard/manage/user');
+    }
+
+    public function destroy($id)
+    {
+        DB::table('users')->where('id', $id)->delete();
+        alert()->success('Data', 'Berhasil Dihapus');
+        return back();
     }
 }

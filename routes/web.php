@@ -104,6 +104,8 @@ Route::prefix('/dashboard')->group(static function () {
     Route::post('update/user/{user}', [App\Http\Controllers\Account\UserController::class, 'update'])
         ->name('update.user');
 
+    Route::get('delete/user/{user}', [App\Http\Controllers\Account\UserController::class, 'destroy'])
+        ->name('destroy.user');
 });
 
 
