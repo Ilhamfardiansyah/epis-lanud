@@ -26,9 +26,9 @@
         <div class="overlay">
             <div class="overlay-panel overlay-right">
                 <h1>EPIS</h1>
-                <img src={{ asset('assets/img/logo_warna.png') }} width="200px">
+                <a href="/"><img src={{ asset('assets/img/LOGO_POM_TNI_AU.png') }} width="250px"></a>
                 <p>Elektronic Personal Information System</p>
-                <span>v.2.0.0
+                <span>V.2.0.0
             </div>
         </div>
     </div>
