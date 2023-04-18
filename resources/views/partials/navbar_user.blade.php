@@ -12,7 +12,7 @@
                 data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span
                         class="toggle-line"></span></span></button>
 
-        </div><a class="navbar-brand" href="index.html">
+        </div><a class="navbar-brand" href="/">
             <div class="d-flex align-items-center py-3"><img class="me-2"
                     src="{{ asset('assets/img/logo_warna.png') }}" alt="" width="45" /><span
                     class="font-sans-serif">EPIS</span>
@@ -31,7 +31,8 @@
                             <hr class="mb-0 navbar-vertical-divider" />
                         </div>
                     </div>
-                    <a class="nav-link" href="{{ route('home') }}" role="button" aria-expanded="false">
+                    <a class="nav-link nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}"
+                        role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-calendar-alt"></span></span><span
                                 class="nav-link-text ps-1">Beranda</span>
@@ -54,10 +55,20 @@
                             </span>
                         </div>
                     </a>
-                    <a class="nav-link" href="{{ route('register') }}" role="button" aria-expanded="false">
+
+                    <a class="nav-link {{ Request::is('dashboard/register') ? 'active' : '' }}"
+                        href="{{ url('dashboard/register') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-user-plus"></span></span><span class="nav-link-text ps-1">
                                 Add User</span>
+                        </div>
+                    </a>
+
+                    <a class="nav-link {{ Request::is('dashboard/manage/user') ? 'active' : '' }}"
+                        href="{{ url('dashboard/manage/user') }}" role="button" aria-expanded="false">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                    class="fas fa-users"></span></span><span class="nav-link-text ps-1">
+                                Manage User</span>
                         </div>
                     </a>
                     {{-- Laporan --}}
@@ -68,13 +79,15 @@
                             <hr class="mb-0 navbar-vertical-divider" />
                         </div>
                     </div>
-                    <a class="nav-link" href="{{ route('index.pegawai') }}" role="button" aria-expanded="false">
+                    <a class="nav-link {{ Request::is('dashboard/data/pegawai') ? 'active' : '' }}"
+                        href="{{ url('dashboard/data/pegawai') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-users"></span></span><span class="nav-link-text ps-1">
                                 Anggota</span>
                         </div>
                     </a>
-                    <a class="nav-link" href="{{ route('search') }}" role="button" aria-expanded="false">
+                    <a class="nav-link {{ Request::is('dashboard/cetak/data') ? 'active' : '' }}"
+                        href="{{ url('dashboard/cetak/data') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-print"></span></span><span class="nav-link-text ps-1">
                                 Cetak</span>

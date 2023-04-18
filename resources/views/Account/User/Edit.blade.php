@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    @include('sweetalert::alert')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -8,7 +9,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('update.user', $user->id) }}">
                             @csrf
 
                             <div class="row mb-3">
@@ -18,7 +19,7 @@
                                 <div class="col-md-6">
                                     <input id="username" type="text"
                                         class="form-control @error('username') is-invalid @enderror" name="username"
-                                        value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                        value="{{ $user->username }}" required autocomplete="username" autofocus>
 
                                     @error('username')
                                         <span class="invalid-feedback" role="alert">
@@ -35,7 +36,7 @@
                                 <div class="col-md-6">
                                     <input id="nama" type="text"
                                         class="form-control @error('nama') is-invalid @enderror" name="nama"
-                                        value="{{ old('nama') }}" required autocomplete="nama" autofocus>
+                                        value="{{ $user->nama }}" required autocomplete="nama" autofocus>
 
                                     @error('nama')
                                         <span class="invalid-feedback" role="alert">
@@ -52,7 +53,7 @@
                                 <div class="col-md-6">
                                     <input id="nip" type="text"
                                         class="form-control @error('nip') is-invalid @enderror" name="nip"
-                                        value="{{ old('nip') }}" required autocomplete="nip" autofocus>
+                                        value="{{ $user->nip }}" required autocomplete="nip" autofocus>
 
                                     @error('nip')
                                         <span class="invalid-feedback" role="alert">
@@ -70,9 +71,15 @@
                                     <select class="form-select" aria-label="Default select example" id="role"
                                         name="role">
                                         <option selected disabled>-- Pilih Role --</option>
-                                        @foreach ($role as $roles)
-                                            <option value="{{ $roles->name }}">{{ $roles->name }}</option>
-                                        @endforeach
+                                        <option value="super admin" {{ $user === 'super admin' ? 'selected' : '' }}>
+                                            super admin
+                                        </option>
+                                        <option value="admin" {{ $user === 'admin' ? 'selected' : '' }}>
+                                            admin
+                                        </option>
+                                        <option value="user" {{ $user === 'user' ? 'selected' : '' }}>
+                                            user
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -84,7 +91,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                        value="{{ $user->email }}" required autocomplete="email">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -101,7 +108,7 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
+                                        required autocomplete="new-password" value="{{ $user->password }}">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -117,7 +124,8 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" required autocomplete="new-password"
+                                        value="{{ $user->password }}">
                                 </div>
                             </div>
 

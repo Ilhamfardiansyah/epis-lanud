@@ -8,6 +8,8 @@
                     <div class="bg-holder d-none d-lg-block bg-card"
                         style="background-image:url(../../../assets/img/corner-4.png);">
                     </div>
+                    @include('sweetalert::alert')
+
                     <h6 class="mb-0 mt-2 d-flex align-items-center">
                         <span class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top"
                             title="Calculated according to last week's sales"></span>

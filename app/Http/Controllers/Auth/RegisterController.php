@@ -50,11 +50,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // dd($data);
         return Validator::make($data, [
             'username' => ['required', 'string', 'max:255'],
             'nama' => ['required', 'string', 'max:255'],
             'nip'   => ['required', 'string', 'max:255', 'unique:users'],
-            'role_id'   => ['required', 'string'],
+            'role'   => ['required', 'string'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:5', 'confirmed'],
         ]);
@@ -74,22 +75,25 @@ class RegisterController extends Controller
     }
 
     protected function create(array $data)
-    {
-        // dd($data);
-            $user = User::create([
-            'username' => $data['username'],
-            'nama' => $data['nama'],
-            'nip' => $data['nip'],
-            'email' => $data['email'],
-            'role_id' => $data['role_id'],
-            'password' => Hash::make($data['password']),
-        ]);
+{
+    $user = User::create([
+        'username' => $data['username'],
+        'nama' => $data['nama'],
+        'nip' => $data['nip'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+    ]);
 
-        $user = assignRole($data->roles);
+    $role = Role::where('name', $data['role'])->first();
 
-        alert()->success('User', 'Berhasil Di Tambahkan');
-
-        return back();
-
+    if (!$role) {
+        $role = Role::create(['name' => $data['role']]);
     }
+
+    $user->assignRole($role);
+
+    alert()->success('User', 'Berhasil Ditambahkan');
+
+    return $user;
+}
 }

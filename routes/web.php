@@ -92,8 +92,18 @@ Route::prefix('/dashboard')->group(static function () {
     Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'index'])
         ->name('buat_akun');
 
-    Route::get('print_data/', [App\Http\Controllers\Auth\DataPegawaiController::class, 'cetak'])
+    Route::get('print_data/', [App\Http\Controllers\Account\DataPegawaiController::class, 'cetak'])
         ->name('print_data');
+
+    Route::get('manage/user', [App\Http\Controllers\Account\UserController::class, 'index'])
+        ->name('index.user');
+
+    Route::get('edit/user/{user}', [App\Http\Controllers\Account\UserController::class, 'edit'])
+        ->name('index.user');
+
+    Route::post('update/user/{user}', [App\Http\Controllers\Account\UserController::class, 'update'])
+        ->name('update.user');
+
 });
 
 
