@@ -48,7 +48,14 @@ class DataPegawaiController extends Controller
         // Lakukan sesuatu dengan nilai nopassring, misalnya query ke database
         $dataPegawai = DataPegawai::where(['nopassring' => $nopassring])->latest()->first();
 
-        // Tampilkan view dengan data yang diperoleh dari database
-        return view('Account/Search/Scan', compact('dataPegawai'));
+        // Tampilkan view dengan data yang diperoleh dari database jika data ditemukan
+        if($dataPegawai){
+            return view('Account/Search/Scan', compact('dataPegawai'));
+        } else {
+            // Jika data tidak ditemukan, tampilkan pesan error pada view yang sama
+            return view('Account/Search/Scan')->with('error', 'Data tidak ditemukan');
+        }
     }
+
+
 }

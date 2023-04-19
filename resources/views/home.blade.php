@@ -72,16 +72,18 @@
     <div class="card mb-3">
         <div class="card-body bg-light">
             <div class="tab-content">
-                <div class="mb-3">
-                    <form action="/dashboard/scan/" method="GET">
-                        <label for="nopassring">No Passring:</label>
-                        <input type="text"
-                               id="nopassring"
-                               name="nopassring"
-                            required>
-                        <button type="submit">Scan</button>
-                    </form>
-                </div>
+                <form action="/dashboard/scan/" method="GET">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-form-nama">Scan NRP</label>
+                        <input class="form-control @error('nopassring') is-invalid @enderror" id="basic-form-nopassring"
+                            name="nopassring" type="text" placeholder="Scann NRP" value="{{ old('nopassring') }}" />
+                        @error('nopassring')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </form>
             </div>
         </div>
     </div>
