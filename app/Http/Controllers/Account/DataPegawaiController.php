@@ -46,8 +46,9 @@ class DataPegawaiController extends Controller
         $nopassring = $request->query('nopassring');
 
         // Lakukan sesuatu dengan nilai nopassring, misalnya query ke database
+        $dataPegawai = DataPegawai::where(['nopassring' => $nopassring])->latest()->first();
 
         // Tampilkan view dengan data yang diperoleh dari database
-        return view('Account/Search/Scan', compact('nopassring'));
+        return view('Account/Search/Scan', compact('dataPegawai'));
     }
 }

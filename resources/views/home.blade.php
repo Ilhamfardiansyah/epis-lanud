@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row g-3 mb-3">
-        <div class="col-md-6 col-xxl-3">
+        <div class="col-md-6">
             <div class="card h-md-100 ecommerce-card-min-width">
                 <div class="card-header pb-0">
                     <div class="bg-holder d-none d-lg-block bg-card"
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-xxl-3">
+        <div class="col-md-6">
             <div class="card h-md-100 ecommerce-card-min-width">
                 <div class="card-header pb-0">
                     <div class="bg-holder d-none d-lg-block bg-card"
@@ -75,7 +75,9 @@
                 <div class="mb-3">
                     <form action="/dashboard/scan/" method="GET">
                         <label for="nopassring">No Passring:</label>
-                        <input type="text" id="nopassring" name="nopassring" value="{{ $dataPegawai->nopassring }}"
+                        <input type="text"
+                               id="nopassring"
+                               name="nopassring"
                             required>
                         <button type="submit">Scan</button>
                     </form>
