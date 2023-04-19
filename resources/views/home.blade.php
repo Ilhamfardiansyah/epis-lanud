@@ -73,10 +73,12 @@
         <div class="card-body bg-light">
             <div class="tab-content">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">
-                        <h3>Scann Barcode</h3>
-                    </label>
-                    <input type="text" class="form-control mb-3" id="input1" placeholder="Scan">
+                    <form action="/dashboard/scan/" method="GET">
+                        <label for="nopassring">No Passring:</label>
+                        <input type="text" id="nopassring" name="nopassring" value="{{ $dataPegawai->nopassring }}"
+                            required>
+                        <button type="submit">Scan</button>
+                    </form>
                 </div>
             </div>
         </div>

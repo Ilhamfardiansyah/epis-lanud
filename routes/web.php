@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -106,6 +107,11 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::get('delete/user/{user}', [App\Http\Controllers\Account\UserController::class, 'destroy'])
         ->name('destroy.user');
+
+    Route::get('scan/', [App\Http\Controllers\Account\DataPegawaiController::class, 'cari'])
+        ->name('cari');
 });
+
+
 
 

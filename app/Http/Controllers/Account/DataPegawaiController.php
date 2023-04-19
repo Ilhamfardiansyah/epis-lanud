@@ -39,4 +39,15 @@ class DataPegawaiController extends Controller
     {
         return redirect()->route('cetak.pegawai', $dataPegawai->nopassring);
     }
+
+    public function cari(Request $request)
+    {
+        // Ambil nilai nopassring dari query parameter
+        $nopassring = $request->query('nopassring');
+
+        // Lakukan sesuatu dengan nilai nopassring, misalnya query ke database
+
+        // Tampilkan view dengan data yang diperoleh dari database
+        return view('Account/Search/Scan', compact('nopassring'));
+    }
 }
