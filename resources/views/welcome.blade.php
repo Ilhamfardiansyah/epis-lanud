@@ -35,29 +35,14 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css2/style.css') }}" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: Arsha
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
-        <div class="container d-flex align-items-center">
-
-            {{-- <h1 class="logo me-auto"><a href="/">EPIS</a></h1> --}}
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-    </header><!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
+    <section id="hero" class="d-flex align-items-center"
+        style="background-image:url(../../../assets/img/corner-4.png); background-position: right bottom; background-repeat: no-repeat">
 
         <div class="container">
             <div class="row">
@@ -82,23 +67,6 @@
         </div>
 
     </section><!-- End Hero -->
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-
-        <div class="container footer-bottom clearfix">
-            <div class="copyright">
-                &copy; Epis <strong><span>Elektornic Personal Information System</span></strong>
-            </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-                <a href="#">V.2.0.0</a>
-            </div>
-        </div>
-    </footer><!-- End Footer -->
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

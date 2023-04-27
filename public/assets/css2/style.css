@@ -11,7 +11,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #444444;
+  color: #f10000;
 }
 
 a {
@@ -399,7 +399,7 @@ h6 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: #090083ad;
+  color: #ababb4ad;
 }
 
 #hero h2 {
@@ -449,12 +449,13 @@ h6 {
 }
 
 #hero .animated {
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+  animation: up-down 1s ease-in-out infinite alternate-reverse both;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1000px) {
   #hero {
     height: 100vh;
+    flex: 1;
     text-align: center;
   }
 
@@ -467,7 +468,7 @@ h6 {
   }
 
   #hero .hero-img img {
-    width: 50%;
+    width: 100%;
   }
 }
 
@@ -513,7 +514,7 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 313px 0;
   overflow: hidden;
 }
 
