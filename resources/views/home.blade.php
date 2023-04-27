@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="row g-3 mb-3">
-        <div class="col-md-6">
+
+        <a href="{{ url('dashboard/manage/user/') }}" class="col-md-6">
             <div class="card h-md-100 ecommerce-card-min-width">
                 <div class="card-header pb-0">
                     <div class="bg-holder d-none d-lg-block bg-card"
@@ -19,7 +20,8 @@
                     <div class="row">
                         <div class="col">
                             <p class="font-sans-serif lh-1 mb-1 fs-4">
-                            <h1>{{ $user }}</h1> User</p>
+                            <h1>{{ $user }}</h1> User
+                            </p>
                         </div>
                         <div class="col-auto ps-0">
                             <div class="bi bi-person"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"
@@ -31,8 +33,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
+        </a>
+
+        <a href="dashboard/data/pegawai" class="col-md-6">
             <div class="card h-md-100 ecommerce-card-min-width">
                 <div class="card-header pb-0">
                     <div class="bg-holder d-none d-lg-block bg-card"
@@ -66,7 +69,7 @@
                 </div>
 
             </div>
-        </div>
+        </a>
     </div>
 
     <div class="card mb-3">
@@ -75,8 +78,9 @@
                 <form action="/dashboard/scan/" method="GET">
                     <div class="mb-3">
                         <label class="form-label" for="basic-form-nama">Scan NRP</label>
-                        <input class="form-control @error('nopassring') is-invalid @enderror" id="basic-form-nopassring"
-                            name="nopassring" type="text" placeholder="Scann NRP" value="{{ old('nopassring') }}" />
+                        <input class="form-control @error('nopassring') is-invalid @enderror" id="nopassring"
+                            name="nopassring" type="text" placeholder="Scann NRP" value="{{ old('nopassring') }}"
+                            autofocus />
                         @error('nopassring')
                             <div class="invalid-feedback">
                                 {{ $message }}

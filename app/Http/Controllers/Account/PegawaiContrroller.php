@@ -56,7 +56,7 @@ class PegawaiContrroller extends Controller
         ]);
 
         $pegawai = DataPegawai::create($validateData);
-        toast('Data berhasil tersimpan', 'success');
+        Alert::info('Jangan Kembali Dari Halaman Ini', 'Info Message');
         return redirect()->route('siyalemen.create', $pegawai->id);
     }
 

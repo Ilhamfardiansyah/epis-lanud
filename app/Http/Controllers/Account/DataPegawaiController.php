@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Account;
 
+use PDF;
 use App\Models\Siyalem;
 use App\Models\DataFoto;
 use App\Models\DataPegawai;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use PDF;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DataPegawaiController extends Controller
 {
@@ -41,21 +42,27 @@ class DataPegawaiController extends Controller
     }
 
     public function cari(Request $request)
-    {
-        // Ambil nilai nopassring dari query parameter
-        $nopassring = $request->query('nopassring');
+{
+    // Ambil nilai nopassring dari query parameter
+    $nopassring = $request->query('nopassring');
 
-        // Lakukan sesuatu dengan nilai nopassring, misalnya query ke database
-        $dataPegawai = DataPegawai::where(['nopassring' => $nopassring])->latest()->first();
+    // Lakukan sesuatu dengan nilai nopassring, misalnya query ke database
+    $dataPegawai = DataPegawai::where(['nopassring' => $nopassring])->latest()->first();
 
-        // Tampilkan view dengan data yang diperoleh dari database jika data ditemukan
-        if($dataPegawai){
-            return view('Account/Search/Scan', compact('dataPegawai'));
-        } else {
-            // Jika data tidak ditemukan, tampilkan pesan error pada view yang sama
-            return view('Account/Search/Scan')->with('error', 'Data tidak ditemukan');
-        }
+    // Cek apakah data ditemukan atau tidak
+    if ($dataPegawai) {
+        // Jika data ditemukan, tampilkan view dengan data yang diperoleh dari database
+        return view('Account/Search/Scan', compact('dataPegawai'));
+    } else {
+        // Jika data tidak ditemukan, tampilkan pesan error pada view yang sama
+        Alert::error('Data Tidak Di Temukan');
+        return back();
     }
+}
+
+
+
+
 
 
 }
