@@ -3,8 +3,8 @@
     <div class="col-12 mb-3">
         <label class="form-label" for="nopassring">No
             Passring</label>
-        <input class="form-control" id="event-name" name="nopassring" value="{{ $dataPegawai->nopassring }}" type="text"
-            readonly />
+        <input class="form-control" id="basic-form-nopassring" name="nopassring" value="{{ $dataPegawai->nopassring }}"
+            type="text" readonly />
     </div>
 
     <div class="col-12 sm-6 mb-3">
@@ -22,7 +22,7 @@
 
     <div class="col-12 sm-6 mb-3">
         <label class="form-label" for="NRP">NRP</label>
-        <input class="form-control datetimepicker" id="NRP" name="NRP" type="text"
+        <input class="form-control datetimepicker" id="basic-form-nrp" name="NRP" type="text"
             value="{{ $dataPegawai->NRP }}" />
     </div>
 
@@ -199,3 +199,14 @@
         Data
     </button>
 </form>
+<script>
+    // Get the input elements
+    const nrpInput = document.getElementById('basic-form-nrp');
+    const nopassringInput = document.getElementById('basic-form-nopassring');
+
+    // Listen for input event on NRP input
+    nrpInput.addEventListener('input', function() {
+        // Set nopassring value to NRP value
+        nopassringInput.value = this.value;
+    });
+</script>

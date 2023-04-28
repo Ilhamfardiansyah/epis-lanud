@@ -30,12 +30,13 @@
                                 @include('sweetalert::alert')
                                 <form action="{{ route('pegawai.store') }}" method="post">
                                     @csrf
+
                                     <div class="mb-3">
-                                        <label class="form-label" for="basic-form-nopassring">No. Pass Ring</label>
-                                        <input class="form-control @error('nopassring') is-invalid @enderror"
-                                            id="basic-form-nopassring" name="nopassring" type="text"
-                                            placeholder="No. Pass Ring" autofocus value="{{ old('nopassring') }}" />
-                                        @error('nopassring')
+                                        <label class="form-label" for="basic-form-nrp">No NRP</label>
+                                        <input class="form-control @error('NRP') is-invalid @enderror" id="basic-form-nrp"
+                                            name="NRP" type="text" placeholder="No NRP" value="{{ old('NRP') }}"
+                                            autofocus />
+                                        @error('NRP')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -67,16 +68,17 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label" for="basic-form-nrp">No NRP</label>
-                                        <input class="form-control @error('NRP') is-invalid @enderror" id="basic-form-nrp"
-                                            name="NRP" type="text" placeholder="No NRP"
-                                            value="{{ old('NRP') }}" />
-                                        @error('NRP')
+                                        <label class="form-label" for="basic-form-nopassring">No. Pass Ring</label>
+                                        <input class="form-control @error('nopassring') is-invalid @enderror"
+                                            id="basic-form-nopassring" name="nopassring" type="text"
+                                            placeholder="No. Pass Ring" value="{{ old('nopassring') }}" readonly />
+                                        @error('nopassring')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
+
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-jabatan">Jabatan</label>
@@ -339,6 +341,17 @@
                             <button class="btn btn-primary" type="submit">Submit</button>
                             </form>
                         </div>
+                        <script>
+                            // Get the input elements
+                            const nrpInput = document.getElementById('basic-form-nrp');
+                            const nopassringInput = document.getElementById('basic-form-nopassring');
+
+                            // Listen for input event on NRP input
+                            nrpInput.addEventListener('input', function() {
+                                // Set nopassring value to NRP value
+                                nopassringInput.value = this.value;
+                            });
+                        </script>
                     </div>
                 </div>
             </div>

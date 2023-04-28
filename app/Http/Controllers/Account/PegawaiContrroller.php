@@ -56,7 +56,7 @@ class PegawaiContrroller extends Controller
         ]);
 
         $pegawai = DataPegawai::create($validateData);
-        Alert::info('Jangan Kembali Dari Halaman Ini', 'Info Message');
+        Alert::info('Jangan Kembali Dari Halaman Ini', 'Lanjutkan jika ada salah penginputan lakukan edit data');
         return redirect()->route('siyalemen.create', $pegawai->id);
     }
 
@@ -86,7 +86,8 @@ class PegawaiContrroller extends Controller
         ]);
 
         $siyalem = Siyalem::create($validateData);
-        toast('Data berhasil tersimpan', 'success');
+        Alert::info('Jangan Kembali Dari Halaman Ini', 'Lanjutkan jika ada salah penginputan lakukan edit data');
+
         return redirect()->route('photo.create', $siyalem->id);
     }
 

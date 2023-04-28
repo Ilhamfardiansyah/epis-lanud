@@ -80,7 +80,7 @@
                         <label class="form-label" for="basic-form-nama">Scan NRP</label>
                         <input class="form-control @error('nopassring') is-invalid @enderror" id="nopassring"
                             name="nopassring" type="text" placeholder="Scann NRP" value="{{ old('nopassring') }}"
-                            autofocus />
+                            autofocus autocomplete />
                         @error('nopassring')
                             <div class="invalid-feedback">
                                 {{ $message }}
