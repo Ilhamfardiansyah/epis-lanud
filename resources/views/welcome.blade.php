@@ -42,7 +42,7 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center"
-        style="background-image:url(../../../assets/img/corner-4.png); background-position: right bottom; background-repeat: no-repeat">
+        style="background-image:url(../../../assets/img/corner-4.png); background-position: right top; background-size: contain; background-repeat: no-repeat">
 
         <div class="container">
             <div class="row">
