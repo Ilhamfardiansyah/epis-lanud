@@ -71,31 +71,4 @@
             </div>
         </a>
     </div>
-
-    <div class="card mb-3">
-        <div class="card-body bg-light">
-            <div class="tab-content">
-                <form action="/dashboard/scan/" method="GET">
-                    <div class="mb-3">
-                        <label class="form-label" for="basic-form-nama">Scan NRP</label>
-                        <input class="form-control @error('nopassring') is-invalid @enderror" id="nopassring"
-                            name="nopassring" type="text" placeholder="Scann NRP" value="{{ old('nopassring') }}"
-                            autofocus autocomplete />
-                        @error('nopassring')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 @endsection
-
-<script>
-    var input = document.querySelector('#input1');
-    input.addEventListener('keyup', function() {
-        alert('test')
-    })
-</script>
