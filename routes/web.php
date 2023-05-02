@@ -110,6 +110,9 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::get('scan/', [App\Http\Controllers\Account\DataPegawaiController::class, 'cari'])
         ->name('cari');
+
+    Route::get('datamaster/', [App\Http\Controllers\Account\DataMasterController::class, 'index'])
+        ->name('datamaster');
 });
 
 
