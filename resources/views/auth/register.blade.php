@@ -35,7 +35,7 @@
                                 <div class="col-md-6">
                                     <input id="nama" type="text"
                                         class="form-control @error('nama') is-invalid @enderror" name="nama"
-                                        value="{{ old('nama') }}" required autocomplete="nama" autofocus>
+                                        value="{{ old('nama') }}" required autocomplete="nama">
 
                                     @error('nama')
                                         <span class="invalid-feedback" role="alert">
@@ -47,12 +47,12 @@
 
                             <div class="row mb-3">
                                 <label for="nip"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('nip') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Nip') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="nip" type="text"
                                         class="form-control @error('nip') is-invalid @enderror" name="nip"
-                                        value="{{ old('nip') }}" required autocomplete="nip" autofocus>
+                                        value="{{ old('nip') }}" required autocomplete="nip">
 
                                     @error('nip')
                                         <span class="invalid-feedback" role="alert">
@@ -71,7 +71,9 @@
                                         name="role">
                                         <option selected disabled>-- Pilih Role --</option>
                                         @foreach ($role as $roles)
-                                            <option value="{{ $roles->name }}">{{ $roles->name }}</option>
+                                            <option value="{{ $roles->name }}"
+                                                {{ old('role') == $roles->name ? 'selected' : '' }}>
+                                                {{ $roles->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

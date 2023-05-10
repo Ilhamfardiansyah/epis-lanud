@@ -52,7 +52,7 @@ class RegisterController extends Controller
     {
         // dd($data);
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'nama' => ['required', 'string', 'max:255'],
             'nip'   => ['required', 'string', 'max:255', 'unique:users'],
             'role'   => ['required', 'string'],
@@ -92,7 +92,7 @@ class RegisterController extends Controller
 
     $user->assignRole($role);
 
-    alert()->success('User', 'Berhasil Ditambahkan');
+    alert()->success('User Baru', 'Berhasil Ditambahkan');
 
     return $user;
 }
