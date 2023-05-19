@@ -221,7 +221,8 @@
                 atas mengenai
                 kepala belakang
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->telinga === 'Lain-lain' ? 'selected' : '' }}>Lain-Lain
+            </option>
         </select>
     </div>
 

@@ -55,7 +55,7 @@
                                         <div class="card-body pt-2">
                                             <div>
                                                 <img style="width: 100%; height: 400px; object-position: center; object-fit: cover"
-                                                    src="{{ asset($dataPegawai->siyalem->data_fotos->depan_pic) }}"
+                                                    src="{{ $dataPegawai->siyalem ? asset($dataPegawai->siyalem->data_fotos->depan_pic) : '' }}"
                                                     alt="{{ asset('assets/img/user.png') }}">
                                                 <input type="file" name="depan_pic" id="depan_pic"
                                                     class="form-control mt-2">
@@ -72,7 +72,7 @@
                                         <div class="card-body pt-2">
                                             <div>
                                                 <img style="width: 100%; height: 400px; object-position: center; object-fit: cover"
-                                                    src="{{ asset($dataPegawai->siyalem->data_fotos->kanan_pic) }}"
+                                                    src="{{ $dataPegawai->siyalem ? asset($dataPegawai->siyalem->data_fotos->kanan_pic) : '' }}"
                                                     alt="{{ asset('assets/img/user.png') }}">
                                                 <input type="file" name="kanan_pic" id="kanan_pic"
                                                     class="form-control mt-2">
@@ -93,7 +93,7 @@
                                         <div class="card-body pt-2">
                                             <div>
                                                 <img style="width: 100%; height: 400px; object-position: center; object-fit: cover"
-                                                    src="{{ asset($dataPegawai->siyalem->data_fotos->kiri_pic) }}"
+                                                    src="{{ $dataPegawai->siyalem ? asset($dataPegawai->siyalem->data_fotos->kiri_pic) : '' }}"
                                                     alt="{{ asset('assets/img/user.png') }}">
                                                 <input type="file" name="kiri_pic" id="kiri_pic"
                                                     class="form-control mt-2">
@@ -114,7 +114,7 @@
                                         <div class="card-body pt-2">
                                             <div>
                                                 <img style="width: 100%; height: 400px; object-position: center; object-fit: cover"
-                                                    src="{{ asset($dataPegawai->siyalem->data_fotos->sidik_pic) }}"
+                                                    src="{{ $dataPegawai->siyalem ? asset($dataPegawai->siyalem->data_fotos->sidik_pic) : '' }}"
                                                     alt="{{ asset('assets/img/user.png') }}">
                                                 <input type="file" name="sidik_pic" id="sidik_pic"
                                                     class="form-control mt-2">
@@ -130,7 +130,7 @@
                                 <div class="col-sm-12 mb-3 mt-2">
                                     <label class="form-label" for="ket_pic">Keterangan Anggota</label>
                                     <input class="form-control datetimepicker" id="ket_pic" name="ket_pic" type="text"
-                                        value="{{ $dataPegawai->siyalem->data_fotos->ket_pic }}" />
+                                        value="{{ $dataPegawai->siyalem ? $dataPegawai->siyalem->data_fotos->ket_pic : '' }}" />
                                     <button class="btn btn-primary mt-3" type="submit">Edit Foto
                                     </button>
                                 </div>

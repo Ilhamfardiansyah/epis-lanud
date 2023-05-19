@@ -156,11 +156,11 @@ class PegawaiContrroller extends Controller
 
         // validasi data
         $validated = $this->validate($request, [
-            'kanan_pic' => 'require|image|mimes:png,jpg,jpeg',
-            'kiri_pic' => 'require|image|mimes:png,jpg,jpeg',
-            'sidik_pic' => 'require|image|mimes:png,jpg,jpeg',
-            'depan_pic' => 'require|image|mimes:png,jpg,jpeg',
-            'ket_pic' => 'require'
+            'kanan_pic' => 'image|mimes:png,jpg,jpeg',
+            'kiri_pic' => 'image|mimes:png,jpg,jpeg',
+            'sidik_pic' => 'image|mimes:png,jpg,jpeg',
+            'depan_pic' => 'image|mimes:png,jpg,jpeg',
+            'ket_pic' => ''
         ]);
 
         // upload foto depan
