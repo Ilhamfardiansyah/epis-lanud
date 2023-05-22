@@ -24,6 +24,10 @@
                     </div>
                 </div>
 
+                <div class="alert alert-danger" role="alert">
+                    Jangan keluar dari halaman ini, jika ada salah penginputan lakukan pengeditan data..
+                </div>
+
                 <div class="card mb-3">
                     <div class="card-body bg-light">
                         <div class="tab-content">
