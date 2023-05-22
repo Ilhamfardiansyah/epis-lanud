@@ -113,6 +113,12 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::get('datamaster/', [App\Http\Controllers\Account\DataMasterController::class, 'index'])
         ->name('datamaster');
+
+    Route::get('addimage/', [App\Http\Controllers\Account\DataPegawaiController::class, 'image'])
+        ->name('addimage');
+
+    Route::post('uploadimage/', [App\Http\Controllers\Account\DataPegawaiController::class, 'uploadimage'])
+        ->name('uploadimage');
 });
 
 

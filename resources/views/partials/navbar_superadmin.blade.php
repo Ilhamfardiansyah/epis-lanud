@@ -12,9 +12,12 @@
                 data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span
                         class="toggle-line"></span></span></button>
 
+            @php
+                $aplikasi = App\Models\T_Aplikasi::latest()->first();
+            @endphp
         </div><a class="navbar-brand" href="/">
-            <div class="d-flex align-items-center py-3"><img class="me-2"
-                    src="{{ asset('assets/img/logo_warna.png') }}" alt="" width="45" /><span
+            <div class="d-flex align-items-center py-3"><img class="me-2" src="{{ $aplikasi->logo }}"
+                    alt="{{ asset('assets/img/logo_puspom.png') }}" width="45" /><span
                     class="font-sans-serif">EPIS</span>
             </div>
         </a>
@@ -94,6 +97,14 @@
                         href="{{ url('dashboard/manage/user') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-users"></span></span><span class="nav-link-text ps-1">
+                                Manage User</span>
+                        </div>
+                    </a>
+
+                    <a class="nav-link {{ Request::is('dashboard/addimage') ? 'active' : '' }}"
+                        href="{{ url('dashboard/addimage') }}" role="button" aria-expanded="false">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                    class="fas fa-images"></span></span><span class="nav-link-text ps-1">
                                 Manage User</span>
                         </div>
                     </a>
