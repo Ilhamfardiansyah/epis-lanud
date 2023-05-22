@@ -51,6 +51,7 @@
                                             <option value="Tegak">Tegak</option>
                                             <option value="Lempai">Lempai</option>
                                             <option value="Lemah">Lemah</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('lembaga')
                                             <div class="invalid-feedback">
@@ -68,6 +69,7 @@
                                             <option value="Gagah">Gagah</option>
                                             <option value="Bungkok">Bungkok</option>
                                             <option value="Kepal Tunduk Kaku">Kepal Tunduk Kaku</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('sikap')
                                             <div class="invalid-feedback">
@@ -85,6 +87,7 @@
                                             <option value="Tenang">Tenang</option>
                                             <option value="Langkah Panjang">Langkah Panjang</option>
                                             <option value="Langkah Pendek">Langkah Pendek</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('langkah')
                                             <div class="invalid-feedback">
@@ -104,6 +107,7 @@
                                             <option value="Lonjong">Lonjong</option>
                                             <option value="Jorong">Jorong</option>
                                             <option value="Panjang">Panjang</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('bangun kepala')
                                             <div class="invalid-feedback">
@@ -121,6 +125,7 @@
                                             <option value="Berombak/Kejur">Berombak/Kejur</option>
                                             <option value="Kejur/Keriting">Kejur/Keriting</option>
                                             <option value="Tegak">Tegak</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('rambut')
                                             <div class="invalid-feedback">
@@ -137,6 +142,7 @@
                                             <option value="Rata">Rata</option>
                                             <option value="Miring">Miring</option>
                                             <option value="Ke Atas/Ke Bawah">Ke Atas/Ke Bawah</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('kening')
                                             <div class="invalid-feedback">
@@ -154,6 +160,7 @@
                                                 Kebawah
                                             </option>
                                             <option value="Cenderung ke belakang">Cenderung ke belakang</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('dahi')
                                             <div class="invalid-feedback">
@@ -172,6 +179,7 @@
                                                 value="Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas">
                                                 Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas
                                             </option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('hidung')
                                             <div class="invalid-feedback">
@@ -188,6 +196,7 @@
                                             <option value="Tebal">Tebal</option>
                                             <option value="Tipis">Tipis</option>
                                             <option value="Sumbing">Sumbing</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('bibir')
                                             <div class="invalid-feedback">
@@ -210,6 +219,7 @@
                                                 Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala
                                                 belakang
                                             </option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('telinga')
                                             <div class="invalid-feedback">
@@ -226,6 +236,7 @@
                                             <option selected disabled>-- Urusan Polisi Militer --</option>
                                             <option value="Pernah">Pernah</option>
                                             <option value="Tidak Pernah">Tidak Pernah</option>
+                                            <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('urusan polisi militer')
                                             <div class="invalid-feedback">

@@ -18,7 +18,8 @@
             <option value="Lemah" {{ $dataPegawai->siyalem->lembaga === 'Lemah' ? 'selected' : '' }}>
                 Lemah
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->lembaga === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
+            </option>
         </select>
     </div>
 
@@ -39,7 +40,8 @@
                 {{ $dataPegawai->siyalem->sikap === 'Kepal Tunduk Kaku' ? 'selected' : '' }}>
                 Kepal Tunduk Kaku
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            </option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->sikap === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
         </select>
     </div>
 
@@ -59,6 +61,8 @@
             </option>
             <option value="Langkah Pendek" {{ $dataPegawai->siyalem->langkah === 'Langkah Pendek' ? 'selected' : '' }}>
                 Langkah Pendek
+            </option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->langkah === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
             </option>
         </select>
         @error('langkah')
@@ -94,7 +98,9 @@
             <option value="Panjang" {{ $dataPegawai->siyalem->bangun_kepala === 'Panjang' ? 'selected' : '' }}>
                 Panjang
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->bangun_kepala === 'Lain-Lain' ? 'selected' : '' }}>
+                Lain-Lain
+            </option>
         </select>
     </div>
 
@@ -114,27 +120,8 @@
             <option value="Tegak" {{ $dataPegawai->siyalem->rambut === 'Tegak' ? 'selected' : '' }}>
                 Tegak
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
-        </select>
-    </div>
-
-    <div class="col-sm-12 mb-3">
-        <label class="form-label" for="rambut">Rambut</label>
-        <select class="form-select" id="basic-form-gender" name="rambut" aria-label="Default select example">
-            <option selected disabled>--Pilih Rambut--</option>
-            <option value="Lebat/Jarang" {{ $dataPegawai->siyalem->rambut === 'Lebat/Jarang' ? 'selected' : '' }}>
-                Lebat/Jarang
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->rambut === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
             </option>
-            <option value="Berombak/Kejur" {{ $dataPegawai->siyalem->rambut === 'Berombak/Kejur' ? 'selected' : '' }}>
-                Berombak/Kejur
-            </option>
-            <option value="Kejur/Keriting" {{ $dataPegawai->siyalem->rambut === 'Kejur/Keriting' ? 'selected' : '' }}>
-                Kejur/Keriting
-            </option>
-            <option value="Tegak" {{ $dataPegawai->siyalem->rambut === 'Tegak' ? 'selected' : '' }}>
-                Tegak
-            </option>
-            <option value="Lain-Lain">Lain-Lain</option>
         </select>
     </div>
 
@@ -152,7 +139,8 @@
                 {{ $dataPegawai->siyalem->kening === 'Ke Atas/Ke Bawah' ? 'selected' : '' }}>
                 Ke Atas/Ke Bawah
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->kening === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
+            </option>
         </select>
     </div>
 
@@ -168,7 +156,8 @@
                 {{ $dataPegawai->siyalem->dahi === 'Cenderung ke belakang' ? 'selected' : '' }}>
                 Cenderung ke belakang
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->dahi === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
+            </option>
         </select>
     </div>
 
@@ -186,7 +175,8 @@
                 alasnya menuju ke
                 atas
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->hidung === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
+            </option>
         </select>
     </div>
 
@@ -203,7 +193,8 @@
             <option value="Sumbing" {{ $dataPegawai->siyalem->bibir === 'Sumbing' ? 'selected' : '' }}>
                 Sumbing
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->bibir === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
+            </option>
         </select>
     </div>
 
@@ -221,7 +212,7 @@
                 atas mengenai
                 kepala belakang
             </option>
-            <option value="Lain-Lain" {{ $dataPegawai->siyalem->telinga === 'Lain-lain' ? 'selected' : '' }}>Lain-Lain
+            <option value="Lain-Lain" {{ $dataPegawai->siyalem->telinga === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
             </option>
         </select>
     </div>
@@ -241,7 +232,9 @@
                 {{ $dataPegawai->siyalem->urusan_polisi_militer === 'Tidak Pernah' ? 'selected' : '' }}>
                 Tidak Pernah
             </option>
-            <option value="Lain-Lain">Lain-Lain</option>
+            <option value="Lain-Lain"
+                {{ $dataPegawai->siyalem->urusan_polisi_militer === 'Lain-Lain' ? 'selected' : '' }}>Lain-Lain
+            </option>
         </select>
     </div>
     <button class="btn btn-primary" type="submit">Edit
