@@ -52,7 +52,8 @@
                     data-aos="fade-up" data-aos-delay="200">
                     <h1>EPIS</h1>
                     <h2>Elektornic Personal Information System</h2>
-                    <h2>{{ $aplikasi->alamat }}</h2>
+                    <h1>{{ $aplikasi->nama ?? '' }}</h1>
+                    <h2>{{ $aplikasi->alamat ?? '' }}</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         @auth
                             <a href="{{ url('/home') }}" class="btn-get-started scrollto">Home</a>
@@ -65,8 +66,8 @@
                 </div>
 
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="{{ $aplikasi->logo }}" class="img-fluid animated"
-                        alt="{{ asset('assets/img/logo_puspom.png') }}">
+                    <img src="{{ $aplikasi->logo ?? asset('assets/img/logo_puspom.png') }}" class="img-fluid animated"
+                        alt="">
                 </div>
             </div>
         </div>

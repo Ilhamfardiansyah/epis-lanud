@@ -16,7 +16,8 @@
                 $aplikasi = App\Models\T_Aplikasi::latest()->first();
             @endphp
         </div><a class="navbar-brand" href="/">
-            <div class="d-flex align-items-center py-3"><img class="me-2" src="{{ $aplikasi->logo }}"
+            <div class="d-flex align-items-center py-3"><img class="me-2"
+                    src="{{ $aplikasi->logo ?? asset('assets/img/logo_puspom.png') }}"
                     alt="{{ asset('assets/img/logo_puspom.png') }}" width="45" /><span
                     class="font-sans-serif">EPIS</span>
             </div>
