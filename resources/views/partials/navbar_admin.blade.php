@@ -8,6 +8,10 @@
     <div class="d-flex align-items-center">
         <div class="toggle-icon-wrapper">
 
+            @php
+                $aplikasi = App\Models\T_Aplikasi::latest()->first();
+            @endphp
+
             <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
                 data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span
                         class="toggle-line"></span></span></button>
