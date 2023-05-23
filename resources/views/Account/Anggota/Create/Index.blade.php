@@ -186,10 +186,13 @@
                                         <label class="form-label" for="basic-form-gender">Jenis Kelamin</label>
                                         <select class="form-select @error('jenis') is-invalid @enderror"
                                             id="basic-form-gender" name="jenis" aria-label="Default select example">
-                                            <option selected disabled>--Jenis Kelamin--</option>
-                                            <option value="Laki-Laki">Laki-Laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                            <option value="Lain-Lain">Lain-Lain</option>
+                                            <option disabled>--Jenis Kelamin--</option>
+                                            <option value="Laki-Laki" {{ old('jenis') == 'Laki-Laki' ? 'selected' : '' }}>
+                                                Laki-Laki</option>
+                                            <option value="Perempuan" {{ old('jenis') == 'Perempuan' ? 'selected' : '' }}>
+                                                Perempuan</option>
+                                            <option value="Lain-Lain" {{ old('jenis') == 'Lain-Lain' ? 'selected' : '' }}>
+                                                Lain-Lain</option>
                                         </select>
                                         @error('jenis')
                                             <div class="invalid-feedback">
@@ -202,7 +205,7 @@
                                         <label class="form-label" for="basic-form-alamat">Alamat</label>
                                         <textarea class="form-control @error('alamatsekarang') is-invalid @enderror" id="basic-form-alamat"
                                             name="alamatsekarang" rows="3" placeholder="Contoh: Jakarta Pusat, Jl.Tanah Abang no 01"
-                                            aria-valuemax="{{ old('alamatsekarang') }}"></textarea>
+                                            aria-valuemax="{{ old('alamatsekarang') }}">{{ old('alamatsekarang') }}</textarea>
                                         @error('alamatsekarang')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -227,14 +230,22 @@
                                         <select class="form-select @error('agama') is-invalid @enderror"
                                             aria-valuetext="{{ old('agama') }}" id="basic-form-gender" name="agama"
                                             aria-label="Default select example">
-                                            <option selected disabled>--Pilih Agama--</option>
-                                            <option value="Islam">Islam</option>
-                                            <option value="Kristen Protestan">Kristen Protestan</option>
-                                            <option value="Katolik">Katolik</option>
-                                            <option value="Hindu">Hindu</option>
-                                            <option value="Budha">Budha</option>
-                                            <option value="Konghucu">Konghucu</option>
-                                            <option value="Lain-Lain">Lain-Lain</option>
+                                            <option disabled>--Pilih Agama--</option>
+                                            <option value="Islam" {{ old('agama') == 'Islam' ? 'selected' : '' }}>Islam
+                                            </option>
+                                            <option value="Kristen Protestan"
+                                                {{ old('agama') == 'Kristen Protestan' ? 'selected' : '' }}>Kristen
+                                                Protestan</option>
+                                            <option value="Katolik" {{ old('agama') == 'Katolik' ? 'selected' : '' }}>
+                                                Katolik</option>
+                                            <option value="Hindu" {{ old('agama') == 'Hindu' ? 'selected' : '' }}>Hindu
+                                            </option>
+                                            <option value="Budha" {{ old('agama') == 'Budha' ? 'selected' : '' }}>Budha
+                                            </option>
+                                            <option value="Konghucu" {{ old('agama') == 'Konghucu' ? 'selected' : '' }}>
+                                                Konghucu</option>
+                                            <option value="Lain-Lain" {{ old('agama') == 'Lain-Lain' ? 'selected' : '' }}>
+                                                Lain-Lain</option>
                                         </select>
                                         @error('agama')
                                             <div class="invalid-feedback">
@@ -242,6 +253,7 @@
                                             </div>
                                         @enderror
                                     </div>
+
 
                                     <label class="form-label" for="basic-form-tinggi">Tinggi & Berat</label>
                                     <div class="input-group mb-3">
@@ -270,7 +282,7 @@
                                 <label class="form-label" for="basic-form-namaayah">Nama Ayah & Alamat</label>
                                 <textarea class="form-control @error('ayahalamat') is-invalid @enderror" id="basic-form-namaayah" name="ayahalamat"
                                     rows="3" type="text" placeholder="Contoh: Nama Ayah, Jakarta Pusat, Jl.Tanah Abang no 01"
-                                    aria-valuetext="{{ old('ayahalamat') }}"></textarea>
+                                    aria-valuetext="{{ old('ayahalamat') }}">{{ old('ayahalamat') }}</textarea>
                                 @error('ayahalamat')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -281,7 +293,7 @@
                                 <label class="form-label" for="basic-form-namaibu">Nama Ibu & Alamat</label>
                                 <textarea class="form-control @error('ibualamat') is-invalid @enderror" id="basic-form-namaibu" name="ibualamat"
                                     rows="3" type="text" placeholder="Contoh: Nama Ibu, Jakarta Pusat, Jl.Tanah Abang no 01"
-                                    aria-valuetext="{{ old('ibualamat') }}"></textarea>
+                                    aria-valuetext="{{ old('ibualamat') }}">{{ old('ibualamat') }}</textarea>
                                 @error('ibualamat')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -302,7 +314,7 @@
                                     Alamat</label>
                                 <textarea class="form-control @error('istrialamat') is-invalid @enderror" id="basic-form-namapasangan"
                                     rows="3" name="istrialamat" placeholder="Contoh: Nama istri/suami, Jakarta Pusat, Jl.Tanah Abang no 01 "
-                                    aria-valuetext="{{ old('istrialamat') }}"></textarea>
+                                    aria-valuetext="{{ old('istrialamat') }}">{{ old('istrialamat') }}</textarea>
                                 @error('istrialamat')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -313,7 +325,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="basic-form-aktenikah">Tempat/No Akte Nikah</label>
                                 <textarea class="form-control @error('tempatnikah') is-invalid @enderror" id="basic-form-aktenikah" rows="3"
-                                    name="tempatnikah" type="text" placeholder="Tempat/No Akte Nikah" aria-valuetext="{{ old('tempatnikah') }}"></textarea>
+                                    name="tempatnikah" type="text" placeholder="Tempat/No Akte Nikah" aria-valuetext="{{ old('tempatnikah') }}">{{ old('tempatnikah') }}</textarea>
                                 @error('tempatnikah')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -324,8 +336,9 @@
                             <div class="row mb-3">
                                 <label class="form-label" for="basic-form-anak">Nama Anak Kandung</label>
                                 <div class="col">
-                                    <textarea type="text" class="form-control" name="namaanak" placeholder="Contoh: Budi, Wahyu, Intan"
-                                        rows="3" aria-label="Nama Anak Kandung"></textarea>
+                                    <textarea type="text" class="form-control  @error('namaanak') is-invalid @enderror" name="namaanak"
+                                        placeholder="Contoh: Budi, Wahyu, Intan" rows="3" aria-label="Nama Anak Kandung"
+                                        aria-valuetext="{{ old('namaanak') }}">{{ old('namaanak') }}</textarea>
                                 </div>
                             </div>
 
@@ -334,7 +347,8 @@
                                     Suami/Istri</label>
                                 <textarea class="form-control @error('ortuistrialamat') is-invalid @enderror" id="basic-form-password"
                                     name="ortuistrialamat" rows="3" type="text"
-                                    placeholder="Contoh: Nama Orang Tua Dari Suami/Istri, Jakarta Pusat, Jl.Tanah Abang no 01"></textarea>
+                                    placeholder="Contoh: Nama Orang Tua Dari Suami/Istri, Jakarta Pusat, Jl.Tanah Abang no 01"
+                                    aria-valuetext="{{ old('ortuistrialamat') }}">{{ old('ortuistrialamat') }}</textarea>
                                 @error('ortuistrialamat')
                                     <div class="invalid-feedback">
                                         {{ $message }}

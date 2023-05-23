@@ -56,7 +56,7 @@
                                             <div>
                                                 <img style="width: 100%; height: 400px; object-position: center; object-fit: cover"
                                                     src="{{ $dataPegawai->siyalem ? asset($dataPegawai->siyalem->data_fotos->depan_pic) : '' }}"
-                                                    alt="{{ asset('assets/img/user.png') }}">
+                                                    alt="no image">
                                                 <input type="file" name="depan_pic" id="depan_pic"
                                                     class="form-control mt-2">
                                             </div>
@@ -73,7 +73,7 @@
                                             <div>
                                                 <img style="width: 100%; height: 400px; object-position: center; object-fit: cover"
                                                     src="{{ $dataPegawai->siyalem ? asset($dataPegawai->siyalem->data_fotos->kanan_pic) : '' }}"
-                                                    alt="{{ asset('assets/img/user.png') }}">
+                                                    alt="no image">
                                                 <input type="file" name="kanan_pic" id="kanan_pic"
                                                     class="form-control mt-2">
                                             </div>
@@ -94,7 +94,7 @@
                                             <div>
                                                 <img style="width: 100%; height: 400px; object-position: center; object-fit: cover"
                                                     src="{{ $dataPegawai->siyalem ? asset($dataPegawai->siyalem->data_fotos->kiri_pic) : '' }}"
-                                                    alt="{{ asset('assets/img/user.png') }}">
+                                                    alt="no image">
                                                 <input type="file" name="kiri_pic" id="kiri_pic"
                                                     class="form-control mt-2">
                                             </div>
@@ -115,7 +115,7 @@
                                             <div>
                                                 <img style="width: 100%; height: 400px; object-position: center; object-fit: cover"
                                                     src="{{ $dataPegawai->siyalem ? asset($dataPegawai->siyalem->data_fotos->sidik_pic) : '' }}"
-                                                    alt="{{ asset('assets/img/user.png') }}">
+                                                    alt="no image">
                                                 <input type="file" name="sidik_pic" id="sidik_pic"
                                                     class="form-control mt-2">
                                             </div>

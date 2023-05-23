@@ -3,8 +3,8 @@
     <div class="col-12 mb-3">
         <label class="form-label" for="nopassring">No
             Passring</label>
-        <input class="form-control" id="basic-form-nopassring" name="nopassring" value="{{ $dataPegawai->nopassring }}"
-            type="text" readonly />
+        <input class="form-control" id="basic-form-nopassring" name="nopassring"
+            value="{{ $dataPegawai->nopassring ?? '' }}" type="text" readonly />
     </div>
 
     <div class="col-12 sm-6 mb-3">
