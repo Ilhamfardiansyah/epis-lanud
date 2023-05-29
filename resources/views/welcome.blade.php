@@ -67,7 +67,7 @@
 
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
                     <img src="{{ $aplikasi->logo ?? asset('assets/img/logo_puspom.png') }}" class="img-fluid animated"
-                        alt="">
+                        alt="" width="400px">
                 </div>
             </div>
         </div>
