@@ -23,7 +23,6 @@ class DataPegawaiController extends Controller
     public function cetakan(DataPegawai $dataPegawai)
     {
         return view('Account/Cetak Biodata/Printout', compact('dataPegawai'));
-
     }
 
     public function search()

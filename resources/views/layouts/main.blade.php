@@ -54,10 +54,50 @@
             userLinkRTL.setAttribute('disabled', true);
         }
     </script>
+
+    <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            overflow: hidden;
+            background: #0074aa;
+        }
+
+        #preloader:before {
+            content: "";
+            position: fixed;
+            top: calc(50% - 30px);
+            left: calc(50% - 30px);
+            border: 6px solid #37517e;
+            border-top-color: #fff;
+            border-bottom-color: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: animate-preloader 1s linear infinite;
+        }
+
+        @keyframes animate-preloader {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
 </head>
 
 
 <body>
+
 
     <!-- ===============================================-->
     <!--    Main Content-->
@@ -111,10 +151,13 @@
             </div>
         </div>
     </main>
+
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
-
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
     <!-- ===============================================-->
     <!--    JavaScripts-->
@@ -129,6 +172,8 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src={{ asset('vendors/list.js/list.min.js') }}></script>
     <script src={{ asset('assets/js/theme.js') }}></script>
+    <script src="{{ asset('assets/js2/main.js') }}"></script>
+
     @stack('js')
 </body>
 

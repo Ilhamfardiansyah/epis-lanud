@@ -4,7 +4,7 @@
         <label class="form-label" for="nopassring">No
             Passring</label>
         <input class="form-control" id="basic-form-nopassring" name="nopassring"
-            value="{{ $dataPegawai->nopassring ?? '' }}" type="text" readonly />
+            value="{{ $dataPegawai->nopassring ?? '' }}" type="text" />
     </div>
 
     <div class="col-12 sm-6 mb-3">
@@ -199,14 +199,3 @@
         Data
     </button>
 </form>
-<script>
-    // Get the input elements
-    const nrpInput = document.getElementById('basic-form-nrp');
-    const nopassringInput = document.getElementById('basic-form-nopassring');
-
-    // Listen for input event on NRP input
-    nrpInput.addEventListener('input', function() {
-        // Set nopassring value to NRP value
-        nopassringInput.value = this.value;
-    });
-</script>

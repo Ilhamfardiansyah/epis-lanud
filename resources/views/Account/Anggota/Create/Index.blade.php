@@ -75,7 +75,7 @@
                                         <label class="form-label" for="basic-form-nopassring">No. Pass Ring</label>
                                         <input class="form-control @error('nopassring') is-invalid @enderror"
                                             id="basic-form-nopassring" name="nopassring" type="text"
-                                            placeholder="No. Pass Ring" value="{{ old('nopassring') }}" readonly />
+                                            placeholder="No. Pass Ring" value="{{ old('nopassring') }}" />
                                         @error('nopassring')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -359,17 +359,7 @@
                             <button class="btn btn-primary" type="submit">Submit</button>
                             </form>
                         </div>
-                        <script>
-                            // Get the input elements
-                            const nrpInput = document.getElementById('basic-form-nrp');
-                            const nopassringInput = document.getElementById('basic-form-nopassring');
 
-                            // Listen for input event on NRP input
-                            nrpInput.addEventListener('input', function() {
-                                // Set nopassring value to NRP value
-                                nopassringInput.value = this.value;
-                            });
-                        </script>
                     </div>
                 </div>
             </div>
