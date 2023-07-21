@@ -34,6 +34,11 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap"
         rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css" rel="stylesheet">
+
+
     <link href={{ asset('vendors/overlayscrollbars/OverlayScrollbars.min.css') }} rel="stylesheet">
     <link href={{ asset('assets/css/theme-rtl.min.css') }} rel="stylesheet" id="style-rtl">
     <link href={{ asset('assets/css/theme.min.css') }} rel="stylesheet" id="style-default">

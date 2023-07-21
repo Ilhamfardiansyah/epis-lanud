@@ -119,6 +119,9 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::post('uploadimage/', [App\Http\Controllers\Account\DataPegawaiController::class, 'uploadimage'])
         ->name('uploadimage');
+
+    Route::get('export/', [App\Http\Controllers\Account\DataPegawaiController::class, 'export'])
+        ->name('export');
 });
 
 

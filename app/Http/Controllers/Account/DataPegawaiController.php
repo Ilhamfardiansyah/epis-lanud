@@ -59,7 +59,8 @@ class DataPegawaiController extends Controller
             return view('Account/Search/Scan', compact('dataPegawai'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             // Jika data tidak ditemukan, tampilkan pesan error pada view yang sama
-            return back()->with('error', 'Data Tidak Ditemukan');
+            Alert::error('Data Tidak Di Temukan');
+            return back();
         }
     }
 
@@ -103,6 +104,12 @@ class DataPegawaiController extends Controller
         // return
         return 'storage/' . $route . '/' . $filenameToStore;
         // nb2: cara input ke db adalah, $nama->cover_image = $filenameToStore;
+    }
+
+    public function export(){
+
+        $data = DataPegawai::all();
+        return view('Account.Search.Export', compact('data'));
     }
 
 
