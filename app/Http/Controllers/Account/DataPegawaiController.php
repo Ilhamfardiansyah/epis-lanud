@@ -43,22 +43,26 @@ class DataPegawaiController extends Controller
 
     public function cari(Request $request)
     {
-        // Ambil nilai nopassring dari query parameter
-        $nopassring = $request->query('nopassring');
+        // Validasi input nopassring
+        $request->validate([
+            'nopassring' => 'required|string|max:255',
+        ]);
+
+        // Bersihkan nilai nopassring dan ganti '/' dengan '-'
+        $nopassring = str_replace('/', '-', $request->input('nopassring'));
 
         // Lakukan sesuatu dengan nilai nopassring, misalnya query ke database
-        $dataPegawai = DataPegawai::where(['nopassring' => $nopassring])->latest()->first();
+        try {
+            $dataPegawai = DataPegawai::where('nopassring', $nopassring)->latest()->firstOrFail();
 
-        // Cek apakah data ditemukan atau tidak
-        if ($dataPegawai) {
             // Jika data ditemukan, tampilkan view dengan data yang diperoleh dari database
             return view('Account/Search/Scan', compact('dataPegawai'));
-        } else {
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             // Jika data tidak ditemukan, tampilkan pesan error pada view yang sama
-            Alert::error('Data Tidak Di Temukan');
-            return back();
+            return back()->with('error', 'Data Tidak Ditemukan');
         }
     }
+
 
     public function image()
     {

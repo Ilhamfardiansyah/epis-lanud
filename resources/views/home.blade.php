@@ -77,9 +77,9 @@
             <div class="tab-content">
                 <form action="/dashboard/scan/" method="GET">
                     <div class="mb-3">
-                        <label class="form-label" for="basic-form-nama">Scan NRP</label>
+                        <label class="form-label" for="basic-form-nama">Scan No Pass Ring</label>
                         <input class="form-control @error('nopassring') is-invalid @enderror" id="nopassring"
-                            name="nopassring" type="text" placeholder="Scann NRP" value="{{ old('nopassring') }}"
+                            name="nopassring" type="text" placeholder="Scan No Pass Ring" value="{{ old('nopassring') }}"
                             autofocus autocomplete />
                         @error('nopassring')
                             <div class="invalid-feedback">
