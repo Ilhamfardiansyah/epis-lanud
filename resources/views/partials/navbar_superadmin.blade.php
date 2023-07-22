@@ -42,13 +42,13 @@
                         </div>
                     </a>
 
-                    {{-- <a class="nav-link nav-link {{ Request::is('dashboard/export') ? 'active' : '' }}"
+                    <a class="nav-link nav-link {{ Request::is('dashboard/export') ? 'active' : '' }}"
                         href="{{ route('export') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                    class="fas fa-palette"></span></span><span class="nav-link-text ps-1">Export I
+                                    class="fas fa-palette"></span></span><span class="nav-link-text ps-1">Export To i
                                 Design</span>
                         </div>
-                    </a> --}}
+                    </a>
 
                     {{-- Anggota --}}
                     <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
