@@ -6,11 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <style>
+        @media print {
+            .noprint {
+                display: none;
+            }
+        }
+    </style>
 
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>EPIS &amp; Elektronic Personal Information System</title>
+    <title class="nopirnt">EPIS &amp; Elektronic Personal Information System</title>
 
 
     <!-- ===============================================-->

@@ -109,7 +109,30 @@ class DataPegawaiController extends Controller
     public function export(){
 
         $data = DataPegawai::all();
-        return view('Account.Search.Export', compact('data'));
+        return view('Account.Search.ViewExport', compact('data'));
+    }
+
+    public function exportFile(Request $request)
+    {
+         // Validasi input nopassring
+        $request->validate([
+            'nopassring' => 'required|string|max:255',
+        ]);
+
+        // Bersihkan nilai nopassring dan ganti '/' dengan '-'
+        $nopassring = str_replace('/', '-', $request->input('nopassring'));
+
+        // Lakukan sesuatu dengan nilai nopassring, misalnya query ke database
+        try {
+            $dataPegawai = DataPegawai::where('nopassring', $nopassring)->latest()->firstOrFail();
+
+            // Jika data ditemukan, tampilkan view dengan data yang diperoleh dari database
+            return view('Account/Search/Export', compact('dataPegawai'));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            // Jika data tidak ditemukan, tampilkan pesan error pada view yang sama
+            Alert::error('Data Tidak Di Temukan');
+            return back();
+        }
     }
 
 

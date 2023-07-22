@@ -66,26 +66,24 @@
                                 <table id="example" class="display nowrap" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">NO PASSRING</th>
-                                            <th class="text-center">Nama</th>
+                                            <th class="text-center">No Passring</th>
+                                            <th class="text-center">Nama Anggota</th>
                                             <th class="text-center">Pangkat</th>
                                             <th class="text-center">NRP</th>
-                                            <th class="text-center">jabatan_1</th>
-                                            <th class="text-center">jabatan_2</th>
+                                            <th class="text-center">Jabatan</th>
                                             <th class="text-center">Kesatuan</th>
-                                            <th class="text-center">Tempat dan Tanggal Pembuatan </th>
+                                            <th class="text-center">Tempat Dan Tanggal Pembuatan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="text-center">{{ $dataPegawai->nopassring }}</td>
-                                            <td class="text-center">{{ $dataPegawai->nama }}</td>
-                                            <td class="text-center">{{ $dataPegawai->pangkat }}</td>
-                                            <td class="text-center">{{ $dataPegawai->NRP }}</td>
-                                            <td class="text-center">{{ $dataPegawai->jabatan }}</td>
-                                            <td class="text-center"></td>
-                                            <td class="text-center">{{ $dataPegawai->kesatuan }}</td>
-                                            <td class="text-center">{{ $dataPegawai->created_at }}</td>
+                                            <td class="text-center">-</td>
+                                            <td class="text-center">-</td>
+                                            <td class="text-center">-</td>
+                                            <td class="text-center">-</td>
+                                            <td class="text-center">-</td>
+                                            <td class="text-center">-</td>
+                                            <td class="text-center">-</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -102,7 +100,7 @@
             $('#example').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'excel', 'csv'
+                    'copy', 'excel'
                 ]
             });
         });

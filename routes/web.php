@@ -122,6 +122,8 @@ Route::prefix('/dashboard')->group(static function () {
 
     Route::get('export/', [App\Http\Controllers\Account\DataPegawaiController::class, 'export'])
         ->name('export');
+    Route::get('export/file/', [App\Http\Controllers\Account\DataPegawaiController::class, 'exportFile'])
+        ->name('export.file');
 });
 
 
