@@ -234,15 +234,15 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="basic-form-gender">Urusan Polisi Militer</label>
-                                        <select class="form-select @error('urusan polisi militer') is-invalid @enderror"
-                                            id="basic-form-gender" name="urusan polisi militer"
+                                        <select class="form-select @error('urusan_polisi_militer') is-invalid @enderror"
+                                            id="basic-form-gender" name="urusan_polisi_militer"
                                             aria-label="Default select example">
                                             <option selected disabled>-- Urusan Polisi Militer --</option>
                                             <option value="Pernah">Pernah</option>
                                             <option value="Tidak Pernah">Tidak Pernah</option>
                                             <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
-                                        @error('urusan polisi militer')
+                                        @error('urusan_polisi_militer')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

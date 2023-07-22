@@ -45,8 +45,8 @@
                     <a class="nav-link nav-link {{ Request::is('dashboard/export') ? 'active' : '' }}"
                         href="{{ route('export') }}" role="button" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                    class="fas fa-palette"></span></span><span class="nav-link-text ps-1">Export To i
-                                Design</span>
+                                    class="fas fa-palette"></span></span><span class="nav-link-text ps-1">Export To
+                                iDesign</span>
                         </div>
                     </a>
 

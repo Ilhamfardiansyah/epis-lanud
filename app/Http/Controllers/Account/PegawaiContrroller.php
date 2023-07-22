@@ -30,7 +30,7 @@ class PegawaiContrroller extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validateData = $request->validate([
-            'nopassring' => 'required',
+            'nopassring' => 'required|unique:data_pegawais',
             'nama' => 'required',
             'pangkat' => 'required',
             'NRP' => 'required|unique:data_pegawais',
