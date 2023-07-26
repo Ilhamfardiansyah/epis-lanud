@@ -76,7 +76,9 @@
                                             <td class="text-center">{{ $dataPegawai->NRP }}</td>
                                             <td class="text-center">{{ $dataPegawai->jabatan }}</td>
                                             <td class="text-center">{{ $dataPegawai->kesatuan }}</td>
-                                            <td class="text-center">{{ $dataPegawai->created_at }}</td>
+                                            <td class="text-center">
+                                                {{ \Carbon\Carbon::parse($dataPegawai->created_at)->format('d F Y') }}
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
