@@ -52,46 +52,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="card mb-3">
-                    <div class="card-body bg-light">
-                        <div class="tab-content">
-                            <div class="tab-pane preview-tab-pane active" role="tabpanel"
-                                aria-labelledby="tab-dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324"
-                                id="dom-d4ebf6c5-74b4-4308-8c64-cda718c9b324">
-                                @include('sweetalert::alert')
-                            </div>
-                            <div class="table-responsive scrollbar">
-
-                                <table id="example" class="display nowrap" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">No Passring</th>
-                                            <th class="text-center">Nama Anggota</th>
-                                            <th class="text-center">Pangkat</th>
-                                            <th class="text-center">NRP</th>
-                                            <th class="text-center">Jabatan</th>
-                                            <th class="text-center">Kesatuan</th>
-                                            <th class="text-center">Tempat Dan Tanggal Pembuatan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center">-</td>
-                                            <td class="text-center">-</td>
-                                            <td class="text-center">-</td>
-                                            <td class="text-center">-</td>
-                                            <td class="text-center">-</td>
-                                            <td class="text-center">-</td>
-                                            <td class="text-center">-</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
