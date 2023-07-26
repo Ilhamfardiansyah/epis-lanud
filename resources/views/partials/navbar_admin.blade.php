@@ -42,6 +42,13 @@
                                 class="nav-link-text ps-1">Beranda</span>
                         </div>
                     </a>
+                    <a class="nav-link nav-link {{ Request::is('dashboard/export') ? 'active' : '' }}"
+                        href="{{ route('export') }}" role="button" aria-expanded="false">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                    class="fas fa-palette"></span></span><span class="nav-link-text ps-1">Export To
+                                iDesign</span>
+                        </div>
+                    </a>
                     {{-- Input anggota --}}
                     <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
                         <div class="col-auto navbar-vertical-label">

@@ -16,6 +16,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
 
+                @include('sweetalert::alert')
+
+
                 <div class="card mb-3">
                     <div class="bg-holder d-none d-lg-block bg-card"
                         style="background-image:url(../../../assets/img/corner-4.png);">
@@ -38,9 +41,9 @@
                         <div class="tab-content">
                             <form action="/dashboard/export/file" method="GET">
                                 <div class="mb-3">
-                                    <label class="form-label" for="basic-form-nama">Scan No Pass Ring</label>
+                                    <label class="form-label" for="basic-form-nama">Masukan no. passring</label>
                                     <input class="form-control @error('nopassring') is-invalid @enderror" id="nopassring"
-                                        name="nopassring" type="text" placeholder="Scan No Pass Ring"
+                                        name="nopassring" type="text" placeholder="Masukan no. passring"
                                         value="{{ old('nopassring') }}" autofocus autocomplete />
                                     @error('nopassring')
                                         <div class="invalid-feedback">
