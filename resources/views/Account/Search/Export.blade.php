@@ -10,6 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
     <div class="container">
@@ -66,24 +68,24 @@
                                 <table id="example" class="display nowrap" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th class="text-center">id</th>
                                             <th class="text-center">NO PASSRING</th>
                                             <th class="text-center">Nama</th>
                                             <th class="text-center">Pangkat</th>
                                             <th class="text-center">NRP</th>
                                             <th class="text-center">jabatan_1</th>
-                                            <th class="text-center">jabatan_2</th>
                                             <th class="text-center">Kesatuan</th>
-                                            <th class="text-center">Tempat dan Tanggal Pembuatan </th>
+                                            <th class="text-center">Tempat ,tgl buat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td class="text-center">{{ $dataPegawai->id }}</td>
                                             <td class="text-center">{{ $dataPegawai->nopassring }}</td>
                                             <td class="text-center">{{ $dataPegawai->nama }}</td>
                                             <td class="text-center">{{ $dataPegawai->pangkat }}</td>
                                             <td class="text-center">{{ $dataPegawai->NRP }}</td>
                                             <td class="text-center">{{ $dataPegawai->jabatan }}</td>
-                                            <td class="text-center"></td>
                                             <td class="text-center">{{ $dataPegawai->kesatuan }}</td>
                                             <td class="text-center">{{ $dataPegawai->created_at }}</td>
                                         </tr>
@@ -97,12 +99,29 @@
             </div>
         </div>
     </div>
+
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'excel', 'csv'
+                    'copy', 'csv', 'pdf', // Remove the default Excel (xlsx) button
+                    {
+                        extend: 'excel',
+                        text: 'Excel (XLS)',
+                        filename: 'data',
+                        title: '',
+                        customize: function(xlsx) {
+                            // Modify the workbook object to use .xls extension
+                            var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                            $('row c', sheet).each(function() {
+                                var originalValue = $(this).attr('t');
+                                $(this).attr('t', 's'); // Change the type to "s" (string)
+                                $(this).attr('s',
+                                '2'); // Change the style to "2" (string style index)
+                            });
+                        }
+                    }
                 ]
             });
         });
