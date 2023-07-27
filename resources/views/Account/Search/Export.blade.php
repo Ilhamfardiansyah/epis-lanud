@@ -76,7 +76,7 @@
                                             <td class="text-center">{{ $dataPegawai->NRP }}</td>
                                             <td class="text-center">{{ $dataPegawai->jabatan }}</td>
                                             <td class="text-center">{{ $dataPegawai->kesatuan }}</td>
-                                            <td class="text-center">
+                                            <td id="ttp" class="text-center">
                                                 {{ \Carbon\Carbon::parse($dataPegawai->created_at)->format('d F Y') }}
                                             </td>
                                         </tr>
@@ -97,11 +97,23 @@
     <script src={{ asset('assets/js/xlsx.core.min.js') }}></script>
     <script>
         document.getElementById("exportBtn").addEventListener("click", function() {
+
+            let wilayah = prompt("Masukan wilayah cetak?", "Jakarta")
+
+            if (wilayah != null) {
+                const ttp = document.getElementById("ttp")
+                const ttpText = ttp.innerText
+                ttp.innerText = wilayah + ', ' + ttpText
+            }
+
             // Select the table element
             const table = document.getElementById("table");
 
             // Convert the table to a worksheet
-            const ws = XLSX.utils.table_to_sheet(table);
+            const ws = XLSX.utils.table_to_sheet(table, {
+                raw: true,
+                cellText: true
+            });
 
             // Create a workbook with the worksheet
             const wb = XLSX.utils.book_new();
