@@ -28,7 +28,7 @@
                     <div class="card-body position-relative">
                         <div class="row">
                             <div class="col-lg-8">
-                                <h3>Export iDesign</h3>
+                                <h3>Export iDesign <img src={{ asset('assets/img/main_logo.png') }} width="150px"></h3>
                                 <p class="mb-0"></p><a class="btn btn-link btn-sm ps-0 mt-2"
                                     href="https://getbootstrap.com/docs/5.1/forms/layout" target="_blank"></a>
                             </div>
