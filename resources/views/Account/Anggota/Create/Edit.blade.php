@@ -170,7 +170,7 @@
                                 <div class="col-sm-12 mb-3 mt-2">
                                     <label class="form-label" for="ket_pic">Keterangan Anggota</label>
                                     <input class="form-control datetimepicker" id="ket_pic" name="ket_pic" type="text"
-                                        value="{{ $dataPegawai->siyalem ?? $dataPegawai->siyalem->data_fotos->ket_pic }}" />
+                                        value="{{ $dataPegawai->siyalem ? ($dataPegawai->siyalem->data_fotos ? $dataPegawai->siyalem->data_fotos->ket_pic : '') : '' }}" />
                                     <button class="btn btn-primary mt-3" type="submit">Edit Foto
                                     </button>
                                 </div>
