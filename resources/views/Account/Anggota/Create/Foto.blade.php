@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.maincreate')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

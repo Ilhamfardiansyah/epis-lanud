@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.maincreate')
 
 @section('content')
     <div class="container">
@@ -358,6 +358,7 @@
 
                             <button class="btn btn-primary" type="submit">Submit</button>
                             </form>
+                            <a href="/home" class="btn btn-danger" type="submit">Back</a>
                         </div>
 
                     </div>
