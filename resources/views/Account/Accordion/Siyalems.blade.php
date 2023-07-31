@@ -61,13 +61,13 @@
         <label class="form-label" for="basic-form-gender">Langkah</label>
         <select class="form-select" id="basic-form-gender" name="langkah" aria-label="Default select example">
             <option selected disabled>--Pilih Langkah--</option>
-            <option value="Lenting"
-                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->langkah === 'Lenting' ? 'selected' : '' }}>
-                Lenting
+            <option value="lenting"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->langkah === 'lenting' ? 'selected' : '' }}>
+                lenting
             </option>
-            <option value="Tenang"
-                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->langkah === 'Tenang' ? 'selected' : '' }}>
-                Tenang
+            <option value="tenang"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->langkah === 'tenang' ? 'selected' : '' }}>
+                tenang
             </option>
             <option value="Langkah Panjang"
                 {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->langkah === 'Langkah Panjang' ? 'selected' : '' }}>
@@ -162,9 +162,13 @@
                 {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->kening === 'Miring' ? 'selected' : '' }}>
                 Miring
             </option>
-            <option value="Ke Atas/Ke Bawah"
-                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->kening === 'Ke Atas/Ke Bawah' ? 'selected' : '' }}>
-                Ke Atas/Ke Bawah
+            <option value="KeAtas/KeBawah"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->kening === 'KeAtas/KeBawah' ? 'selected' : '' }}>
+                Ke Atas / KeBawah
+            </option>
+            <option value="Bertemu seteu dengan yang lain"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->kening === 'Bertemu seteu dengan yang lain' ? 'selected' : '' }}>
+                Bertemu seteu dengan yang lain
             </option>
             <option value="Lain-Lain"
                 {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->kening === 'Lain-Lain' ? 'selected' : '' }}>
@@ -185,6 +189,14 @@
                 {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->dahi === 'Cenderung ke belakang' ? 'selected' : '' }}>
                 Cenderung ke belakang
             </option>
+            <option value="Melengkung Keras"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->dahi === 'Melengkung Keras' ? 'selected' : '' }}>
+                Melengkung Keras
+            </option>
+            <option value="tinggi/rendah lebar ciut"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->dahi === 'tinggi/rendah lebar ciut' ? 'selected' : '' }}>
+                tinggi/rendah lebar ciut
+            </option>
             <option value="Lain-Lain"
                 {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->dahi === 'Lain-Lain' ? 'selected' : '' }}>
                 Lain-Lain
@@ -196,13 +208,13 @@
         <label class="form-label" for="hidung">Hidung</label>
         <select class="form-select" id="basic-form-gender" name="hidung" aria-label="Default select example">
             <option selected disabled>--Pilih Hidung--</option>
-            <option value="Pangkalnya Rata"
-                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->hidung === 'Pangkalnya Rata' ? 'selected' : '' }}>
-                Pangkalnya Rata
+            <option value="Pangkalnya Rata/Masuk kedalam"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->hidung === 'Pangkalnya Rata/Masuk kedalam' ? 'selected' : '' }}>
+                Pangkalnya Rata/Masuk kedalam
             </option>
-            <option value="Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas"
-                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->hidung === 'Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas' ? 'selected' : '' }}>
-                Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas
+            <option value="Batangnya : Membentuk kedalam/keluar lurus, alasnya menuju ke atas"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->hidung === 'Batangnya : Membentuk kedalam/keluar lurus, alasnya menuju ke atas' ? 'selected' : '' }}>
+                Batangnya : Membentuk kedalam/keluar lurus, alasnya menuju ke atas
             </option>
             <option value="Lain-Lain"
                 {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->hidung === 'Lain-Lain' ? 'selected' : '' }}>
@@ -245,6 +257,10 @@
             <option value="Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala belakang"
                 {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->telinga === 'Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala belakang' ? 'selected' : '' }}>
                 Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala belakang
+            </option>
+            <option value="bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti rata/tebal/benar"
+                {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->telinga === 'bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti rata/tebal/benar' ? 'selected' : '' }}>
+                bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti rata/tebal/benar
             </option>
             <option value="Lain-Lain"
                 {{ isset($dataPegawai->siyalem) && $dataPegawai->siyalem->telinga === 'Lain-Lain' ? 'selected' : '' }}>

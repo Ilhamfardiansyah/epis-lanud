@@ -108,8 +108,8 @@
                                             <option value="Sebagai Pangkal">Sebagai Pangkal</option>
                                             <option value="Belah Ketupat">Belah Ketupat</option>
                                             <option value="Bulat">Bulat</option>
-                                            <option value="Lonjong">Lonjong</option>
                                             <option value="Jorong">Jorong</option>
+                                            <option value="Lonjong">Lonjong</option>
                                             <option value="Panjang">Panjang</option>
                                             <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
@@ -145,7 +145,7 @@
                                             <option selected disabled>-- Kening --</option>
                                             <option value="Rata">Rata</option>
                                             <option value="Miring">Miring</option>
-                                            <option value="Ke Atas/Ke Bawah">Ke Atas/Ke Bawah</option>
+                                            <option value="KeAtas/KeBawah">Ke Atas/Ke Bawah</option>
                                             <option value="Bertemu seteu dengan yang lain">Bertemu seteu dengan yang lain
                                             </option>
                                             <option value="Lain-Lain">Lain-Lain</option>
@@ -167,7 +167,7 @@
                                             </option>
                                             <option value="Cenderung ke belakang">Cenderung ke belakang</option>
                                             <option value="Melengkung Keras">Melengkung Keras</option>
-                                            <option value="tinggi/rendah lebar ciut">tinggi/rendah lebar ciut</option>
+                                            <option value="Tinggi/Rendah lebar ciut">Tinggi/Rendah lebar ciut</option>
                                             <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('dahi')
@@ -182,10 +182,11 @@
                                         <select class="form-select @error('hidung') is-invalid @enderror"
                                             id="basic-form-gender" name="hidung" aria-label="Default select example">
                                             <option selected disabled>-- Hidung --</option>
-                                            <option value="Pangkalnya Rata">Pangkalnya Rata</option>
+                                            <option value="Pangkalnya Rata/Masuk kedalam">Pangkalnya Rata/Masuk kedalam
+                                            </option>
                                             <option
-                                                value="Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas">
-                                                Batangnya:Membentuk kedalam/keluar lurus, alasnya menuju ke atas
+                                                value="Batangnya : Membentuk kedalam/keluar lurus, alasnya menuju ke atas">
+                                                Batangnya : Membentuk kedalam/keluar lurus, alasnya menuju ke atas
                                             </option>
                                             <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
@@ -218,18 +219,16 @@
                                         <select class="form-select @error('telinga') is-invalid @enderror"
                                             id="basic-form-gender" name="telinga" aria-label="Default select example">
                                             <option selected disabled>-- Telinga --</option>
-                                            <option value="Bulat bujur tiga penjuru dari belakang">Bulat bujur tiga
-                                                penjuru
+                                            <option value="Bulat bujur tiga penjuru dari belakang">Bulat bujur tiga penjuru
                                                 dari belakang
                                             </option>
                                             <option
-                                                value="Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala belakang">
-                                                Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala
-                                                belakang
+                                                value="Berlengket dengan kepala dengan kepala bagian atas mengenai kepala belakang">
+                                                Berlengket dengan kepala dengan kepala bagian atas mengenai kepala belakang
                                             </option>
                                             <option
-                                                value="bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti rata/tebal/benar">
-                                                bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti
+                                                value="Bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti rata/tebal/benar">
+                                                Bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti
                                                 rata/tebal/benar
                                             </option>
                                             <option value="Lain-Lain">Lain-Lain</option>
