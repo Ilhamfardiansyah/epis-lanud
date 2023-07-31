@@ -146,6 +146,8 @@
                                             <option value="Rata">Rata</option>
                                             <option value="Miring">Miring</option>
                                             <option value="Ke Atas/Ke Bawah">Ke Atas/Ke Bawah</option>
+                                            <option value="Bertemu seteu dengan yang lain">Bertemu seteu dengan yang lain
+                                            </option>
                                             <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('kening')
@@ -164,6 +166,8 @@
                                                 Kebawah
                                             </option>
                                             <option value="Cenderung ke belakang">Cenderung ke belakang</option>
+                                            <option value="Melengkung Keras">Melengkung Keras</option>
+                                            <option value="tinggi/rendah lebar ciut">tinggi/rendah lebar ciut</option>
                                             <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
                                         @error('dahi')
@@ -222,6 +226,11 @@
                                                 value="Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala belakang">
                                                 Berlengket dengan kepala dnegan kepala bagian atas mengenai kepala
                                                 belakang
+                                            </option>
+                                            <option
+                                                value="bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti rata/tebal/benar">
+                                                bentuk cuping berupa baja persegi/melengkukng/bergonta-ganti
+                                                rata/tebal/benar
                                             </option>
                                             <option value="Lain-Lain">Lain-Lain</option>
                                         </select>
