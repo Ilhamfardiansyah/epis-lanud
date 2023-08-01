@@ -13,19 +13,25 @@
             <div class="box position-absolute" data-list='{"valueNames":["title"]}'>
 
                 <body onload=display_ct();>
-                    <span id='ct'></span>
+                    <span id='clock'></span>
                     <span class="box-icon">
                         <script type="text/javascript">
-                            function display_c() {
-                                var refresh = 1000; // Refresh rate in milli seconds
-                                mytime = setTimeout('display_ct()', refresh)
+                            function updateClock() {
+                                const now = new Date();
+                                const options = {
+                                    timeZoneName: 'short'
+                                };
+                                const timeString = now.toLocaleTimeString('id-ID', options);
+                                const dateString = now.toDateString();
+                                const clockElement = document.getElementById('clock');
+                                clockElement.textContent = `${timeString} - ${dateString}`;
                             }
 
-                            function display_ct() {
-                                var x = new Date()
-                                document.getElementById('ct').innerHTML = x;
-                                display_c();
-                            }
+                            // Panggil fungsi updateClock() untuk pertama kali
+                            updateClock();
+
+                            // Perbarui jam setiap detik (1000 milidetik)
+                            setInterval(updateClock, 1000);
                         </script>
             </div>
         </li>
