@@ -187,7 +187,7 @@
                                         <select class="form-select @error('jenis') is-invalid @enderror"
                                             id="basic-form-gender" name="jenis" aria-label="Default select example">
                                             <option disabled>--Jenis Kelamin--</option>
-                                            <option value="Laki-Laki" {{ old('jenis') == 'Laki-Laki' ? 'selected' : '' }}>
+                                            <option value="Laki-laki" {{ old('jenis') == 'Laki-laki' ? 'selected' : '' }}>
                                                 Laki-Laki</option>
                                             <option value="Perempuan" {{ old('jenis') == 'Perempuan' ? 'selected' : '' }}>
                                                 Perempuan</option>

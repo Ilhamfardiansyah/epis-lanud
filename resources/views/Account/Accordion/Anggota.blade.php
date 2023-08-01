@@ -186,7 +186,7 @@
             <option selected disabled>--Pilih Jenis
                 Kelamin--
             </option>
-            <option value="Laki-Laki" {{ $dataPegawai->jenis === 'Laki-Laki' ? 'selected' : '' }}>
+            <option value="Laki-laki" {{ $dataPegawai->jenis === 'Laki-laki' ? 'selected' : '' }}>
                 Laki-Laki
             </option>
             <option value="Perempuan" {{ $dataPegawai->jenis === 'Perempuan' ? 'selected' : '' }}>
