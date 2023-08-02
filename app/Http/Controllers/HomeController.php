@@ -32,32 +32,70 @@ class HomeController extends Controller
         $data               = DataPegawai::count();
 
         // kapten
-        $jabatanKapten      = 'kapten';
-        $kapten             = DataPegawai::where('pangkat', $jabatanKapten)->count();
-        // kaptenlek
-        $jabatanKaptenLek   = 'kapten lek';
-        $kaptenLek             = DataPegawai::where('pangkat', $jabatanKaptenLek)->count();
-        // kaptennav
-        $jabatanKaptenNav   = 'kapten nav';
-        $kaptenNav             = DataPegawai::where('pangkat', $jabatanKaptenNav)->count();
-        // kaptenpnb
-        $jabatanKaptenPnb  = 'kapten Pnp';
-        $kaptenPnb             = DataPegawai::where('pangkat', $jabatanKaptenPnb)->count();
-        // kaptenpom
-        $jabatanKaptenPom = 'kapten pom';
-        $kaptenPom             = DataPegawai::where('pangkat', $jabatanKaptenPom)->count();
-        // kaptensus
-        $jabatanKaptenSus = 'kapten sus';
-        $kaptenSus             = DataPegawai::where('pangkat', $jabatanKaptenSus)->count();
-        // kaptentek
-        $jabatanKaptenTek = 'kapten tek';
-        $kaptenTek             = DataPegawai::where('pangkat', $jabatanKaptenTek)->count();
-        // Prada
-        $jabatanPrada       = 'prada';
-        $prada              = DataPegawai::where('pangkat', $jabatanPrada)->count();
-        // Pratu
-        $jabatanPratu       = 'pratu';
-        $pratu              = DataPegawai::where('pangkat', $jabatanPratu)->count();
-        return view('home' , compact('user', 'data', 'dataPegawai', 'aplikasi', 'kapten', 'kaptenLek', 'kaptenNav', 'kaptenPnb', 'kaptenPom', 'kaptenSus', 'kaptenTek', 'prada', 'pratu'));
+        $jabatanKapten      = '%kapten%';
+        $kapten             = DataPegawai::where('Pangkat', 'LIKE', $jabatanKapten)->count();
+        // kopda
+        $jabatanKopda       = '%kopda%';
+        $kopda              = DataPegawai::where('Pangkat', 'LIKE', $jabatanKopda)->count();
+        // kopka
+        $jabatanKopka       = '%kopka%';
+        $kopka              = DataPegawai::where('Pangkat', 'LIKE', $jabatanKopka)->count();
+        // koptu
+        $jabatanKoptu       = '%koptu%';
+        $koptu              = DataPegawai::where('Pangkat', 'LIKE', $jabatanKoptu)->count();
+        // letkol
+        $jabatanLetkolPnb   = '%letkol%';
+        $letkol             = DataPegawai::where('Pangkat', 'LIKE', $jabatanLetkolPnb)->count();
+        // letda
+        $jabatanLetda       = '%letda%';
+        $letda              = DataPegawai::where('Pangkat', 'LIKE', $jabatanLetda)->count();
+        // lettu
+        $jabatanLettu       = '%lettu%';
+        $lettu              = DataPegawai::where('Pangkat', 'LIKE', $jabatanLettu)->count();
+        // mayor
+        $jabatanMayor       = '%mayor%';
+        $mayor              = DataPegawai::where('Pangkat', 'LIKE', $jabatanMayor)->count();
+        // pelda
+        $jabatanPelda       = '%pelda%';
+        $pelda              = DataPegawai::where('Pangkat', 'LIKE', $jabatanPelda)->count();
+        // peltu
+        $jabatanPeltu       = '%peltu%';
+        $peltu              = DataPegawai::where('Pangkat', 'LIKE', $jabatanPeltu)->count();
+        // penata muda
+        $jabatanPenataMuda  = '%penata muda%';
+        $penataMuda         = DataPegawai::where('Pangkat', 'LIKE', $jabatanPenataMuda)->count();
+        // pengatur
+        $jabatanPengatur    = '%pengatur%';
+        $pengatur           = DataPegawai::where('Pangkat', 'LIKE', $jabatanPengatur)->count();
+        // pns
+        $jabatanPns         = '%pns%';
+        $pns                = DataPegawai::where('Pangkat', 'LIKE', $jabatanPns)->count();
+        // prada
+        $jabatanPrada       = '%prada%';
+        $prada              = DataPegawai::where('Pangkat', 'LIKE', $jabatanPrada)->count();
+        // praka
+        $jabatanPraka       = '%praka%';
+        $praka              = DataPegawai::where('Pangkat', 'LIKE', $jabatanPraka)->count();
+        // pratu
+        $jabatanPratu       = '%pratu%';
+        $pratu              = DataPegawai::where('Pangkat', 'LIKE', $jabatanPratu)->count();
+        // serda
+        $jabatanSerda       = '%serda%';
+        $serda              = DataPegawai::where('Pangkat', 'LIKE', $jabatanSerda)->count();
+        // serka
+        $jabatanSerka       = '%serka%';
+        $serka              = DataPegawai::where('Pangkat', 'LIKE', $jabatanSerka)->count();
+        // serma
+        $jabatanSerma       = '%serma%';
+        $serma              = DataPegawai::where('Pangkat', 'LIKE', $jabatanSerma)->count();
+        // sertu
+        $jabatanSertu       = '%sertu%';
+        $sertu              = DataPegawai::where('Pangkat', 'LIKE', $jabatanSertu)->count();
+
+
+
+        return view('home' , compact('user', 'data', 'dataPegawai', 'aplikasi', 'kapten', 'kopda', 'kopka',
+        'koptu', 'letkol', 'letda', 'lettu', 'mayor', 'pelda', 'peltu', 'penataMuda', 'pengatur', 'pns',
+        'prada', 'praka', 'pratu', 'serda', 'serka', 'serma', 'sertu'));
     }
 }

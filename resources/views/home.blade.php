@@ -94,8 +94,9 @@
 
     <div class="card mb-3">
         <div class="card-body bg-light">
+            <h1 class="text-center">DIAGRAM PANGKAT</h1>
             <div class="tab-content">
-                <canvas class="max-w-100" id="myChart" width="350"></canvas>
+                <canvas id="myChart"></canvas>
             </div>
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -104,20 +105,43 @@
                 const ctx = document.getElementById('myChart');
 
                 new Chart(ctx, {
-                    type: 'pie',
+                    type: 'polarArea',
                     data: {
-                        labels: ['Kapten', 'Kapten Nav', 'Kapten Pnb', 'Kapten POM', 'Kapten Sus', 'Kapten Tek',
-                            'Prada', 'Pratu', 'Yellow', 'Green',
-                            'Purple',
-                            'Orange'
+                        labels: ['Kapten', 'Kopda', 'kopka', 'Koptu', 'Letkol', 'Letda', 'Lettu',
+                            'Mayor', 'Pelda', 'Peltu', 'Penata Muda', 'Pengatur', 'PNS', 'Prada',
+                            'Praka', 'Pratu', 'Serda', 'Serka', 'Serma', 'sertu'
                         ],
                         datasets: [{
-                            label: 'Pangkat',
-                            data: [{{ $kapten }}, {{ $kaptenLek }}, {{ $kaptenNav }},
-                                {{ $kaptenPnb }}, {{ $kaptenPom }}, {{ $kaptenSus }},
-                                {{ $kaptenTek }},
-                                {{ $prada }},
-                                {{ $pratu }}, 5, 2, 3
+                            label: 'Total',
+                            data: [{{ $kapten }}, {{ $kopda }}, {{ $kopka }},
+                                {{ $koptu }}, {{ $letkol }}, {{ $letda }},
+                                {{ $lettu }}, {{ $mayor }}, {{ $pelda }},
+                                {{ $peltu }}, {{ $penataMuda }}, {{ $pengatur }},
+                                {{ $pns }}, {{ $prada }}, {{ $praka }},
+                                {{ $pratu }}, {{ $serda }}, {{ $serka }},
+                                {{ $serma }}, {{ $sertu }}
+                            ],
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                                'rgb(255, 205, 86)',
+                                'rgb(85, 107, 47)',
+                                'rgb(251, 140, 1)',
+                                'rgb(153, 50, 204)',
+                                'rgb(139, 5, 0)',
+                                'rgb(233, 150, 122)',
+                                'rgb(143, 188, 144)',
+                                'rgb(72, 61, 139)',
+                                'rgb(48, 206, 209)',
+                                'rgb(148, 0, 211)',
+                                'rgb(47, 79, 79)',
+                                'rgb(249, 19, 147)',
+                                'rgb(43, 191, 254)',
+                                'rgb(105, 105, 105)',
+                                'rgb(30, 144, 255)',
+                                'rgb(178, 34, 33)',
+                                'rgb(34, 139, 35)',
+                                'rgb(173, 255, 48)',
                             ],
                             borderWidth: 1
                         }]

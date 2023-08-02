@@ -148,52 +148,52 @@ class PegawaiContrroller extends Controller
     }
 
 
-    // Update Foto Data Pegawai
     public function update_foto(Request $request, DataPegawai $dataPegawai): RedirectResponse
-    {
-        // siyalem data
-        $siyalem = Siyalem::findOrFail($dataPegawai->id);
+{
+    // Retrieve or create the Siyalem data for the given DataPegawai
+    $siyalem = Siyalem::firstOrCreate(['datapegawai_id' => $dataPegawai->id]);
 
-        // validasi data
-        $validated = $this->validate($request, [
-            'kanan_pic' => 'image|mimes:png,jpg,jpeg',
-            'kiri_pic' => 'image|mimes:png,jpg,jpeg',
-            'sidik_pic' => 'image|mimes:png,jpg,jpeg',
-            'depan_pic' => 'image|mimes:png,jpg,jpeg',
-            'ket_pic' => ''
-        ]);
+    // Validasi data
+    $validated = $this->validate($request, [
+        'kanan_pic' => 'image|mimes:png,jpg,jpeg',
+        'kiri_pic' => 'image|mimes:png,jpg,jpeg',
+        'sidik_pic' => 'image|mimes:png,jpg,jpeg',
+        'depan_pic' => 'image|mimes:png,jpg,jpeg',
+        'ket_pic' => ''
+    ]);
 
-        // upload foto depan
-        if ($request->file('depan_pic')) {
-            $fotoDepanUpdate = $this->storeImage($request->file('depan_pic'), 'foto_depan');
-            $validated['depan_pic'] = $fotoDepanUpdate;
-        }
-
-        // upload foto kanan
-        if ($request->file('kanan_pic')) {
-            $fotoKananUpdate = $this->storeImage($request->file('kanan_pic'), 'foto_kanan');
-            $validated['kanan_pic'] = $fotoKananUpdate;
-        }
-
-        // upload foto kiri
-        if ($request->file('kiri_pic')) {
-            $fotoKiriUpdate = $this->storeImage($request->file('kiri_pic'), 'foto_kiri');
-            $validated['kiri_pic'] = $fotoKiriUpdate;
-        }
-
-        // upload sidik jari
-        if ($request->file('sidik_pic')) {
-            $fotoSidikUpdate = $this->storeImage($request->file('sidik_pic'), 'sidik_pic');
-            $validated['sidik_pic'] = $fotoSidikUpdate;
-        }
-
-        // update data_fotos
-        $siyalem->data_fotos()->update($validated);
-
-        // return
-        alert()->success('Data Foto', 'Berhasil Di Edit');
-        return back();
+    // Upload foto depan
+    if ($request->file('depan_pic')) {
+        $fotoDepanUpdate = $this->storeImage($request->file('depan_pic'), 'foto_depan');
+        $validated['depan_pic'] = $fotoDepanUpdate;
     }
+
+    // Upload foto kanan
+    if ($request->file('kanan_pic')) {
+        $fotoKananUpdate = $this->storeImage($request->file('kanan_pic'), 'foto_kanan');
+        $validated['kanan_pic'] = $fotoKananUpdate;
+    }
+
+    // Upload foto kiri
+    if ($request->file('kiri_pic')) {
+        $fotoKiriUpdate = $this->storeImage($request->file('kiri_pic'), 'foto_kiri');
+        $validated['kiri_pic'] = $fotoKiriUpdate;
+    }
+
+    // Upload sidik jari
+    if ($request->file('sidik_pic')) {
+        $fotoSidikUpdate = $this->storeImage($request->file('sidik_pic'), 'sidik_pic');
+        $validated['sidik_pic'] = $fotoSidikUpdate;
+    }
+
+    // Update data_fotos or create if it doesn't exist
+    $siyalem->data_fotos()->updateOrCreate([], $validated);
+
+    // Return
+    alert()->success('Data Foto', 'Berhasil Di Edit');
+    return back();
+}
+
 
 
     public function update_data(Request $request, $id)
