@@ -27,95 +27,95 @@ Route::get('/', function () {
 Auth::routes();
 
 // home
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::prefix('/dashboard')->group(static function () {
     // create data pegawai
     Route::get('pegawai', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create'])
-        ->name('pegawai.create');
+        ->name('pegawai.create')->middleware('auth');
 
     // store data pegawai
     Route::post('pegawai', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store'])
-        ->name('pegawai.store');
+        ->name('pegawai.store')->middleware('auth');
 
     // create siyalemen
     Route::get('pegawai/siyalemen/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create_sylm'])
-        ->name('siyalemen.create');
+        ->name('siyalemen.create')->middleware('auth');
 
     // store siyalemen
     Route::post('pegawai/siyalemen/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_sylm'])
-        ->name('siyalemen.store');
+        ->name('siyalemen.store')->middleware('auth');
 
     // create foto
     Route::get('pegawai/foto/{siyalem}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'create_foto'])
-        ->name('photo.create');
+        ->name('photo.create')->middleware('auth');
 
     // store foto
     Route::post('pegawai/foto', [App\Http\Controllers\Account\PegawaiContrroller::class, 'store_photo'])
-        ->name('photo.store');
+        ->name('photo.store')->middleware('auth');
     // table data pegawai
     Route::get('data/pegawai', [App\Http\Controllers\Account\DataPegawaiController::class, 'index'])
-        ->name('index.pegawai');
+        ->name('index.pegawai')->middleware('auth');
 
     // cetak data pegawai
     Route::get('cetak/data/{dataPegawai}', [App\Http\Controllers\Account\DataPegawaiController::class, 'cetakan'])
-        ->name('cetak.pegawai');
+        ->name('cetak.pegawai')->middleware('auth');
 
     // hapus data
     Route::get('delete/{id}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'destroy'])
-        ->name('destroy');
+        ->name('destroy')->middleware('auth');
 
     // view edit data pegawai
     Route::get('edit/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'edit'])
-        ->name('edit.data');
+        ->name('edit.data')->middleware('auth');
 
     Route::post('update/foto/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_foto'])
-        ->name('update.foto');
+        ->name('update.foto')->middleware('auth');
 
     Route::post('update/data/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_data'])
-        ->name('update.data');
+        ->name('update.data')->middleware('auth');
 
     Route::post('update/siyalems/{dataPegawai}', [App\Http\Controllers\Account\PegawaiContrroller::class, 'update_siyalem'])
-        ->name('update.siyalem');
+        ->name('update.siyalem')->middleware('auth');
 
     Route::get('cetak/data/', [App\Http\Controllers\Account\DataPegawaiController::class, 'search'])
-        ->name('search');
+        ->name('search')->middleware('auth');
 
     Route::get('cetak/{dataPegawai}', [App\Http\Controllers\Account\DataPegawaiController::class, 'print'])
-        ->name('print');
+        ->name('print')->middleware('auth');
 
     Route::get('tambah/user', [App\Http\Controllers\Account\UserController::class, 'index'])
-        ->name('ada');
+        ->name('ada')->middleware('auth');
 
     Route::post('/create', [App\Http\Controllers\Account\UserController::class, 'store'])
-        ->name('create');
+        ->name('create')->middleware('auth');
 
     Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'index'])
-        ->name('buat_akun');
+        ->name('buat_akun')->middleware('auth');
 
     Route::get('print_data/', [App\Http\Controllers\Account\DataPegawaiController::class, 'cetak'])
-        ->name('print_data');
+        ->name('print_data')->middleware('auth');
 
     Route::get('manage/user', [App\Http\Controllers\Account\UserController::class, 'index'])
-        ->name('index.user');
+        ->name('index.user')->middleware('auth');
 
     Route::get('edit/user/{user}', [App\Http\Controllers\Account\UserController::class, 'edit'])
-        ->name('index.user');
+        ->name('index.user')->middleware('auth');
 
     Route::post('update/user/{user}', [App\Http\Controllers\Account\UserController::class, 'update'])
-        ->name('update.user');
+        ->name('update.user')->middleware('auth');
 
     Route::get('delete/user/{user}', [App\Http\Controllers\Account\UserController::class, 'destroy'])
-        ->name('destroy.user');
+        ->name('destroy.user')->middleware('auth');
 
     Route::get('scan/', [App\Http\Controllers\Account\DataPegawaiController::class, 'cari'])
-        ->name('cari');
+        ->name('cari')->middleware('auth');
 
     Route::get('datamaster/', [App\Http\Controllers\Account\DataMasterController::class, 'index'])
-        ->name('datamaster');
+        ->name('datamaster')->middleware('auth');
 
     Route::get('addimage/', [App\Http\Controllers\Account\DataPegawaiController::class, 'image'])
-        ->name('addimage');
+        ->name('addimage')->middleware('auth');
 
     Route::post('uploadimage/', [App\Http\Controllers\Account\DataPegawaiController::class, 'uploadimage'])
         ->name('uploadimage');
