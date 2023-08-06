@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="mb-3 d-flex justify-content-end">
-                                <a type="button" href="/dashboard/export" class="btn btn-danger me-2">Clear</a>
+                                <a type="button" href="/dashboard/export/file" class="btn btn-danger me-2">Clear</a>
                                 <button type="button" id="exportBtn" class="btn btn-primary">Export</button>
                             </div>
                             <div class="table-responsive scrollbar">

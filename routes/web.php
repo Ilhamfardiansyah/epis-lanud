@@ -118,12 +118,13 @@ Route::prefix('/dashboard')->group(static function () {
         ->name('addimage')->middleware('auth');
 
     Route::post('uploadimage/', [App\Http\Controllers\Account\DataPegawaiController::class, 'uploadimage'])
-        ->name('uploadimage');
+        ->name('uploadimage')->middleware('auth');
 
     Route::get('export/', [App\Http\Controllers\Account\DataPegawaiController::class, 'export'])
-        ->name('export');
+        ->name('export')->middleware('auth');
+
     Route::get('export/file/', [App\Http\Controllers\Account\DataPegawaiController::class, 'exportFile'])
-        ->name('export.file');
+        ->name('export.file')->middleware('auth');
 });
 
 
