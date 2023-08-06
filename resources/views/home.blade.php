@@ -94,7 +94,7 @@
 
     <div class="card mb-3">
         <div class="card-body bg-light">
-            <h1 class="text-center">DIAGRAM PANGKAT</h1>
+            <h3 class="text-center">DIAGRAM PANGKAT</h3>
             <div class="tab-content">
                 <canvas id="myChart"></canvas>
             </div>
