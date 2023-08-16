@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <div class="row g-3 mb-3">
 
         <a href="{{ url('dashboard/manage/user/') }}" class="col-md-6">
@@ -94,65 +99,61 @@
 
     <div class="card mb-3">
         <div class="card-body bg-light">
-            <h3 class="text-center">DIAGRAM PANGKAT</h3>
             <div class="tab-content">
-                <canvas id="myChart"></canvas>
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                </figure>
             </div>
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
             <script>
-                const ctx = document.getElementById('myChart');
-
-                new Chart(ctx, {
-                    type: 'polarArea',
-                    data: {
-                        labels: ['Kapten', 'Kopda', 'kopka', 'Koptu', 'Letkol', 'Letda', 'Lettu',
-                            'Mayor', 'Pelda', 'Peltu', 'Penata Muda', 'Pengatur', 'PNS', 'Prada',
-                            'Praka', 'Pratu', 'Serda', 'Serka', 'Serma', 'sertu'
-                        ],
-                        datasets: [{
-                            label: 'Total',
-                            data: [{{ $kapten }}, {{ $kopda }}, {{ $kopka }},
-                                {{ $koptu }}, {{ $letkol }}, {{ $letda }},
-                                {{ $lettu }}, {{ $mayor }}, {{ $pelda }},
-                                {{ $peltu }}, {{ $penataMuda }}, {{ $pengatur }},
-                                {{ $pns }}, {{ $prada }}, {{ $praka }},
-                                {{ $pratu }}, {{ $serda }}, {{ $serka }},
-                                {{ $serma }}, {{ $sertu }}
-                            ],
-                            backgroundColor: [
-                                'rgb(255, 99, 132)',
-                                'rgb(54, 162, 235)',
-                                'rgb(255, 205, 86)',
-                                'rgb(85, 107, 47)',
-                                'rgb(251, 140, 1)',
-                                'rgb(153, 50, 204)',
-                                'rgb(139, 5, 0)',
-                                'rgb(233, 150, 122)',
-                                'rgb(143, 188, 144)',
-                                'rgb(72, 61, 139)',
-                                'rgb(48, 206, 209)',
-                                'rgb(148, 0, 211)',
-                                'rgb(47, 79, 79)',
-                                'rgb(249, 19, 147)',
-                                'rgb(43, 191, 254)',
-                                'rgb(105, 105, 105)',
-                                'rgb(30, 144, 255)',
-                                'rgb(178, 34, 33)',
-                                'rgb(34, 139, 35)',
-                                'rgb(173, 255, 48)',
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+                Highcharts.chart('container', {
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                            enabled: true,
+                            alpha: 45
                         }
-                    }
+                    },
+                    title: {
+                        text: 'Total Data di Priode {{ \Carbon\Carbon::parse($dataPegawai->created_at)->locale('id-ID')->isoFormat('LL') }}',
+                        align: 'left'
+                    },
+                    subtitle: {
+                        text: '',
+                        align: 'left'
+                    },
+                    plotOptions: {
+                        pie: {
+                            innerSize: 100,
+                            depth: 45
+                        }
+                    },
+                    series: [{
+                        name: 'Total',
+                        data: [
+                            ['Kapten', {{ $kapten }}],
+                            ['Kopda', {{ $kopda }}],
+                            ['Kopka', {{ $kopka }}],
+                            ['Koptu', {{ $koptu }}],
+                            ['Letkol', {{ $letkol }}],
+                            ['Letda', {{ $letda }}],
+                            ['Lettu', {{ $lettu }}],
+                            ['Mayor', {{ $mayor }}],
+                            ['Peltu', {{ $peltu }}],
+                            ['Penata Muda', {{ $penataMuda }}],
+                            ['Pengatur', {{ $pengatur }}],
+                            ['PNS', {{ $pns }}],
+                            ['Prada', {{ $prada }}],
+                            ['Praka', {{ $praka }}],
+                            ['Pratu', {{ $pratu }}],
+                            ['Serda', {{ $serda }}],
+                            ['Serka', {{ $serka }}],
+                            ['Serma', {{ $serma }}],
+                            ['Sertu', {{ $sertu }}],
+                        ]
+                    }]
                 });
             </script>
         </div>
@@ -160,7 +161,7 @@
 @endsection
 
 
-<script script>
+<script>
     var input = document.querySelector('#input1');
     input.addEventListener('keyup', function() {
         alert('test')
