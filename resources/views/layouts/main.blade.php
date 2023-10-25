@@ -133,8 +133,8 @@
             @role('user')
                 @include('partials.navbar_user')
             @endrole
-            <div class="content">
 
+            <div class="content">
                 @include('partials.header')
                 <div class="py-4">
                     @yield('content')
