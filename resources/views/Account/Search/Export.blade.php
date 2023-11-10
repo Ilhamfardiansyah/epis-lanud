@@ -77,7 +77,7 @@
                                             <td class="text-center">{{ $dataPegawai->jabatan }}</td>
                                             <td class="text-center">{{ $dataPegawai->kesatuan }}</td>
                                             <td id="ttp" class="text-center">
-                                                {{ \Carbon\Carbon::parse($dataPegawai->created_at)->locale('id-ID')->isoFormat('LL') }}
+                                                {{ \Carbon\Carbon::now()->locale('id-ID')->isoFormat('LL') }}
                                             </td>
                                         </tr>
                                     </tbody>
