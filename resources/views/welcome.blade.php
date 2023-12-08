@@ -51,7 +51,7 @@
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                     data-aos="fade-up" data-aos-delay="200">
                     <h1>EPIS</h1>
-                    <h2>Elektornic Personal Information System</h2>
+                    <h2>Elektronic Personal Information System</h2>
                     <h1>{{ $aplikasi->nama ?? '' }}</h1>
                     <h2>{{ $aplikasi->alamat ?? '' }}</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
