@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Siyalem;
 use App\Models\DataFoto;
 use App\Models\DataPegawai;
 use Illuminate\Http\Request;
@@ -21,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/data', function() {
-    return DataFoto::all();
+    return Siyalem::with('data_fotos')->get();
 });
