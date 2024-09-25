@@ -27,13 +27,7 @@ class Siyalem extends Model
     ];
     public function data_pegawais()
     {
-        return $this->hasOne(DataPegawai::class);
+        return $this->hasMany(DataPegawai::class);
     }
-
-    public function data_fotos()
-    {
-        return $this->hasOne(DataFoto::class);
-    }
-
 
 }

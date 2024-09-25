@@ -23,9 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/data', function(DataPegawai $dataPegawai) {
 
-
     // Mengambil semua data foto
-    $dataFoto = DataFoto::all();
+    $dataFoto = DataFoto::with(['siyalem'])->get();
+
+    // dd($dataFoto);
 
     $dataFoto->transform(function ($foto) {
         $foto->url = asset($foto->depan_pic);

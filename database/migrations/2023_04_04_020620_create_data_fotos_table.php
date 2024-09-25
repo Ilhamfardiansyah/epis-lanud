@@ -16,6 +16,7 @@ class CreateDataFotosTable extends Migration
         Schema::create('data_fotos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('siyalem_id')->references('id')->on('siyalems')->cascadeOnDelete();
+            $table->foreignId('datapegawai_id')->references('id')->on('data_pegawais')->cascadeOnDelete();
             $table->string('ket_pic');
             $table->string('depan_pic');
             $table->string('kanan_pic');

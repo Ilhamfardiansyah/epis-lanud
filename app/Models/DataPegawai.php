@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Siyalem;
+use App\Models\DataFoto;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DataPegawai extends Model
 {
@@ -37,11 +39,11 @@ class DataPegawai extends Model
 
     public function siyalem()
     {
-        return $this->hasOne(Siyalem::class, 'datapegawai_id');
+        return $this->belongsTo(Siyalem::class);
     }
 
     public function datafoto()
     {
-        return $this->hasOne(DataFoto::class);
+        return $this->hasMany(DataFoto::class);
     }
 }
