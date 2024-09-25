@@ -21,5 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/data', function() {
-    return DataPegawai::all();
+    return DataFoto::all();
 });
