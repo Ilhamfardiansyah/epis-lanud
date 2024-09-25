@@ -21,6 +21,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/data', function() {
-    return Siyalem::with('data_fotos')->get();
+Route::get('/data', function(DataPegawai $dataPegawai) {
+
+
+    // Mengambil semua data foto
+    $dataFoto = DataFoto::all();
+
+    $dataFoto->transform(function ($foto) {
+        $foto->url = asset($foto->depan_pic);
+        return $foto;
+    });
+
+    return response()->json($dataFoto);
 });

@@ -39,4 +39,9 @@ class DataPegawai extends Model
     {
         return $this->hasOne(Siyalem::class, 'datapegawai_id');
     }
+
+    public function datafoto()
+    {
+        return $this->hasOne(DataFoto::class);
+    }
 }
