@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use App\Models\Posting;
 use App\Models\Siyalem;
 use App\Models\DataFoto;
 use App\Models\DataPegawai;
@@ -34,4 +36,8 @@ Route::get('/data', function(DataPegawai $dataPegawai) {
     });
 
     return response()->json($dataFoto);
+});
+
+Route::get('/posting', function() {
+    return Posting::with('user')->latest()->get();
 });
