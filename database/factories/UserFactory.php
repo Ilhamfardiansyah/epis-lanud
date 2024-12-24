@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class UserFactory extends Factory
 {
@@ -15,14 +17,12 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'username' => $this->faker->unique()->userName(),
+            'username' => $this->faker->username(),
             'nama' => $this->faker->name(),
-            'avatar' => 'https://i.pravatar.cc/150?img=' .
-            $this->faker->numberBetween(1, 70),
             'email' => $this->faker->unique()->safeEmail(),
             'nip' => $this->faker->nip(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ];
     }
